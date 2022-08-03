@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-sm-10">
-        <app-food-list-edition></app-food-list-edition>
+        <app-food-list-edition (foodAdded)="onFoodAdded($event)"></app-food-list-edition>
         <hr>
         <ul class="list-group">
             <a *ngFor="let food of foodList"

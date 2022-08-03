@@ -18,4 +18,8 @@ export class FoodListComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFoodAdded(food: Food){
+    this.foodList.push(food);
+  }
+
 }
