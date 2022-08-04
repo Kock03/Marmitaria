@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import {MatDialogModule} from '@angular/material/dialog';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -9,6 +10,8 @@ import { FoodListEditionComponent } from './food-list/food-list-edition/food-lis
 import { LunchDetailsComponent } from './lunch/lunch-details/lunch-details.component';
 import { LunchComponent } from './lunch/lunch.component';
 import { LunchItemComponent } from './lunch/lunch-list/lunch-item/lunch-item.component';
+import { DropdownDirective } from './shared/dropdown.directive';
+import { LunchListDialogComponent } from './lunch/lunch-list/lunch-list-dialog/lunch-list-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,11 +22,14 @@ import { LunchItemComponent } from './lunch/lunch-list/lunch-item/lunch-item.com
     FoodListEditionComponent,
     LunchDetailsComponent,
     LunchComponent,
-    LunchItemComponent
+    LunchItemComponent,
+    DropdownDirective,
+    LunchListDialogComponent
 
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent]
