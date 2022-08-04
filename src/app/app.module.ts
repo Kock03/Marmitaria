@@ -27,6 +27,7 @@ import { LunchListDialogComponent } from './lunch/lunch-list/lunch-list-dialog/l
     LunchListDialogComponent
 
   ],
+  entryComponents: [LunchListDialogComponent],
   imports: [
     BrowserModule,
     MatDialogModule

@@ -3,7 +3,7 @@ import { Lunch } from '../../lunch.model';
 
 @Component({
   selector: 'app-lunch-item',
-  templateUrl: './lunch-item.component.html',
+  templateUrl: './lunch-item.component.html', 
   styleUrls: ['./lunch-item.component.css']
 })
 export class LunchItemComponent implements OnInit {

@@ -1,7 +1,8 @@
-<a href="#" class="list-group-item clearfix" id="div" style="display: block;" (click)="onSelected()">
+<a href="#" class="list-group-item clearfix" (click)="onSelected()">
     <div class="float-start">
-        <h4 class="list-group-item-heading">{{package.name}}</h4>
+        <h1 class="list-group-item-heading">{{package.name}}</h1>
         <p class="list-group-item-text">{{package.description}}</p>
+        <hr>
     </div>
     <div class="float-end">
         <img [src]="package.imagePath" alt="{{package.name}}" class="img-responsive" style="max-height: 60px;" style="max-width: 100px;">

@@ -1,5 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Lunch } from '../lunch.model';
+import { LunchListDialogComponent } from './lunch-list-dialog/lunch-list-dialog.component';
 
 @Component({
   selector: 'app-lunch-list',
@@ -16,7 +18,10 @@ export class LunchListComponent implements OnInit {
 
   @Output() packageWasSelected = new EventEmitter<Lunch>();
 
-  constructor() { }
+  method!: string;
+
+
+  constructor(public dialog: MatDialog) {}
 
   ngOnInit(): void {
   }
@@ -25,8 +30,12 @@ export class LunchListComponent implements OnInit {
     this.packageWasSelected.emit(packageSelected);
   }
 
+  // adicionar itens para o array lunch(cardapio)
   onLunchAdd(lunch: Lunch){
     this.packages.push(lunch);
   }
 
+ openDialog(){
+  this.dialog.open(LunchListDialogComponent);
+ }
 }

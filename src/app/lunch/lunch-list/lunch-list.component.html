@@ -1,22 +1,9 @@
 <div class="row mb-2">
     <div class="col-12">
-        <button class="btn btn-success" type="button">Adicionar Comida ao Cardápio</button>
+        <button class="btn btn-success" mat-raised-button (click)="openDialog()">Adicionar Comida ao Cardápio</button>
     </div>
 </div>
-<div class="row" style="display: none;">
-    <div class="col-sm-5">
-        <label for="name">Nome da Comida</label>
-        <input type="text" id="name" class="form-control">
-    </div>
-    <div class="col-sm-5 form-group">
-        <label for="descripcion">Descrição da Comida</label>
-        <input type="text" id="description" class="form-control">
-    </div>
-    <div class="col-sm-5 form-group">
-        <label for="imagePath">Informe o link da imagem, para representar a Comida</label>
-        <input type="text" id="imagePath" class="form-control">
-    </div>
-</div>
+
 <div class="row">
     <div class="col-12">
         <app-lunch-item *ngFor="let packageElement of packages"
