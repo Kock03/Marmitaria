@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import {MatDialogModule} from '@angular/material/dialog';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
@@ -12,6 +14,7 @@ import { LunchComponent } from './lunch/lunch.component';
 import { LunchItemComponent } from './lunch/lunch-list/lunch-item/lunch-item.component';
 import { DropdownDirective } from './shared/dropdown.directive';
 import { LunchListDialogComponent } from './lunch/lunch-list/lunch-list-dialog/lunch-list-dialog.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -30,7 +33,11 @@ import { LunchListDialogComponent } from './lunch/lunch-list/lunch-list-dialog/l
   entryComponents: [LunchListDialogComponent],
   imports: [
     BrowserModule,
-    MatDialogModule
+    MatDialogModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -7,11 +7,7 @@ import { Food } from '../shared/food.model';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
-  foodList: Food[] = [
-    new Food('Carne', 1),
-    new Food('Arroz', 2),
-    new Food('Couve', 3)
-  ];
+  foodList: Food[] = [];
 
   constructor() { }
 

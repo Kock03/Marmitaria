@@ -36,6 +36,12 @@ export class LunchListComponent implements OnInit {
   }
 
  openDialog(){
-  this.dialog.open(LunchListDialogComponent);
+  const dialogRef = this.dialog.open(LunchListDialogComponent, {
+    data: this.packages,
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    this.packages = result;
+  });
+
  }
 }
