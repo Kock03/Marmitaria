@@ -3,7 +3,7 @@ import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dial
 import { Lunch } from '../../lunch.model';
 import { LunchListComponent } from '../lunch-list.component';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
+import { Dialog } from '@angular/cdk/dialog';
 
 @Component({
   selector: 'app-lunch-list-dialog',
@@ -17,7 +17,7 @@ export class LunchListDialogComponent implements OnInit {
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LunchListDialogComponent>,
     private formBuilder: FormBuilder,
-    @Inject(MAT_DIALOG_DATA) public data: any
+    @Inject(MAT_DIALOG_DATA) public data: any = [],
 
     ) {
       this.myFormGroup = this.formBuilder.group({
@@ -30,20 +30,17 @@ export class LunchListDialogComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  async cadastre(){
+  cadastre(){
     if(!this.myFormGroup.valid){
       return;
     } else{
       let lunch = this.myFormGroup.getRawValue();
-      this.data.push(lunch);
-      await this.dialogRef.close(true);
-      sessionStorage.clear();
-      return this.data
-      
+      this.data.push(lunch);   
     }
   }
-  async closed(){
-    await this.dialogRef.close(true);
-    sessionStorage.clear();
+
+  removeLunch(id: number){
+    const position = id;
+    this.data.splice(position, 1)
   }
 }

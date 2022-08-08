@@ -15,6 +15,7 @@ import { LunchItemComponent } from './lunch/lunch-list/lunch-item/lunch-item.com
 import { DropdownDirective } from './shared/dropdown.directive';
 import { LunchListDialogComponent } from './lunch/lunch-list/lunch-list-dialog/lunch-list-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { LunchDetailsDialogComponent } from './lunch/lunch-details/lunch-details-dialog/lunch-details-dialog.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     LunchComponent,
     LunchItemComponent,
     DropdownDirective,
-    LunchListDialogComponent
+    LunchListDialogComponent,
+    LunchDetailsDialogComponent
 
   ],
   entryComponents: [LunchListDialogComponent],

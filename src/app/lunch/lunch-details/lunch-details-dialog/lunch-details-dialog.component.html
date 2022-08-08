@@ -1,0 +1,25 @@
+<h2 mat-dialog-title>Edite o Item do seu Cardápio!</h2>
+<form [formGroup]="myFormGroup">
+    <div class="row">
+        <div class="col-sm-5">
+            <label for="name">Nome da Comida</label>
+            <input type="text" id="name" [(ngModel)]="packageSelected.name" class="form-control" formControlName="name" placeholder="Ex: Pizza de Frango com Catupiry" #nameFoodInput>
+        </div>
+        <div class="col-sm-5 form-group">
+            <label for="descripcion">Descrição da Comida</label>
+            <input type="text" id="description" [(ngModel)]="packageSelected.description" class="form-control" formControlName="description" placeholder="Ex: Pizza de Frango ao molho catupiry" #descriptionInput>
+        </div>
+        <br/>
+        <br/>
+        <br/>
+        <br/>   
+        <div class="col-sm-5 form-group">
+            <label for="imagePath">Informe o link da imagem, para representar a Comida</label>
+            <input type="url" id="imagePath" [(ngModel)]="packageSelected.imagePath" class="form-control" formControlName="imagePath" #imagePathInput>
+        </div>
+        <mat-dialog-actions align="end">
+            <button class="btn btn-danger mx-md-1" mat-raised-button matDialogClose>Cancelar</button>
+            <button class="btn btn-success mx-md-1" [disabled]="!myFormGroup.valid" matDialogClose>Atualizar</button>
+        </mat-dialog-actions>
+    </div>
+</form>

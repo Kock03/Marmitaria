@@ -35,12 +35,13 @@ export class LunchListComponent implements OnInit {
     this.packages.push(lunch);
   }
 
+
  openDialog(){
   const dialogRef = this.dialog.open(LunchListDialogComponent, {
     data: this.packages,
   });
   dialogRef.afterClosed().subscribe(result => {
-    this.packages = result;
+    this.packages = result.packages as [];
   });
 
  }
