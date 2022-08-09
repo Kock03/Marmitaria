@@ -1,10 +1,14 @@
 <div class="row">
     <div class="col-md-5">
-        <app-lunch-list (packageWasSelected)="selectedPackage = $event"></app-lunch-list>
+        <app-lunch-list 
+        (packageWasSelected)="selectedPackage = $event"
+        
+        ></app-lunch-list>
     </div>
     <div class="col-md-7">
         <app-lunch-details *ngIf="selectedPackage; else info"
         [packageSelected]="selectedPackage"
+        [packages]="selectedPackage"
         ></app-lunch-details>
         <ng-template #info>
             <p>Por favor, selecione um alimento do nosso cardápio!</p>

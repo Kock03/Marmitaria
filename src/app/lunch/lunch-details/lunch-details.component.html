@@ -20,8 +20,11 @@
                 Opções <span class="carret"></span>
             </button>
             <ul class="dropdown-menu">
-                <li><a href="#" (click)="openDialog()" >Editar Comida</a></li>
-                <li><a href="#">Remover Comida</a></li>
+                <li><button class="button">Adicionar Ingredientes</button></li>
+                <br>
+                <li><button class="button"(click)="openDialogDetail()">Editar Comida</button></li>
+                <br>
+                <li><button class="button" (click)="removeLunch()">Remover Comida</button></li>
             </ul>
         </div>
         
@@ -31,7 +34,7 @@
 <!-- Descrição -->
 <div class="row">
     <div class="col-12">
-        {{packageSelected.description}}
+        <h3>{{packageSelected.description}}</h3>
     </div>
 </div>
 <!-- Ingredientes -->

@@ -6,7 +6,7 @@
 
 <div class="row">
     <div class="col-12">
-        <app-lunch-item *ngFor="let packageElement of packages"
+        <app-lunch-item *ngFor="let packageElement of packages; index as i;"
         [package]="packageElement"
         (packageSelected)="onPackageSelected(packageElement)"
         ></app-lunch-item>

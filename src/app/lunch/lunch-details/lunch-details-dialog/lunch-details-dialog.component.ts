@@ -11,16 +11,20 @@ import { Lunch } from '../../lunch.model';
 })
 export class LunchDetailsDialogComponent implements OnInit {
 
-  
+  lunch!: any;
 
   myFormGroup: FormGroup;
   @Input() packageSelected!: Lunch;
+  @Input() index!: number; 
+  @Input() package!: Lunch;
+
   
   constructor(
     public dialog: MatDialog,
-    public dialogRef: MatDialogRef<LunchListDialogComponent>,
+    public dialogRef: MatDialogRef<LunchDetailsDialogComponent>,
     private formBuilder: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    
 
     ) {
       this.myFormGroup = this.formBuilder.group({
@@ -29,10 +33,27 @@ export class LunchDetailsDialogComponent implements OnInit {
         imagePath: ['', Validators.required]
       });
     }
+    
+    
+    
+    ngOnInit(): void {
+      this.lunch = JSON.parse(sessionStorage.getItem('lunch')!);
+      console.log("🚀 ~ file: lunch-details-dialog.component.ts ~ line 41 ~ LunchDetailsDialogComponent ~ ngOnInit ~ this.lunch ", this.lunch )
+      this.edition(this.lunch);
+    }
+    
+    edition(data: any){ 
+  
+      this.myFormGroup.controls['name'].setValue(data.name);
+      this.myFormGroup.controls['description'].setValue(data.description);
+      this.myFormGroup.controls['imagePath'].setValue(data.imagePath);
+    }
+
+    refresh(){
+      let value = this.myFormGroup.getRawValue();
+      sessionStorage.setItem('lunch', JSON.stringify(value));
+    }
 
     
-
-  ngOnInit(): void {
-  }
 
 }

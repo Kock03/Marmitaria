@@ -32,7 +32,7 @@ import { LunchDetailsDialogComponent } from './lunch/lunch-details/lunch-details
     LunchDetailsDialogComponent
 
   ],
-  entryComponents: [LunchListDialogComponent],
+  entryComponents: [LunchListDialogComponent, LunchDetailsDialogComponent],
   imports: [
     BrowserModule,
     MatDialogModule,
