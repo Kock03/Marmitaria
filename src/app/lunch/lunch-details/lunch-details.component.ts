@@ -21,8 +21,6 @@ export class LunchDetailsComponent{
     constructor(public dialogDetail: MatDialog, private cdr: ChangeDetectorRef){}
     ngOnInit(): void {
         this.index = sessionStorage.getItem('index')
-        console.log(this.packages);
-        console.log(this.index);
     }
 
     openDialogDetail(){

@@ -1,0 +1,18 @@
+.trash{
+    color: #F20F0F;
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    fill: currentColor;
+    display: inline-block;
+}
+
+#menu{
+    color: black;
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    fill: currentColor;
+    display: inline-block;
+}
+

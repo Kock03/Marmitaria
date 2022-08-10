@@ -20,7 +20,7 @@ export class LunchListComponent implements OnInit {
   @Output() packageWasSelected = new EventEmitter<Lunch>();
 
   method!: string;
-   index!: number;
+  index!: any;
 
   constructor(public dialog: MatDialog) {}
 
@@ -33,14 +33,24 @@ export class LunchListComponent implements OnInit {
     this.packageWasSelected.emit(packageSelected);
   }
 
+  onDelete(event: any){
+    this.index = sessionStorage.getItem('index');
+    this.packages.splice(this.index, 1);
+  
+  }
+
   openDialog(){
   const dialogRef = this.dialog.open(LunchListDialogComponent, {
     data: this.packages,
   });
   dialogRef.afterClosed().subscribe(result => {
     if(result){
-      this.packages = result;
+      this.packages.push(result);
     }
     });
+  }
+
+  refersh(){
+
   }
 }

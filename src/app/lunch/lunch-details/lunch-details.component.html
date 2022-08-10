@@ -12,6 +12,13 @@
     </div>
 </div>
 
+<!-- Descrição -->
+<div class="row">
+    <div class="col-12">
+        <h3>{{packageSelected.description}}</h3>
+    </div>
+</div>
+
 <!-- Menu de Opções -->
 <div class="row">
     <div class="col-12">
@@ -21,22 +28,13 @@
             </button>
             <ul class="dropdown-menu">
                 <li><button class="button">Adicionar Ingredientes</button></li>
-                <br>
                 <li><button class="button"(click)="openDialogDetail()">Editar Comida</button></li>
-                <br>
-                <li><button class="button" (click)="removeLunch()">Remover Comida</button></li>
             </ul>
         </div>
         
     </div>
 </div>
 
-<!-- Descrição -->
-<div class="row">
-    <div class="col-12">
-        <h3>{{packageSelected.description}}</h3>
-    </div>
-</div>
 <!-- Ingredientes -->
 <!-- <div class="row">
     <div class="col-12">

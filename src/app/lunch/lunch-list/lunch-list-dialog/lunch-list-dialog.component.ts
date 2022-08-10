@@ -35,7 +35,7 @@ export class LunchListDialogComponent implements OnInit {
       return;
     } else{
       let lunch = this.myFormGroup.getRawValue();
-      this.data.push(lunch);   
+      this.dialogRef.close(lunch); 
     }
   }
 

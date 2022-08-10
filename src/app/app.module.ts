@@ -16,6 +16,8 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { LunchListDialogComponent } from './lunch/lunch-list/lunch-list-dialog/lunch-list-dialog.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LunchDetailsDialogComponent } from './lunch/lunch-details/lunch-details-dialog/lunch-details-dialog.component';
+import { MatIconModule } from '@angular/material/icon';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { LunchDetailsDialogComponent } from './lunch/lunch-details/lunch-details
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatIconModule,
+    MatButtonModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

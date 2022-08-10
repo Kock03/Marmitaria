@@ -18,7 +18,7 @@
             <input type="url" id="imagePath"  class="form-control" formControlName="imagePath" #imagePathInput>
         </div>
         <mat-dialog-actions align="end">
-            <button class="btn btn-danger mx-md-1" mat-raised-button matDialogClose>Cancelar</button>
+            <button class="btn btn-danger mx-md-1" matDialogClose>Cancelar</button>
             <button class="btn btn-success mx-md-1" [disabled]="!myFormGroup.valid" matDialogClose (click)="refresh()">Atualizar</button>
         </mat-dialog-actions>
     </div>

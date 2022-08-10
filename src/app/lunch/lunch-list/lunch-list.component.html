@@ -1,6 +1,6 @@
 <div class="row mb-2">
     <div class="col-12">
-        <button class="btn btn-success" mat-raised-button (click)="openDialog()">Adicionar Comida ao Cardápio</button>
+        <button class="btn btn-success" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
     </div>
 </div>
 
@@ -9,6 +9,7 @@
         <app-lunch-item *ngFor="let packageElement of packages; index as i;"
         [package]="packageElement"
         (packageSelected)="onPackageSelected(packageElement)"
+        (delete)="onDelete($event)"
         ></app-lunch-item>
     </div>
 </div>
