@@ -2,16 +2,20 @@
     <div class="col-sm-10">
         <app-food-list-edition
         (foodAdded)="onFoodAdded($event)"
+        (foodEdited)="onFoodEdited($event)"
+        [edition]="foodEdit"
         ></app-food-list-edition>
         <hr>
         <ul class="list-group">
-            <a *ngFor="let food of foodList"
-                
+            <a *ngFor="let food of foodList"   
                 class="list-group-item" 
                 style="cursor: pointer;">
                 {{food.name}} ({{food.amount}})
                 <button (click)="onDelete(food)" mat-button style="float:right;">
                     <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
+                </button>
+                <button (click)="edit(food)" mat-button style="float:right;">
+                    <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">edit</mat-icon>
                 </button>
             </a>          
         </ul>
