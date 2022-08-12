@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 import { Lunch } from '../lunch/lunch.model';
 import { Food } from '../shared/food.model';
 
+
 @Component({
   selector: 'app-food-list',
   templateUrl: './food-list.component.html',
@@ -23,6 +24,7 @@ export class FoodListComponent implements OnInit {
 
   ngOnInit(): void {
     this.foodEdit = new BehaviorSubject<any>('');
+    sessionStorage.setItem('method', '');
   }
 
   onFoodAdded(food: Food){

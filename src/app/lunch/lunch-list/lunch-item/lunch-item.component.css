@@ -1,5 +1,5 @@
 .trash{
-    color: #F20F0F;
+    color: #723CAF;
     height: 24px;
     width: 24px;
     background-repeat: no-repeat;
@@ -14,5 +14,11 @@
     background-repeat: no-repeat;
     fill: currentColor;
     display: inline-block;
+}
+
+mat-card{
+    border-width: 5px;
+     border-style: outset;
+     border-color: #723CAF;
 }
 

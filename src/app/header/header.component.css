@@ -1,0 +1,26 @@
+.nav-link {
+    color: white;
+    display: block;
+    float: right;
+    margin-right: 10px;
+}
+
+.navbar-brand{
+    color: white;
+}
+
+.nav-normal-link{
+    text-decoration: none;
+
+}
+
+.navbar{
+    display: block;
+    float: right;
+    margin-right: 10px;
+}
+
+mat-icon{
+    vertical-align: middle;
+
+}

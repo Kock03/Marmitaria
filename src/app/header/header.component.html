@@ -1,20 +1,16 @@
-<nav class="navbar navbar-expand navbar-light bg-light">
+<nav class="navbar navbar-expand ">
     <div class="container">
-        <div class="navbar-header">
-            <a href="#" class="navbar-brand">Restaurante</a>
-        </div>
-
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="nav-item"><a href="#" (click)="onSelect('lunch')" class="nav-link active">Cardápio</a></li>
+                <li class="nav-item"><a href="#" (click)="onSelect('lunch')" class="nav-link">Cardápio</a></li>
                 <li class="nav-item"><a href="#" (click)="onSelect('food-list')" class="nav-link">Estoque de Alimentos</a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="dropdown">
                     <a href="#" class="nav-link dropdown-toggle" appDropdown>Manutenção</a>
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="#" class="nav-link">Salvar Dados</a></li>
-                        <li class="nav-item"><a href="#" class="nav-link">Buscar Dados</a></li>
+                        <li class="nav-item"><a href="#" class="nav-normal-link" style="margin-left: 10px;">Salvar <mat-icon>save</mat-icon></a></li>
+                        <li class="nav-item"><a href="#" class="nav-normal-link" style="margin-left: 10px;" (click)="shutdown()">Sair <mat-icon>power_settings_new</mat-icon></a></li>
                     </ul>
                 </li>
             </ul>

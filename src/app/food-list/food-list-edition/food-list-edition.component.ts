@@ -16,6 +16,7 @@ export class FoodListEditionComponent {
     food!: any;
     method: string = '';
 
+
     // a ! significa que o elemento vai começar sem valor
     @ViewChild("nameInput") nameInputRef!: ElementRef;
     @ViewChild("amountInput") amountInputRef!: ElementRef;
@@ -34,23 +35,24 @@ export class FoodListEditionComponent {
     ngOnInit(): void{
         this.foodEdit.subscribe(res => {
             if(res){
-                this.edition(res)
+                this.edition(res)                 
             }
         });
     }
     
     
     addFood(){
-        this.method = sessionStorage.getItem('method')!;
-
-        if(this.method === 'edit'){
+        
+        if(this.method === 'edit'){  
+            
             const foodName = this.nameInputRef.nativeElement.value;
             const foodAmount = this.amountInputRef.nativeElement.value;
             const newFood = new Food(foodName, foodAmount);
             this.foodEdited.emit(newFood);
             this.meuFormGroup.reset();
+            
         }else{
-
+            
             if(!this.meuFormGroup.valid){ 
                 return;
             } else{
@@ -61,10 +63,13 @@ export class FoodListEditionComponent {
                 this.meuFormGroup.reset();
             }
         }
+        this.method = sessionStorage.setItem('method', '')!;
     }
 
     edition(data: any){
+        this.method = sessionStorage.getItem('method')!;
         this.meuFormGroup.controls['name'].setValue(data.name);
         this.meuFormGroup.controls['amount'].setValue(data.amount);
+    
     }
 }

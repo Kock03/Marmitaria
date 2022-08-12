@@ -1,4 +1,14 @@
-<app-header (featureSelected)="onNavigate($event)" ></app-header>
+<mat-toolbar fxLayoutAlign="space-between center">
+  <div class="title">
+    <a href="#" class="navbar-brand">Restaurante<img src="../assets/envolti.png" alt=""/>
+    </a>
+  </div>
+  <div class="toolybar">
+    <app-header (featureSelected)="onNavigate($event)" ></app-header>
+  </div>
+</mat-toolbar>
+<br>
+<!-- <app-header (featureSelected)="onNavigate($event)"></app-header> -->
 
 <div class="container">
   <div class="row">

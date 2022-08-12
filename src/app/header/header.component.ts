@@ -15,4 +15,11 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  shutdown(){
+    if(confirm("Você tem certeza que deseja fechar o site?")){
+      window.open('', '_self', '');
+      window.close();
+    }
+  }
+
 }

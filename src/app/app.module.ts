@@ -18,6 +18,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LunchDetailsDialogComponent } from './lunch/lunch-details/lunch-details-dialog/lunch-details-dialog.component';
 import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
+import { MatToolbarModule } from "@angular/material/toolbar";
+import { FlexLayoutModule } from '@angular/flex-layout';
+import {MatPaginatorModule} from '@angular/material/paginator';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatCardModule} from '@angular/material/card'
+
 
 @NgModule({
   declarations: [
@@ -41,9 +47,14 @@ import {MatButtonModule} from '@angular/material/button';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
+    FlexLayoutModule,
     BrowserAnimationsModule,
     MatIconModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatPaginatorModule,
+    MatPaginatorModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

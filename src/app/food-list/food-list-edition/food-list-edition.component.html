@@ -13,7 +13,7 @@
             </div>
             <div class="row mt-2">
                 <div class="col-12">
-                    <button class="btn btn-success mx-md-1" type="button"(click)="addFood()" [disabled]="!meuFormGroup.valid">Incluir</button>
+                    <button class="btn btn-success mx-md-1" type="button"(click)="addFood()" [disabled]="!meuFormGroup.valid">{{method === 'edit' ? 'Atualizar' : 'Incluir'}}</button>
                 </div>
             </div>
         </form>
