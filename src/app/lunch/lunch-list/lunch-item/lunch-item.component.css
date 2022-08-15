@@ -18,7 +18,13 @@
 
 mat-card{
     border-width: 5px;
-     border-style: outset;
-     border-color: #723CAF;
+    border-style: outset;
+    border-color: #723CAF;
+}
+
+@media (max-width: 500px) {
+    .img-responsive{
+        display: none;
+    }    
 }
 

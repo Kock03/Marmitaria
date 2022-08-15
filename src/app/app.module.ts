@@ -23,6 +23,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card'
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 
 @NgModule({
@@ -54,7 +56,9 @@ import {MatCardModule} from '@angular/material/card'
     MatToolbarModule,
     MatPaginatorModule,
     MatPaginatorModule,
-    MatCardModule
+    MatCardModule,
+    MatSnackBarModule,
+    MatFormFieldModule
   ],
   providers: [],
   bootstrap: [AppComponent]

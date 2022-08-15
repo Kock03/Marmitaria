@@ -10,7 +10,7 @@
             <a *ngFor="let food of foodList"   
                 class="list-group-item" 
                 style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center" >
-               <p style="margin-top: 10px;">{{food.name}} ({{food.amount}})</p>
+               <h3 style="margin-top: 10px;">{{food.name}} ({{food.amount}})</h3>
                <div>
                    <button (click)="onDelete(food)" mat-button style="float:right;">
                        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>

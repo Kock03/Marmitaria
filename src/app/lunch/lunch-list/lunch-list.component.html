@@ -1,3 +1,9 @@
+<div class="search">
+    <mat-form-field appearance="outline" floatLabel="never">
+        <mat-icon matSuffix class="search-lunch-icon">search</mat-icon>
+        <input placeholder="Buscar Comida no Cardápio"matInput/>
+    </mat-form-field>
+</div>
 <div class="row">
     <div class="col-12">
         <app-lunch-item *ngFor="let packageElement of packages; index as i;"
@@ -13,6 +19,7 @@
         <button class="btn btn-success" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
     </div>
 </div>
+
 
 
 

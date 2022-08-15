@@ -13,6 +13,7 @@ export class LunchListDialogComponent implements OnInit {
 
   myFormGroup: FormGroup;
 
+
   constructor(
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LunchListDialogComponent>,
@@ -38,9 +39,5 @@ export class LunchListDialogComponent implements OnInit {
       this.dialogRef.close(lunch); 
     }
   }
-
-  removeLunch(id: number){
-    const position = id;
-    this.data.splice(position, 1)
-  }
 }
+

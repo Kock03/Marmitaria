@@ -21,6 +21,65 @@
 }
 
 mat-icon{
+    display: inline-flex;
     vertical-align: middle;
 
+}
+
+.menu{
+    width: 25px;
+    margin-left: 15px;
+    display: none;
+}
+
+@media (max-width: 820px ){
+    .menu{
+        display: block;
+        cursor: pointer;
+        float: right;
+    }
+
+    .dropdown{
+        display: none;
+    }
+
+    .dropdown-menus{
+        position: absolute;
+        right: -30px;
+    }
+
+    .nav-item{
+        display: none;
+    }
+
+    .dropdown-menu{
+        cursor: pointer;
+        float: right;
+        transform: translate3d(-140px, 50px, 0px)!important;
+        margin-right: 10px;
+        overflow: hidden;
+        transition: all 1s ease-in-out;
+    }
+
+    .nav-link-menu{
+        text-decoration: none;
+    }
+
+
+}
+
+@media(max-width: 350px){
+    .dropdown-menus{
+        font-size: 15px;
+        position: absolute;
+        right: -30px;
+
+    }
+
+    .dropdown-menu{
+        cursor: pointer;
+        float: right;
+        transform: translate3d(-135px, 40px, 0px)!important;
+        margin-right: 10px;
+    }
 }

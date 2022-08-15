@@ -4,9 +4,32 @@ mat-toolbar{
     color: white;
 }
 img{
-    margin-top: 0.9px;
+    /* margin-top: 0.9px; */
     width: 128px;
 }
 
+.title{
+    font-size: 30px;
+    text-align: center;
+}
 
+@media (max-width: 700px){
+    img{
+        width: 88px;
+    }
+    .title{
+        font-size: 23px;
+    }
+}
+
+@media (max-width: 350px){
+    
+    .title{
+        font-size: 15px;
+    }
+
+    img{
+        width: 60px;
+    }
+}
 

@@ -3,13 +3,28 @@
         <form [formGroup]="meuFormGroup">
             <div class="row">
                 <div class="col-sm-5 form-group">
-                    <label for="name">Nome do Alimento</label>
+                    <label for="name">Nome do Alimento:</label>
                     <input type="text" id="name" class="form-control" formControlName="name" #nameInput/>
                 </div>
+                <br>
+                <br>
+                <br>
+                <br>
                 <div class="col-sm-3 form-group">
-                    <label for="amount">Quantidade (Unidade)</label>
+                    <label for="amount">Quantidade:</label>
                     <input type="number" id="amount" class="form-control" formControlName="amount" #amountInput/>
                 </div>
+                <!-- <br>
+                <br>
+                <br>
+                <br>
+                <div class="dropdown-toggle" appDropdown>
+                    <ul class="dropdown-menu">
+                        <li class="nav-item">KG</li>
+                        <li class="nav-item">G</li>
+                        <li class="nav-item">UN</li>
+                    </ul>
+                </div> -->
             </div>
             <div class="row mt-2">
                 <div class="col-12">
