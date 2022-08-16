@@ -2,10 +2,9 @@
     <div class="col-md-5">
         <app-lunch-list 
         (packageWasSelected)="selectedPackage = $event"
-        
-        ></app-lunch-list>
+        ><mat-icon>close</mat-icon></app-lunch-list>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-7">     
         <app-lunch-details *ngIf="selectedPackage; else info"
         [packageSelected]="selectedPackage"
         [packages]="selectedPackage"

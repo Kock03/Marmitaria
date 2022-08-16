@@ -25,6 +25,8 @@ import {MatPaginator} from '@angular/material/paginator';
 import {MatCardModule} from '@angular/material/card'
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import { Ng2SearchPipeModule } from "ng2-search-filter";
 
 
 @NgModule({
@@ -58,7 +60,9 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatPaginatorModule,
     MatCardModule,
     MatSnackBarModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatInputModule,
+    Ng2SearchPipeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,39 +1,45 @@
-<!-- Imagem -->
-<div class="row">
-    <div class="col-12">
-        <img [src]="packageSelected.imagePath" alt="{{packageSelected.name}}" class="img-responsive" style="max-height: 300px; max-width: 400px;">
-    </div>
-</div>
-
-<!-- Nome da Marmita -->
-<div class="row">
-    <div class="col-12">
-        <h1>{{packageSelected.name}}</h1>
-    </div>
-</div>
-
-<!-- Descrição -->
-<div class="row">
-    <div class="col-12">
-        <h3>{{packageSelected.description}}</h3>
-    </div>
-</div>
-
-<!-- Menu de Opções -->
-<div class="row">
-    <div class="col-12">
-        <div class="dropdown">
-            <button type="button" class="btn btn-primary dropdown-toggle" appDropdown>
-                Opções <span class="carret"></span>
-            </button>
-            <ul class="dropdown-menu">
-                <!-- <li><button class="button">Adicionar Ingredientes</button></li> -->
-                <li><button class="button"(click)="openDialogDetail()">Editar Comida</button></li>
-            </ul>
+<br>
+<br>
+<br>
+<br>
+<mat-card>
+    <div class="row">
+        <div class="col-12">
+            <img [src]="packageSelected.imagePath" alt="{{packageSelected.name}}" class="img-responsive" style="max-height: 300px; max-width: 400px;">
         </div>
-        
     </div>
-</div>
+    
+    <!-- Nome da Marmita -->
+    <div class="row">
+        <div class="col-12">
+            <h1>{{packageSelected.name}}</h1>
+        </div>
+    </div>
+    
+    <!-- Descrição -->
+    <div class="row">
+        <div class="col-12">
+            <h3>{{packageSelected.description}}</h3>
+        </div>
+    </div>
+    
+    <!-- Menu de Opções -->
+    <div class="row">
+        <div class="col-12">
+            <div class="dropdown">
+                <button type="button" class="btn btn-primary dropdown-toggle" appDropdown>
+                    Opções <span class="carret"></span>
+                </button>
+                <ul class="dropdown-menu">
+                    <!-- <li><button class="button">Adicionar Ingredientes</button></li> -->
+                    <li><button class="button"(click)="openDialogDetail()">Editar Comida</button></li>
+                </ul>
+            </div>
+            
+        </div>
+    </div>
+</mat-card>
+<!-- Imagem -->
 
 <!-- Ingredientes -->
 <!-- <div class="row">

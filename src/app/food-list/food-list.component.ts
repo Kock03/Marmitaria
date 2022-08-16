@@ -2,6 +2,7 @@ import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { BehaviorSubject } from 'rxjs';
 import { Lunch } from '../lunch/lunch.model';
+import {MatSnackBar} from '@angular/material/snack-bar';
 import { Food } from '../shared/food.model';
 
 
@@ -15,12 +16,13 @@ export class FoodListComponent implements OnInit {
   @Input() package!: Lunch;
   index!: any;
   @Input() delete: EventEmitter<any> = new EventEmitter();
+  filter!: string;
 
   foodList: Food[] = [];
   foodEdit!: BehaviorSubject<any>; 
 
     @Inject(MAT_DIALOG_DATA) public data: any
-    constructor() { }
+    constructor(private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     this.foodEdit = new BehaviorSubject<any>('');
@@ -28,7 +30,12 @@ export class FoodListComponent implements OnInit {
   }
 
   onFoodAdded(food: Food){
-    this.foodList.push(food);
+    let i = this.foodList.findIndex((lunch) => food.name === lunch.name);
+    if (i === -1){
+      this.foodList.push(food);
+    }else{
+      this._snackBar.open("Produto já cadastrado!", "Fechar")
+    } 
     // sessionStorage.setItem('index', this.index.toString());
   }
 

@@ -32,6 +32,7 @@ export class LunchListComponent implements OnInit {
 
   method!: string;
   index!: any;
+  filter!: string;
 
   constructor(
     public dialog: MatDialog,

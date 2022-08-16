@@ -8,4 +8,14 @@
     color: #068;
     text-decoration: underline;
     cursor: pointer;
-  }
+}
+
+mat-card{
+  border-width: 5px;
+  border-style: outset;
+  border-color: #723CAF;
+}
+
+.button{
+  text-decoration: none;
+}

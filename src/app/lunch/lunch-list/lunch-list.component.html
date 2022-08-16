@@ -1,12 +1,12 @@
 <div class="search">
     <mat-form-field appearance="outline" floatLabel="never">
-        <mat-icon matSuffix class="search-lunch-icon">search</mat-icon>
-        <input placeholder="Buscar Comida no Cardápio"matInput/>
+        <mat-icon style="text-align: center" matSuffix class="search-lunch-icon">search</mat-icon>
+        <input placeholder="Buscar Comida no Cardápio" style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
     </mat-form-field>
 </div>
 <div class="row">
     <div class="col-12">
-        <app-lunch-item *ngFor="let packageElement of packages; index as i;"
+        <app-lunch-item *ngFor="let packageElement of packages | filter: filter"
         [package]="packageElement"
         (packageSelected)="onPackageSelected(packageElement)"
         (delete)="onDelete($event)"
@@ -14,7 +14,7 @@
     </div>
 </div>
 <br>
-<div class="row mb-2">
+<div class="row mb-5">
     <div class="col-12">
         <button class="btn btn-success" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
     </div>
