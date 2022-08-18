@@ -1,10 +1,17 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Lunch } from '../../lunch.model';
+import { Injectable } from '@angular/core';
+import { AngularFireDatabase } from '@angular/fire/compat/database';
+import { AngularFireList } from '@angular/fire/compat/database';
 
 @Component({
   selector: 'app-lunch-item',
   templateUrl: './lunch-item.component.html',
   styleUrls: ['./lunch-item.component.css'],
+})
+
+@Injectable({
+  providedIn: 'root'
 })
 export class LunchItemComponent implements OnInit {
   constructor() {}

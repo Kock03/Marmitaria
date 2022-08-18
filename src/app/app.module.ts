@@ -27,6 +27,11 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import { Ng2SearchPipeModule } from "ng2-search-filter";
+import { AngularFireModule } from "@angular/fire/compat";
+import { AngularFireDatabaseModule } from '@angular/fire/compat/database';
+import { environment } from '../environments/environment';
+import { AngularFirestore, AngularFirestoreModule} from '@angular/fire/compat/firestore';
+import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 
 
 @NgModule({
@@ -62,7 +67,11 @@ import { Ng2SearchPipeModule } from "ng2-search-filter";
     MatSnackBarModule,
     MatFormFieldModule,
     MatInputModule,
-    Ng2SearchPipeModule
+    Ng2SearchPipeModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFireDatabaseModule,
+    AngularFirestoreModule,
+    AngularFireStorageModule
   ],
   providers: [],
   bootstrap: [AppComponent]
