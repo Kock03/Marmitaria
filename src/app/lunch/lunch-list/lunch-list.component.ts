@@ -3,6 +3,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { Lunch } from '../lunch.model';
 import { LunchListDialogComponent } from './lunch-list-dialog/lunch-list-dialog.component';
 import {MatSnackBar} from '@angular/material/snack-bar';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { Injectable } from '@angular/core';
+
+@Injectable({
+  providedIn: 'root'
+})
 
 @Component({
   selector: 'app-lunch-list',
@@ -10,23 +16,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
   styleUrls: ['./lunch-list.component.css'],
 })
 export class LunchListComponent implements OnInit {
-  packages: Lunch[] = [
-    new Lunch(
-      'Churrasco',
-      'Lorem isum dolor, sit amet consectetur adipisicing elit. Dolorem labore quae quisquam, porro eum iste vero facere quia mollitia aut quibusdam reprehenderit earum quas accusantium laborum. Quia quisquam corrupti recusandae!',
-      'https://blog.santamassa.com.br/wp-content/uploads/2019/04/284199-churrasco-americano-e-brasileiro-voce-sabe-as-diferencas.jpg'
-    ),
-    new Lunch(
-      'Sushi',
-      'orem ipsum dolor, sit amet consectetur adipisicing elit. Dolorem labore quae quisquam, porro eum iste vero facere quia mollitia aut quibusdam reprehenderit earum quas accusantium laborum. Quia quisquam corrupti recusandae!',
-      'https://cdn.folhape.com.br/img/pc/1100/1/dn_arquivo/2021/11/sushi.jpg'
-    ),
-    new Lunch(
-      'Pastel de Carne',
-      'Lorem ipsum dolor, it amet consectetur adipisicing elit. Dolorem labore quae quisquam, porro eum iste vero facere quia mollitia aut quibusdam reprehenderit earum quas accusantium laborum. Quia quisquam corrupti recusandae!',
-      'https://receitatodahora.com.br/wp-content/uploads/2022/03/pastel-de-carne1.jpg'
-    ),
-  ];
+  packages: Lunch[] = [];
 
   @Output() packageWasSelected = new EventEmitter<Lunch>();
 
@@ -36,9 +26,12 @@ export class LunchListComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private _snackBar: MatSnackBar) {}
+    private _snackBar: MatSnackBar,
+    private firestore: AngularFirestore) {}
 
-  ngOnInit(): void {}
+  ngOnInit() {
+    return this.firestore.collection('lunch').snapshotChanges();
+  }
 
   onPackageSelected(packageSelected: Lunch) {
     this.index = this.packages.findIndex(
@@ -63,6 +56,7 @@ export class LunchListComponent implements OnInit {
             result.description === lunch.description &&
             result.name === lunch.name);
         if (i === -1) {
+          this.firestore.collection('lunch').add(result);
           this.packages.push(result); 
         }else{
           this._snackBar.open("Produto já cadastrado!", "Fechar");
