@@ -3,6 +3,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { LunchListDialogComponent } from '../../lunch-list/lunch-list-dialog/lunch-list-dialog.component';
 import { Lunch } from '../../lunch.model';
+import { Firestore } from '@firebase/firestore';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LunchListComponent } from '../../lunch-list/lunch-list.component';
 
 @Component({
   selector: 'app-lunch-details-dialog',
@@ -23,7 +26,9 @@ export class LunchDetailsDialogComponent implements OnInit {
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LunchDetailsDialogComponent>,
     private formBuilder: FormBuilder,
+    private firestore: AngularFirestore,
     @Inject(MAT_DIALOG_DATA) public data: any,
+    
     
 
     ) {
@@ -52,6 +57,8 @@ export class LunchDetailsDialogComponent implements OnInit {
     refresh(){
       let value = this.myFormGroup.getRawValue();
       sessionStorage.setItem('lunch', JSON.stringify(value));
+      this.lunch = JSON.parse(sessionStorage.getItem('index')!);
+      this.firestore.doc('lunch/' + this.lunch).update;
     }
 
     
