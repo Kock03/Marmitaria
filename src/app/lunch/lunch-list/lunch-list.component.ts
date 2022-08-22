@@ -5,6 +5,7 @@ import { LunchListDialogComponent } from './lunch-list-dialog/lunch-list-dialog.
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
+import { DataSource } from '@angular/cdk/collections';
 
 @Injectable({
   providedIn: 'root'
@@ -16,34 +17,47 @@ import { Injectable } from '@angular/core';
   styleUrls: ['./lunch-list.component.css'],
 })
 export class LunchListComponent implements OnInit {
-  packages: Lunch[] = [];
-
+  
   @Output() packageWasSelected = new EventEmitter<Lunch>();
+  packages: Lunch[] = [];
 
   method!: string;
   index!: any;
   filter!: string;
+  packageEx: any;
 
   constructor(
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
     private firestore: AngularFirestore) {}
 
-  ngOnInit() {
-    return this.firestore.collection('lunch').snapshotChanges();
+ async ngOnInit(){
+    this.firestore.collection('lunch').snapshotChanges().subscribe(async data => {
+      this.packageEx = data.map(e =>{
+        return{
+          id: e.payload.doc.id,
+          datas: e.payload.doc.data(),    
+        };  
+      })
+      this.packages = this.packageEx;
+    })
   }
 
-  onPackageSelected(packageSelected: Lunch) {
+  onPackageSelected(packageSelected: any) {
     this.index = this.packages.findIndex(
-      (lunch) => packageSelected.description === lunch.description
+      (lunch: Lunch) => packageSelected.description === lunch.description
     );
-    sessionStorage.setItem('index', this.index.toString());
-    this.packageWasSelected.emit(packageSelected);
+    console.log("🚀 ~ file: lunch-list.component.ts ~ line 50 ~ LunchListComponent ~ onPackageSelected ~ this.index", this.index)
+    sessionStorage.setItem('index', packageSelected.id);
+    this.packageWasSelected.emit(packageSelected.datas);
   }
 
-  onDelete(event: any) {
-    this.index = sessionStorage.getItem('index');
-    this.packages.splice(this.index, 1);
+  onDelete(result_id: any) {
+    this.firestore.doc('lunch/' + result_id).delete();
+  }
+
+  onEdit(recordID: any, record: any) {
+    this.firestore.doc('lunch/' + recordID).update(record);
   }
 
   openDialog() {
@@ -52,12 +66,12 @@ export class LunchListComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe((result) => {
       if (result) {
-        let i = this.packages.findIndex((lunch) =>
-            result.description === lunch.description &&
-            result.name === lunch.name);
+        let i = this.packageEx.findIndex((datas: Lunch) =>
+            result.description === datas.description &&
+            result.name === datas.name);
         if (i === -1) {
           this.firestore.collection('lunch').add(result);
-          this.packages.push(result); 
+          // this.packages.push(result); 
         }else{
           this._snackBar.open("Produto já cadastrado!", "Fechar");
         }

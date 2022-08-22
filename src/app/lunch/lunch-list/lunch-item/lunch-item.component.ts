@@ -3,6 +3,8 @@ import { Lunch } from '../../lunch.model';
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireList } from '@angular/fire/compat/database';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LunchListComponent } from '../lunch-list.component';
 
 @Component({
   selector: 'app-lunch-item',
@@ -14,7 +16,7 @@ import { AngularFireList } from '@angular/fire/compat/database';
   providedIn: 'root'
 })
 export class LunchItemComponent implements OnInit {
-  constructor() {}
+  constructor(private firestore: AngularFirestore) {}
   // exclamação foi posto para não dar erro de inicialização
   index!: any;
   @Input() package!: Lunch;
@@ -31,10 +33,7 @@ export class LunchItemComponent implements OnInit {
   }
 
   removeLunch() {
-    this.packageSelected.emit();
-    sessionStorage.setItem('lunch', JSON.stringify(this.package));
-    return this.delete.next(true);
-    
+    return this.delete.next(true); 
   }
 
 }
