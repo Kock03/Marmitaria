@@ -4,12 +4,13 @@
         (packageWasSelected)="selectedPackage = $event"
         ><mat-icon>close</mat-icon></app-lunch-list>
     </div>
-    <div class="col-md-7">     
+    <div id="load" class="load"></div>
+    <div class="col-md-7" id="info" style="display: none;">     
         <app-lunch-details *ngIf="selectedPackage; else info"
         [packageSelected]="selectedPackage"
         [packages]="selectedPackage"
         ></app-lunch-details>
-        <ng-template #info>
+        <ng-template  #info>
             <h2>Por favor, selecione um alimento do nosso cardápio!</h2>
         </ng-template>
     </div>

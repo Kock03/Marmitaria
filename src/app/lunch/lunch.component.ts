@@ -13,6 +13,10 @@ export class LunchComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let template = document.getElementById('info') as HTMLDivElement;
+    setTimeout(() => {
+      template.style.display = 'block';
+    }, 5000);
   }
 
 }

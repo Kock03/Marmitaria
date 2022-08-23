@@ -34,9 +34,11 @@ export class LunchListComponent implements OnInit {
     let hiddenList = document.getElementById('list') as HTMLDivElement;
     let hiddenButton = document.getElementById('button') as HTMLDivElement;
     let block = document.getElementById('load') as HTMLDivElement;
+    let search = document.getElementById('search') as HTMLDivElement;
     setTimeout(() => {
       hiddenList.style.display = 'block';
       hiddenButton.style.display = 'block';
+      search.style.display = 'block';
       block.style.display = 'none';
     }, 5000);
     this.firestore
