@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-sm-10">
         <app-food-list-edition
-        (foodAdded)="onFoodAdded($event)"
+        (foodAdded)="onFoodAdded(food)"
         (foodEdited)="onFoodEdited($event)"
         [edition]="foodEdit"
         ></app-food-list-edition>
@@ -13,12 +13,12 @@
          </mat-form-field>
          </div>
         <ul class="list-group">
-            <a *ngFor="let food of foodList | filter: filter"   
+            <a *ngFor="let food of foodEx | filter: filter"   
                 class="list-group-item" 
                 style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center" >
-               <h3 style="margin-top: 10px;">{{food.name}} ({{food.amount}})</h3>
+               <h3 style="margin-top: 10px;">{{food.datas.foodName}} ({{food.datas.foodAmount}})</h3>
                <div>
-                   <button (click)="onDelete(food)" mat-button style="float:right;">
+                   <button (click)="onDelete(food.id)" mat-button style="float:right;">
                        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
                    </button>
                    <button (click)="edit(food)" mat-button style="float:right;">

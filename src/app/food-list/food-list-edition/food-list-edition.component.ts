@@ -3,6 +3,7 @@ import { Food } from "src/app/shared/food.model";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { BehaviorSubject } from "rxjs";
+import { AngularFirestore } from "@angular/fire/compat/firestore";
 
 @Component({
     selector : 'app-food-list-edition',
@@ -15,6 +16,7 @@ export class FoodListEditionComponent {
 
     food!: any;
     method: string = '';
+    foodID!: any;
 
 
     // a ! significa que o elemento vai começar sem valor
@@ -25,7 +27,8 @@ export class FoodListEditionComponent {
     @Input('edition')  foodEdit!: BehaviorSubject<any>; 
     
     meuFormGroup: FormGroup;
-    constructor(private formBuilder: FormBuilder){
+    constructor(private formBuilder: FormBuilder,
+        private firestore: AngularFirestore){
         this.meuFormGroup = this.formBuilder.group({
             name: ['', Validators.required],
             amount: ['', Validators.required]
@@ -47,8 +50,9 @@ export class FoodListEditionComponent {
             
             const foodName = this.nameInputRef.nativeElement.value;
             const foodAmount = this.amountInputRef.nativeElement.value;
-            const newFood = new Food(foodName, foodAmount);
-            this.foodEdited.emit(newFood);
+            const newFood = {foodName, foodAmount};
+            this.foodID = sessionStorage.getItem('indexFood');
+            this.firestore.doc('food/' + this.foodID).update(newFood);
             this.meuFormGroup.reset();
             
         }else{
@@ -58,18 +62,19 @@ export class FoodListEditionComponent {
             } else{
                 const foodName = this.nameInputRef.nativeElement.value;
                 const foodAmount = this.amountInputRef.nativeElement.value;
-                const newFood = new Food(foodName, foodAmount);
-                this.foodAdded.emit(newFood);
+                const newFood = {foodName, foodAmount};
+                this.firestore.collection('food').add(newFood);
                 this.meuFormGroup.reset();
             }
         }
         this.method = sessionStorage.setItem('method', '')!;
     }
 
-    edition(data: any){
+    edition(value: any){
         this.method = sessionStorage.getItem('method')!;
-        this.meuFormGroup.controls['name'].setValue(data.name);
-        this.meuFormGroup.controls['amount'].setValue(data.amount);
-    
+        this.meuFormGroup.controls['name'].setValue(value.datas.foodName);
+        this.meuFormGroup.controls['amount'].setValue(value.datas.foodAmount);
+        sessionStorage.setItem('indexFood', value.id);
+        // this.meuFormGroup.controls['amount'].setValue(data.datas.foodAmount);
     }
 }

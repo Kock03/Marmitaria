@@ -4,7 +4,8 @@
         <input placeholder="Buscar Comida no Cardápio" style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
     </mat-form-field>
 </div>
-<div class="row">
+<div id="load" class="load"></div>
+<div id="list" class="row" style="display: none;">
     <div class="col-12">
         <app-lunch-item *ngFor="let packageElement of packageEx | filter: filter"
         [package]="packageElement.datas"
@@ -14,7 +15,7 @@
     </div>
 </div>
 <br>
-<div class="row mb-5">
+<div id="button" class="row mb-5" style="display: none;">
     <div class="col-12">
         <button class="btn btn-success" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
     </div>

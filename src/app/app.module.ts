@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import {MatDialogModule} from '@angular/material/dialog';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { FoodListComponent } from './food-list/food-list.component';

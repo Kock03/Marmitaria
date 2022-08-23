@@ -15,6 +15,7 @@ import { LunchListComponent } from '../../lunch-list/lunch-list.component';
 export class LunchDetailsDialogComponent implements OnInit {
 
   lunch!: any;
+  lunchEx!: any;
 
   myFormGroup: FormGroup;
   @Input() packageSelected!: Lunch;
@@ -45,6 +46,7 @@ export class LunchDetailsDialogComponent implements OnInit {
       this.lunch = JSON.parse(sessionStorage.getItem('lunch')!);
       console.log("🚀 ~ file: lunch-details-dialog.component.ts ~ line 41 ~ LunchDetailsDialogComponent ~ ngOnInit ~ this.lunch ", this.lunch )
       this.edition(this.lunch);
+      this.lunchEx = sessionStorage.getItem('index');
     }
     
     edition(data: any){ 
@@ -57,8 +59,7 @@ export class LunchDetailsDialogComponent implements OnInit {
     refresh(){
       let value = this.myFormGroup.getRawValue();
       sessionStorage.setItem('lunch', JSON.stringify(value));
-      this.lunch = JSON.parse(sessionStorage.getItem('index')!);
-      this.firestore.doc('lunch/' + this.lunch).update;
+      this.firestore.doc('lunch/' + this.lunchEx).update(value);
     }
 
     
