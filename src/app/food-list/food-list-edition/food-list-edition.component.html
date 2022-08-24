@@ -3,7 +3,7 @@
         <form [formGroup]="meuFormGroup">
             <div class="row">
                 <div class="col-sm-5 form-group">
-                    <label for="name">Nome do Alimento:</label>
+                    <label for="name">Nome:</label>
                     <input type="text" id="name" class="form-control" formControlName="name" #nameInput/>
                 </div>
                 <br>
@@ -28,7 +28,7 @@
             </div>
             <div class="row mt-2">
                 <div class="col-12">
-                    <button class="btn btn-success mx-md-1" type="button"(click)="addFood()" [disabled]="!meuFormGroup.valid">{{method === 'edit' ? 'Atualizar' : 'Incluir'}}</button>
+                    <button id="button" class="btn btn-success mx-md-1" type="button"(click)="addFood()" [disabled]="!meuFormGroup.valid">{{method === 'edit' ? 'Atualizar' : 'Incluir'}}</button>
                 </div>
             </div>
         </form>

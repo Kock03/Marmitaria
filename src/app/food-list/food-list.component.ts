@@ -73,4 +73,6 @@ export class FoodListComponent implements OnInit {
   onDelete(food: any){
     this.firestore.doc('food/' + food).delete();
   }
+
+  
 }

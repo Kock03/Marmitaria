@@ -6,6 +6,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  isChecked = true;
 
   constructor() { }
   @Output() featureSelected = new EventEmitter<string>();
@@ -17,12 +18,16 @@ export class HeaderComponent implements OnInit {
 
   shutdown(){
     if(confirm("Você tem certeza que deseja fechar o site?")){
-      alert(":'(")
+      window.open('', '_self')?.close();
+      // window.close();
     }
   }
 
-  showMenu(){
-    
+  switchMode(){
+    if(this.isChecked == false){
+      sessionStorage.setItem('isChecked',  JSON.stringify(this.isChecked));
+      console.log("🚀 ~ file: header.component.ts ~ line 28 ~ HeaderComponent ~ switchMode ~ this.isChecked", this.isChecked)
+    }
   }
 
 }

@@ -22,6 +22,10 @@ mat-card{
     border-color: #723CAF;
 }
 
+img{
+    border-radius: 10px;
+}
+
 @media (max-width: 500px) {
     .img-responsive{
         display: none;

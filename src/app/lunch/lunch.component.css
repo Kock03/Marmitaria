@@ -14,3 +14,19 @@
         transform: rotate(1turn);
     }
 }
+
+@media (max-width: 500px){
+    .load{
+        height: 100px;
+        width: 100px;
+        margin-left: 140px;
+    }
+}
+
+@media (width: 540px){
+    .load{
+        height: 100px;
+        width: 100px;
+        margin-left: 230px;
+    }
+}

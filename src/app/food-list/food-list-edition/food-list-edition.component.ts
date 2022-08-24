@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { MAT_DIALOG_DATA } from "@angular/material/dialog";
 import { BehaviorSubject } from "rxjs";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
+import { FoodListComponent } from "../food-list.component";
 
 @Component({
     selector : 'app-food-list-edition',
@@ -24,7 +25,9 @@ export class FoodListEditionComponent {
     @ViewChild("amountInput") amountInputRef!: ElementRef;
     @Output() foodAdded = new EventEmitter<Food>();
     @Output() foodEdited = new EventEmitter<Food>();
-    @Input('edition')  foodEdit!: BehaviorSubject<any>; 
+    @Input('edition')  foodEdit!: BehaviorSubject<any>;
+     
+    
     
     meuFormGroup: FormGroup;
     constructor(private formBuilder: FormBuilder,
@@ -35,31 +38,32 @@ export class FoodListEditionComponent {
         });
     }
 
+   
+
     ngOnInit(): void{
         this.foodEdit.subscribe(res => {
             if(res){
                 this.edition(res)                 
             }
         });
+        
     }
     
     
     addFood(){
         
         if(this.method === 'edit'){  
-            
             const foodName = this.nameInputRef.nativeElement.value;
             const foodAmount = this.amountInputRef.nativeElement.value;
             const newFood = {foodName, foodAmount};
             this.foodID = sessionStorage.getItem('indexFood');
             this.firestore.doc('food/' + this.foodID).update(newFood);
             this.meuFormGroup.reset();
-            
-        }else{
-            
+        }else{    
             if(!this.meuFormGroup.valid){ 
                 return;
             } else{
+
                 const foodName = this.nameInputRef.nativeElement.value;
                 const foodAmount = this.amountInputRef.nativeElement.value;
                 const newFood = {foodName, foodAmount};
@@ -76,5 +80,12 @@ export class FoodListEditionComponent {
         this.meuFormGroup.controls['amount'].setValue(value.datas.foodAmount);
         sessionStorage.setItem('indexFood', value.id);
         // this.meuFormGroup.controls['amount'].setValue(data.datas.foodAmount);
+    }
+
+    changeColor(){
+        if(this.method === 'edit'){
+            let color = document.getElementById('button') as HTMLDivElement;
+            color.style.color = "primary"
+        }
     }
 }

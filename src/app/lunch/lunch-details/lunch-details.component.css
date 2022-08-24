@@ -10,12 +10,33 @@
     cursor: pointer;
 }
 
+.img-responsive{
+  max-height: 300px; 
+  max-width: 400px;
+}
+
 mat-card{
   border-width: 5px;
   border-style: outset;
   border-color: #723CAF;
+  border-radius: 20px;
 }
 
 .button{
   text-decoration: none;
+}
+
+h2{
+  color: #723CAF;
+}
+
+h1{
+  color: black;
+}
+
+@media (max-width: 920px) {
+  .img-responsive{
+    max-width: 250px;
+  }
+      
 }

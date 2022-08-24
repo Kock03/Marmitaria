@@ -9,6 +9,7 @@ import { Lunch } from './lunch.model';
 export class LunchComponent implements OnInit {
 
   selectedPackage!: Lunch;
+  switch!: any
 
   constructor() { }
 
@@ -17,6 +18,14 @@ export class LunchComponent implements OnInit {
     setTimeout(() => {
       template.style.display = 'block';
     }, 5000);
-  }
 
+    this.switch = sessionStorage.getItem('isChecked');
+    setInterval(() => {
+      if(this.switch == 'true'){
+        let darkMode = document.getElementById('row') as HTMLDivElement;
+        darkMode.style.backgroundColor = 'black';
+      }
+    }, 1000);
+  }
+  
 }
