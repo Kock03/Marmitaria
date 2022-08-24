@@ -47,7 +47,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     LunchItemComponent,
     DropdownDirective,
     LunchListDialogComponent,
-    LunchDetailsDialogComponent
+    LunchDetailsDialogComponent,
+    // FileSelectDirective
 
   ],
   entryComponents: [LunchListDialogComponent, LunchDetailsDialogComponent],
@@ -74,7 +75,7 @@ import { FileSelectDirective } from 'ng2-file-upload';
     AngularFirestoreModule,
     AngularFireStorageModule,
     MatSlideToggleModule,
-    FileSelectDirective
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

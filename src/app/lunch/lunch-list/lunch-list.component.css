@@ -2,18 +2,8 @@ mat-icon{
     color: #723CAF;
 }
 
-/* .load{
-    animation: is-rotating 1s infinite;
-    border: 6px solid #e5e5e5;
-    border-radius: 50%;
-    border-top-color: #51d4db;
-    height: 250px;
-    width: 250px;
-    text-align: center;
+button{
+    height: 60px;
+    border-color: #fff;
+    border-radius: 20px;
 }
-
-@keyframes is-rotating{
-    to{
-        transform: rotate(1turn);
-    }
-} */
