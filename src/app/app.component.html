@@ -1,3 +1,4 @@
+
 <mat-toolbar fxLayoutAlign="space-between center">
   <div class="title">
     <a href="#" class="navbar-brand">Restaurante<img src="../assets/envolti.png" alt=""/>
@@ -7,14 +8,40 @@
     <app-header (featureSelected)="onNavigate($event)" ></app-header>
   </div>
 </mat-toolbar>
-<br>
-<!-- <app-header (featureSelected)="onNavigate($event)"></app-header> -->
+<div fxLayout="row">
 
+
+<div class="col" fxLayout="column" fxLayoutAlign="start start">
+  <div class="icon">
+    <mat-icon>perm_identity</mat-icon>
+  </div>
+  <br>
+  <div class="icon">
+    <mat-icon>home</mat-icon>
+  </div>
+  <br>
+  <div class="icon">
+    <mat-icon>settings</mat-icon>
+  </div>
+  <br>
+  <div class="icon">
+    <mat-icon>perm_identity</mat-icon>
+  </div>
+  <br>
+  <div class="icon">
+    <mat-icon>home</mat-icon>
+  </div>
+  <br>
+</div>
 <div class="container">
   <div class="row">
     <div class="col-12">
-      <app-lunch *ngIf="loadedFeature == 'lunch'"></app-lunch>
+      <div class="lunch">
+        <app-lunch *ngIf="loadedFeature == 'lunch'"></app-lunch>
+      </div>
       <app-food-list *ngIf="loadedFeature == 'food-list'"></app-food-list>
     </div>
   </div>
 </div>
+</div >
+

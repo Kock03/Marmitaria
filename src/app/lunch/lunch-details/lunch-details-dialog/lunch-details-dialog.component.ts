@@ -36,6 +36,7 @@ export class LunchDetailsDialogComponent implements OnInit {
       this.myFormGroup = this.formBuilder.group({
         name: ['', Validators.required],
         description: ['', Validators.required],
+        value: ['', Validators.required],
         imagePath: ['', Validators.required]
       });
     }
@@ -53,6 +54,7 @@ export class LunchDetailsDialogComponent implements OnInit {
   
       this.myFormGroup.controls['name'].setValue(data.name);
       this.myFormGroup.controls['description'].setValue(data.description);
+      this.myFormGroup.controls['value'].setValue(data.value);
       this.myFormGroup.controls['imagePath'].setValue(data.imagePath);
     }
 

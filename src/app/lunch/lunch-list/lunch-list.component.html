@@ -1,9 +1,10 @@
-<div id="search" class="search" style="display: none;">
-    <mat-form-field appearance="outline" floatLabel="never">
-        <mat-icon style="text-align: center" matSuffix class="search-lunch-icon">search</mat-icon>
+<div id="search"  style="display: none;">
+    <mat-form-field class="input" appearance="outline" floatLabel="never">
+        <mat-icon  matPrefix class="search-lunch-icon">search</mat-icon>
         <input placeholder="Buscar Comida no Cardápio" style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
     </mat-form-field>
 </div>
+<br>
 <!-- <div id="load" class="load"></div> -->
 <div id="list" class="row" style="display: none;">
     <div class="col-12">

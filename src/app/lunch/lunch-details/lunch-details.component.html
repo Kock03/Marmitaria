@@ -2,32 +2,26 @@
 <br>
 <br>
 <br>
+<br>
+<br>
 <mat-card>
 
     <!-- Nome da Marmita -->
     <div class="row">
         <div class="col-12">
-            <h2>Nome:
-                <h1>{{packageSelected.name}}</h1>
-            </h2>
+            <h1>{{packageSelected.name}}</h1>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <h2>{{packageSelected.description}}</h2>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <img  [src]="packageSelected.imagePath" alt="{{packageSelected.name}}" class="img-responsive" style="border-radius: 20px;">
+            </div>
         </div>
     </div>
-    
-    <!-- Descrição -->
-    <div class="row">
-        <div class="col-12">
-            <h2>Descrição: 
-                <h1>{{packageSelected.description}}</h1>
-            </h2>
-        </div>
-    </div>
-    
-    <div class="row">
-        <div class="col-12">
-            <img [src]="packageSelected.imagePath" alt="{{packageSelected.name}}" class="img-responsive" style="border-radius: 20px;">
-        </div>
-    </div>
-    <br>
     <!-- Menu de Opções -->
     <div class="row">
         <div class="col-12">
@@ -37,18 +31,10 @@
                 </button>
                 <ul class="dropdown-menu">
                     <!-- <li><button class="button">Adicionar Ingredientes</button></li> -->
-                    <li><button class="button"(click)="openDialogDetail()" style="margin-left: 15px;">Editar Comida</button></li>
+                    <li><button class="button"(click)="openDialogDetail()" style="margin-left: 10px;">Editar Comida</button></li>
                 </ul>
             </div>
             
         </div>
     </div>
 </mat-card>
-<!-- Imagem -->
-
-<!-- Ingredientes -->
-<!-- <div class="row">
-    <div class="col-12">
-        Ingredientes
-    </div>
-</div> -->

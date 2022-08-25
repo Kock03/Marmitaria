@@ -30,6 +30,7 @@ export class LunchItemComponent implements OnInit {
   onSelected() {
     this.packageSelected.emit();
     sessionStorage.setItem('lunch', JSON.stringify(this.package));
+    
   }
 
   removeLunch() {

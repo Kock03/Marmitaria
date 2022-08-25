@@ -11,8 +11,11 @@
 }
 
 .img-responsive{
-  max-height: 300px; 
-  max-width: 400px;
+  max-height: 250px; 
+  max-width: 300px;
+  float: right;
+  margin-right: 20px;
+  margin-top: -100px;
 }
 
 mat-card{
@@ -20,18 +23,16 @@ mat-card{
   border-style: outset;
   border-color: #723CAF;
   border-radius: 30px;
+  margin-left: 50px;
 }
 
 .button{
   text-decoration: none;
 }
 
-h2{
-  color: #723CAF;
-}
-
 h1{
   color: black;
+  text-decoration: underline;
 }
 
 @media (max-width: 920px) {

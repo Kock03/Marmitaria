@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewEncapsulation } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Lunch } from '../lunch.model';
 import { LunchListDialogComponent } from './lunch-list-dialog/lunch-list-dialog.component';
@@ -14,6 +14,7 @@ import { DataSource } from '@angular/cdk/collections';
   selector: 'app-lunch-list',
   templateUrl: './lunch-list.component.html',
   styleUrls: ['./lunch-list.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LunchListComponent implements OnInit {
   @Output() packageWasSelected = new EventEmitter<Lunch>();

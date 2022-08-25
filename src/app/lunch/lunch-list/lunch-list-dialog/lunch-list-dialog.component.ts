@@ -24,6 +24,7 @@ export class LunchListDialogComponent implements OnInit {
       this.myFormGroup = this.formBuilder.group({
         name: ['', Validators.required],
         description: ['', Validators.required],
+        value: ['', Validators.required],
         imagePath: ['', Validators.required]
       });
     }
