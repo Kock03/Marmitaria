@@ -44,7 +44,7 @@ mat-toolbar{
 .col{
     width: 100%;
     max-width: 100px;
-    /* height: 100vh; */
+    height: 100vh;
     background-color: #5c068c;
     
 }
@@ -62,12 +62,12 @@ mat-icon{
     width: 50px;
     color: #fff;
     cursor: pointer;
-    margin-top: 5px;    
+    margin-top: 5px;
+
+    
 }
 
-
 .icon{
-    
     background-color: #32b5e5;
     border-radius: 50%;
     width: 50px;

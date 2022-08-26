@@ -11,7 +11,7 @@
 <div fxLayout="row">
 
 
-<div class="col" fxLayout="column" fxLayoutAlign="start start">
+<mat-sidenav-container class="col" fxLayout="column" fxLayoutAlign="start start">
   <div class="icon">
     <mat-icon>perm_identity</mat-icon>
   </div>
@@ -35,14 +35,14 @@
     <img class="footer" src="../assets/envolti.png" alt=""/>
   </footer>
   <br>
-</div>
+</mat-sidenav-container>
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <app-food-list *ngIf="loadedFeature == 'food-list'"></app-food-list>
       <div class="lunch">
         <app-lunch *ngIf="loadedFeature == 'lunch'"></app-lunch>
       </div>
-      <app-food-list *ngIf="loadedFeature == 'food-list'"></app-food-list>
     </div>
   </div>
 </div>
