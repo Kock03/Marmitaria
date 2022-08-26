@@ -38,3 +38,16 @@
         </div>
     </div>
 </mat-card>
+<br>
+<mat-card>
+    <div class="bag">
+        <img src="../assets/sacolas-de-papel.png" class="bagImage" alt="">
+        <div fxLayout="column">
+            <h1 class="bagText">Sacola</h1>
+            <h2>Total: R$ {{packageSelected.value.toFixed(2).replace(".",",")}}</h2>
+        </div>
+    </div>
+    <div class="review">
+        <button class="bagButton"mat-raised-button>Revisar Itens<mat-icon class="arrow">keyboard_arrow_right</mat-icon></button>
+    </div>
+</mat-card>

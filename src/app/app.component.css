@@ -5,7 +5,7 @@ mat-toolbar{
     background: #32b5e5;
     color: white;
 }
-img{
+.header{
     /* margin-top: 0.9px; */
     width: 128px;
 }
@@ -16,14 +16,15 @@ img{
 }
 
 .lunch{
-    overflow: scroll;
+    overflow: auto;
     height: 100%;
-    max-height: 300px;
+    max-height: 800px;
+    overflow-x: hidden;
     
 }
 
 @media (max-width: 700px){
-    img{
+    .header{
         width: 88px;
     }
     .title{
@@ -35,7 +36,7 @@ img{
     .title{
         font-size: 15px;
     }
-    img{
+    .header{
         width: 60px;
     }
 }
@@ -43,8 +44,16 @@ img{
 .col{
     width: 100%;
     max-width: 100px;
-    height: 100vh;
+    /* height: 100vh; */
     background-color: #5c068c;
+    
+}
+
+@media (min-height: 1000px){
+    .col{
+        height: 100vh;
+    }
+
 }
 
 mat-icon{
@@ -53,16 +62,24 @@ mat-icon{
     width: 50px;
     color: #fff;
     cursor: pointer;
-    margin: 5px;
-
-    
+    margin-top: 5px;    
 }
+
 
 .icon{
     
     background-color: #32b5e5;
-    border-radius: 30px;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
     margin: 20px;
-    overflow: clip;
+    text-align: center;
 
+}
+
+.footer{
+    margin: 10px;
+    width: 80px;
+    position: absolute;
+    bottom: 0;
 }

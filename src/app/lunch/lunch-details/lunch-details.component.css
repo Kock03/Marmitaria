@@ -23,7 +23,6 @@ mat-card{
   border-style: outset;
   border-color: #723CAF;
   border-radius: 30px;
-  margin-left: 50px;
 }
 
 .button{
@@ -38,6 +37,41 @@ h1{
 @media (max-width: 920px) {
   .img-responsive{
     max-width: 250px;
-  }
-      
+  } 
+}
+
+.bag{
+  display: inline-flex;
+  color: #9b989f;
+}
+
+.bagImage{
+  width: 100px;
+  height: 100px;
+}
+
+.bagText{
+  margin-top: 25px;
+  font-size: 30px;
+}
+
+.review{
+  float: right;
+  margin-top: 60px;
+}
+
+.arrow{
+  color: #fff;
+}
+
+.bagButton{
+  width: 150px;
+  height: 30px;
+  font-size: 17px;
+  float: left;
+  background-color: #32b5e5;
+  color: #fff;
+  line-height: 30px;
+  border-radius: 16px;
+  margin-top: 35px;
 }
