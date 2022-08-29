@@ -42,8 +42,12 @@ export class LunchDetailsComponent{
     }
 
     sum(){
-        let sum = this.packageSelected.value;
-        console.log(sum);
+        let sum = 0;
+        for(let i = 0; i < 10; i++){
+            sum = sum + this.packageSelected.value;
+            console.log(sum);
+            return
+        }
     }
 }
 
