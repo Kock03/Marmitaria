@@ -4,6 +4,9 @@ import { LunchListComponent } from "../lunch-list/lunch-list.component";
 import { LunchListDialogComponent } from "../lunch-list/lunch-list-dialog/lunch-list-dialog.component";
 import { MatDialog } from "@angular/material/dialog";
 import { LunchDetailsDialogComponent } from "./lunch-details-dialog/lunch-details-dialog.component";
+import { reduce } from "rxjs";
+import { AngularFirestore } from '@angular/fire/compat/firestore';
+
 
 
 @Component({
@@ -18,7 +21,7 @@ export class LunchDetailsComponent{
     index!: any
     @Input() packageSelected!: Lunch;
     @Input() packages!: any;
-    constructor(public dialogDetail: MatDialog, private cdr: ChangeDetectorRef){}
+    constructor(public dialogDetail: MatDialog, private cdr: ChangeDetectorRef, private firestore: AngularFirestore){}
     ngOnInit(): void {
         this.index = sessionStorage.getItem('index')
     }
@@ -36,6 +39,11 @@ export class LunchDetailsComponent{
     removeLunch(){
         this.packages.splice(this.index, 1);
         // console.log("🚀 ~ file: lunch-details.component.ts ~ line 34 ~ LunchDetailsComponent ~ removeLunch ~ this.index", this.index)
-        }
+    }
+
+    sum(){
+        let sum = this.packageSelected.value;
+        console.log(sum);
+    }
 }
 
