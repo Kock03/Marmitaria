@@ -35,12 +35,12 @@ img{
 }
 
 .arrow{
-    margin-bottom: -8px;
+    margin-bottom: -6px;
 }
 
 .list-group-item-text{
     float: right;
-    /* margin-top: 20px; */
+    margin-bottom: 0%;
 }
 
 .value{

@@ -7,15 +7,15 @@
         ></app-food-list-edition>
         <hr>
         <div class="search">
-         <mat-form-field appearance="outline" floatLabel="never">
-             <mat-icon style="text-align: center;" matSuffix class="search-lunch-icon">search</mat-icon>
-             <input placeholder="Buscar no Estoque " style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
-         </mat-form-field>
-         </div>
+        <mat-form-field appearance="outline" floatLabel="never">
+            <mat-icon style="text-align: center;" matSuffix class="search-lunch-icon">search</mat-icon>
+            <input placeholder="Buscar no Estoque " style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
+        </mat-form-field>
+        </div>
         <ul class="list-group">
             <a *ngFor="let food of foodEx | filter: filter"   
                 class="list-group-item" 
-                style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center" >
+                style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center">
                <h3 style="margin-top: 10px;">{{food.datas.foodName}} ({{food.datas.foodAmount}})</h3>
                <div>
                    <button (click)="onDelete(food.id)" mat-button style="float:right;">

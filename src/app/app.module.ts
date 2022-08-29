@@ -33,6 +33,8 @@ import { AngularFirestore, AngularFirestoreModule} from '@angular/fire/compat/fi
 import { AngularFireStorageModule } from '@angular/fire/compat/storage';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FileSelectDirective } from 'ng2-file-upload';
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { provideAuth,getAuth } from '@angular/fire/auth';
 
 
 
@@ -76,6 +78,8 @@ import { FileSelectDirective } from 'ng2-file-upload';
     AngularFirestoreModule,
     AngularFireStorageModule,
     MatSlideToggleModule,
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(() => getAuth()),
     
   ],
   providers: [],
