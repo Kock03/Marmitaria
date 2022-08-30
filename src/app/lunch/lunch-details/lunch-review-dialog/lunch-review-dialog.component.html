@@ -2,7 +2,7 @@
     Sua Sacola!
 </h1>
 <div class="infos">
-    <h2>{{this.bagName}}</h2>
+    <h2>Item(ns): <br>{{this.bagName.toString().replace('"', ' ')}}</h2>
 </div>
 <div class="col-12">
     <h2>R$: {{this.bagValue.toFixed(2).replace(".",",")}}</h2>

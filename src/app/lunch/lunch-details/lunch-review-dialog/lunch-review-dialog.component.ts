@@ -9,14 +9,14 @@ import { Lunch } from '../../lunch.model';
 export class LunchReviewDialogComponent implements OnInit {
   @Input() packageSelected!: Lunch;
   bagValue: number;
-  bagName: any;
+  bagName!: any;
 
 
   constructor() { }
 
   ngOnInit(): void {
     this.bagValue = JSON.parse(sessionStorage.getItem('value')!);
-    this.bagName = sessionStorage.getItem('name');
+    this.bagName = JSON.parse(sessionStorage.getItem('name')!);
   }
 
 }

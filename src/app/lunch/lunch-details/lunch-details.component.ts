@@ -20,7 +20,7 @@ import { serverTimestamp } from "@firebase/firestore";
 
 export class LunchDetailsComponent{
     index!: any
-    packageValue!: any
+    packageName: Array<string> = [];
     sum!: number;
     @Input() packageSelected!: Lunch;
     @Input() packages!: any;
@@ -48,13 +48,16 @@ export class LunchDetailsComponent{
 
     sumPackage(){
         this.sum = this.sum + this.packageSelected.value
-        sessionStorage.setItem('name', this.packageSelected.name);
-        
+        this.packageName.push(JSON.stringify(this.packageSelected.name));
+        sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
     }
     
     openDialogReview(){
         const dialogRef = this.dialogDetail.open(LunchReviewDialogComponent, {
         });
+        if(this.sum == 0){
+            sessionStorage.clear();
+        }
         sessionStorage.setItem('value',JSON.stringify(this.sum))!; 
         
     }
