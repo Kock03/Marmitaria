@@ -6,6 +6,8 @@ import { MatDialog } from "@angular/material/dialog";
 import { LunchDetailsDialogComponent } from "./lunch-details-dialog/lunch-details-dialog.component";
 import { reduce } from "rxjs";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { LunchReviewDialogComponent } from "./lunch-review-dialog/lunch-review-dialog.component";
+import { serverTimestamp } from "@firebase/firestore";
 
 
 
@@ -17,21 +19,24 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 })
 
 export class LunchDetailsComponent{
-    
     index!: any
+    packageValue!: any
+    sum!: number;
     @Input() packageSelected!: Lunch;
     @Input() packages!: any;
     constructor(public dialogDetail: MatDialog, private cdr: ChangeDetectorRef, private firestore: AngularFirestore){}
     ngOnInit(): void {
+        sessionStorage.setItem('value',  JSON.stringify(this.packageSelected.value));
         this.index = sessionStorage.getItem('index')
+        this.sum = 0;
     }
-
+    
     openDialogDetail(){
         const dialogRef = this.dialogDetail.open(LunchDetailsDialogComponent, {
         });
         
         dialogRef.afterClosed().subscribe(result => {
-                this.packageSelected = JSON.parse(sessionStorage.getItem('lunch')!);
+            this.packageSelected = JSON.parse(sessionStorage.getItem('lunch')!);
             
         });
     }
@@ -41,13 +46,17 @@ export class LunchDetailsComponent{
         // console.log("🚀 ~ file: lunch-details.component.ts ~ line 34 ~ LunchDetailsComponent ~ removeLunch ~ this.index", this.index)
     }
 
-    sum(){
-        let sum = 0;
-        for(let i = 0; i < 10; i++){
-            sum = sum + this.packageSelected.value;
-            console.log(sum);
-            return
-        }
+    sumPackage(){
+        this.sum = this.sum + this.packageSelected.value
+        sessionStorage.setItem('name', this.packageSelected.name);
+        
+    }
+    
+    openDialogReview(){
+        const dialogRef = this.dialogDetail.open(LunchReviewDialogComponent, {
+        });
+        sessionStorage.setItem('value',JSON.stringify(this.sum))!; 
+        
     }
 }
 

@@ -35,6 +35,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { FileSelectDirective } from 'ng2-file-upload';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
+import { LunchReviewDialogComponent } from './lunch/lunch-details/lunch-review-dialog/lunch-review-dialog.component';
 
 
 
@@ -51,6 +52,7 @@ import { provideAuth,getAuth } from '@angular/fire/auth';
     DropdownDirective,
     LunchListDialogComponent,
     LunchDetailsDialogComponent,
+    LunchReviewDialogComponent,
     // FileSelectDirective
 
   ],

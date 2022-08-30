@@ -32,7 +32,7 @@
                 <ul class="dropdown-menu">
                     <!-- <li><button class="button">Adicionar Ingredientes</button></li> -->
                     <li><button class="button"(click)="openDialogDetail()" style="margin-left: 10px;">Editar Comida</button></li>
-                    <li><button class="button" (click)="sum()" style="margin-left: 10px;">Adicionar a Sacola</button></li>
+                    <li><button class="button" (click)="sumPackage()" style="margin-left: 10px;">Adicionar a Sacola</button></li>
                 </ul>
             </div>
             
@@ -45,10 +45,10 @@
         <img src="../assets/sacolas-de-papel.png" class="bagImage" alt="">
         <div fxLayout="column">
             <h1 class="bagText">Sacola</h1>
-            <h2>Total: R$ {{packageSelected.value.toFixed(2).replace(".",",")}}</h2>
+            <h2>Total: R$ {{this.sum.toFixed(2).replace(".",",")}}</h2>
         </div>
     </div>
     <div class="review">
-        <button class="bagButton"mat-raised-button>Revisar Itens<mat-icon class="arrow">keyboard_arrow_right</mat-icon></button>
+        <button class="bagButton"mat-raised-button (click)="openDialogReview()">Revisar Itens<mat-icon class="arrow">keyboard_arrow_right</mat-icon></button>
     </div>
 </mat-card>
