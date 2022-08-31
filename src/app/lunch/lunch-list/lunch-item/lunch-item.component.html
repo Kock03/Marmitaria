@@ -1,7 +1,7 @@
 <mat-card>
     <div class="list-group-item clearfix">
         <div class="float-start" style="cursor: pointer;">
-            <img [src]="package.imagePath" alt="{{package.name}}" class="img-responsive" (click)="onSelected()"  style="max-height: 110px;" style="max-width: 170px;">
+            <img [src]="package.imagePath"  class="img-responsive" (click)="onSelected()"  style="max-height: 110px;" style="max-width: 170px;">
             <button mat-button class="trash" (click)="removeLunch()">
                 <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
             </button>

@@ -21,6 +21,8 @@ import { serverTimestamp } from "@firebase/firestore";
 export class LunchDetailsComponent{
     index!: any
     packageName: Array<string> = [];
+    packageValue: Array<string> = [];
+    packageImage: Array<string> = [];
     sum!: number;
     @Input() packageSelected!: Lunch;
     @Input() packages!: any;
@@ -43,13 +45,19 @@ export class LunchDetailsComponent{
 
     removeLunch(){
         this.packages.splice(this.index, 1);
-        // console.log("🚀 ~ file: lunch-details.component.ts ~ line 34 ~ LunchDetailsComponent ~ removeLunch ~ this.index", this.index)
     }
 
     sumPackage(){
         this.sum = this.sum + this.packageSelected.value
-        this.packageName.push(JSON.stringify(this.packageSelected.name));
+        let bagValue = JSON.stringify(this.packageSelected.value.toFixed(2).replace(".", ",") )
+        let bagName = JSON.stringify(this.packageSelected.name)
+        let bagImage = this.packageSelected.imagePath
+        this.packageName.push(bagName);
+        this.packageValue.push('R$ ' + bagValue);
+        this.packageImage.push(bagImage);
         sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
+        sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;
+        sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
     }
     
     openDialogReview(){

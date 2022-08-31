@@ -10,6 +10,9 @@ export class LunchReviewDialogComponent implements OnInit {
   @Input() packageSelected!: Lunch;
   bagValue: number;
   bagName!: any;
+  bagValueBag!: any;
+  bagLenght!: number;
+  bagImage!: any;
 
 
   constructor() { }
@@ -17,6 +20,8 @@ export class LunchReviewDialogComponent implements OnInit {
   ngOnInit(): void {
     this.bagValue = JSON.parse(sessionStorage.getItem('value')!);
     this.bagName = JSON.parse(sessionStorage.getItem('name')!);
+    this.bagValueBag = JSON.parse(sessionStorage.getItem('valueBag')!);
+    this.bagImage = JSON.parse(sessionStorage.getItem('imageLink')!);
+    this.bagLenght = JSON.parse(sessionStorage.getItem('lenght')!);
   }
-
 }

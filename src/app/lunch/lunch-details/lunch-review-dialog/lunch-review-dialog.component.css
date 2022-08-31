@@ -1,0 +1,47 @@
+img{
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #5c068c; 
+}
+
+li{
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+}
+
+h2{
+    margin-top: 10px;
+}
+
+.btn{
+    width: 250px;
+    height: 30px;
+    font-size: 17px;
+    float: right;
+    text-align: center;
+    color: #fff;
+    line-height: 30px;
+    border-radius: 16px;
+    padding-top: 0;
+}
+
+.col-12{
+    float: right;
+}
+
+.container{
+    overflow: auto;
+}
+
+ul{
+    margin: 0;
+}
+
+.value{
+    font-size: 2px;
+}
