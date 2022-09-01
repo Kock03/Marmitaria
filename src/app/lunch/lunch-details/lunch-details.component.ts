@@ -49,11 +49,11 @@ export class LunchDetailsComponent{
 
     sumPackage(){
         this.sum = this.sum + this.packageSelected.value
-        let bagValue = JSON.stringify(this.packageSelected.value.toFixed(2).replace(".", ",") )
+        let bagValue = JSON.stringify(this.packageSelected.value)
         let bagName = JSON.stringify(this.packageSelected.name)
         let bagImage = this.packageSelected.imagePath
         this.packageName.push(bagName);
-        this.packageValue.push('R$ ' + bagValue);
+        this.packageValue.push(bagValue);
         this.packageImage.push(bagImage);
         sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
         sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;

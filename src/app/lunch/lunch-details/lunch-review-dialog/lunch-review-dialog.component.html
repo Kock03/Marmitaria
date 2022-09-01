@@ -3,21 +3,28 @@
         Sua Sacola!
     </h1>
     <div class="infos" >
-        <h2>Item(ns):</h2>
+        <h2 class="item">Item(ns):</h2>
+        <br>
         <ul fxLayout="row" >
             <div fxLayout="column">
-                <h2>
-                    <li fxLayout="row" *ngFor="let packageBag of bagName; let i = index">
-                        <img [src]="bagImage[i]"><br>{{packageBag.toString().replaceAll('"', ' ')}}<br>
-                        {{bagValueBag[i].replaceAll('"', ' ')}}
-                    <br><br></li>
-                </h2>
+                <li fxLayout="row" *ngFor="let packageBag of bagName; let i = index">
+                    <img class="bagImage" [src]="bagImage[i]">
+                    <div class="col">
+                        <h2 class="bagName">{{packageBag.toString().replaceAll('"', ' ')}}</h2><img (click)="removeFoodBag(i)" class="bagRemove" src="../assets/menos.png">
+                        <p>R$ {{this.bagValueBag[i].replaceAll('"', ' ').replace(".",",")}}</p>
+                    </div>
+                    <br><br><br><br><br>
+                </li>
             </div>
         </ul>
     </div>
     <div class="col-12">
-        <h2>Total R$: {{this.bagValue.toFixed(2).replace(".",",")}}</h2>
+        <h2 class="total">Total R$: {{this.bagValue.toFixed(2).replace(".",",")}}</h2>
     </div>
+    <br>
+    <br>
+    <br>
+    <br>
     <footer>
         <button class="btn btn-success">Continuar para Pagamento</button>
     </footer>

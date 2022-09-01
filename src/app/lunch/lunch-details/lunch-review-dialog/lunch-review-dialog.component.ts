@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { timeStamp } from 'console';
 import { Lunch } from '../../lunch.model';
 
 @Component({
@@ -8,6 +9,8 @@ import { Lunch } from '../../lunch.model';
 })
 export class LunchReviewDialogComponent implements OnInit {
   @Input() packageSelected!: Lunch;
+  @Output() delete: EventEmitter<any> = new EventEmitter();
+
   bagValue: number;
   bagName!: any;
   bagValueBag!: any;
@@ -23,5 +26,13 @@ export class LunchReviewDialogComponent implements OnInit {
     this.bagValueBag = JSON.parse(sessionStorage.getItem('valueBag')!);
     this.bagImage = JSON.parse(sessionStorage.getItem('imageLink')!);
     this.bagLenght = JSON.parse(sessionStorage.getItem('lenght')!);
+    
+  }
+
+  removeFoodBag(i: any){
+    this.bagValue = this.bagValue - this.bagValueBag[i];
+    this.bagImage.splice(i, 1);
+    this.bagName.splice(i, 1);
+    this.bagValueBag.splice(i, 1);
   }
 }

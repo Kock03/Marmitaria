@@ -1,4 +1,4 @@
-img{
+.bagImage{
     width: 90px;
     height: 90px;
     border-radius: 50%;
@@ -8,14 +8,41 @@ img{
     border-color: #5c068c; 
 }
 
+.col-12{
+    text-align: center;
+    align-items: center;
+}
+
+.bagRemove{
+    float: right;
+    cursor: pointer;
+}
+
 li{
     display: flex;
     flex-direction: row;
     margin-left: 0;
 }
 
-h2{
-    margin-top: 10px;
+.item{
+    margin: 0;
+    margin-top: 15px;
+}
+
+.bagName{
+    margin: 0;
+    margin-top: 15px;
+}
+
+.total{
+    float: right;
+}
+
+p{
+    margin: 0;
+    margin-left: 5px;
+    color: green;
+    font-size: 15px;
 }
 
 .btn{
@@ -36,10 +63,14 @@ h2{
 
 .container{
     overflow: auto;
+    height: 100%;
+    max-height: 800px;
 }
 
 ul{
     margin: 0;
+    padding-left: 0;
+    float: left;
 }
 
 .value{
