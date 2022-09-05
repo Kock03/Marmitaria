@@ -35,11 +35,18 @@
 .amount{
     align-items: center;
     text-align: center;
+   
+    display: flex;
+    right: 0;
+}
+
+.amount-son{
     border-width: thin;
     border-style: solid;
     border-color: darkgrey;
-    display: flex;
-    right: 0;
+    width: 100px;
+    height: 30px;
+    float: right;
 }
 
 .addNumber{

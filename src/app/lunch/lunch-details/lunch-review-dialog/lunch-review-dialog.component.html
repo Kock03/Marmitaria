@@ -11,12 +11,14 @@
                     <img class="bagImage" [src]="bagImage[i]">
                     <div class="col">
                         <h2 class="bagName">{{packageBag.toString().replaceAll('"', ' ')}}</h2>
-                        <div fxLayoutAlign="space-evenly center" class="amount">
+                        <div  class="amount">
                             <p class="bagValue">R$ {{this.bagValueBag[i]}}</p>
-                            <mat-icon style="display: none;" id="bagRemove" (click)="removeFoodBag(i)">remove_circle_outline</mat-icon>
-                            <mat-icon role="img" id="remove" (click)="removeFoodBag(i)" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
-                            <p style="text-align: center;" class="addNumber">{{this.addNumber}}</p>
-                            <mat-icon class="bagAdd" (click)="addFoodBag(i)">add_circle_outline</mat-icon>
+                            <div fxLayoutAlign="space-evenly center" class="amount-son">
+                                <mat-icon style="display: none;" id="bagRemove" (click)="removeFoodBag(i)">remove_circle_outline</mat-icon>
+                                <mat-icon role="img" id="remove" (click)="removeFoodBag(i)" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
+                                <p style="text-align: center;" class="addNumber">{{this.addNumber}}</p>
+                                <mat-icon class="bagAdd" (click)="addFoodBag(i)">add_circle_outline</mat-icon>
+                            </div>
                         </div>
                     </div>
                     <br><br><br><br><br>
