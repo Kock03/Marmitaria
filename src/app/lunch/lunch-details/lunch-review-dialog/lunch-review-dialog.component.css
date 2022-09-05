@@ -13,9 +13,37 @@
     align-items: center;
 }
 
-.bagRemove{
+#bagRemove{
     float: right;
     cursor: pointer;
+    color: #5c068c;
+    height: 23px;
+    width: 23px;
+}
+
+#remove{
+    float:right;
+    cursor: pointer;
+}
+
+.bagAdd{
+    float: right;
+    cursor: pointer;
+    color: #5c068c;
+}
+
+.amount{
+    align-items: center;
+    text-align: center;
+    border-width: thin;
+    border-style: solid;
+    border-color: darkgrey;
+    display: flex;
+    right: 0;
+}
+
+.addNumber{
+    margin-top: 12px;
 }
 
 li{
@@ -38,7 +66,7 @@ li{
     float: right;
 }
 
-p{
+.bagValue{
     margin: 0;
     margin-left: 5px;
     color: green;
