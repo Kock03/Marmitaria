@@ -36,6 +36,9 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { LunchReviewDialogComponent } from './lunch/lunch-details/lunch-review-dialog/lunch-review-dialog.component';
+import { LoginComponent } from './login/login.component';
+import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
+import { AuthService } from './shared/services/auth.service';
 
 
 
@@ -53,6 +56,7 @@ import { LunchReviewDialogComponent } from './lunch/lunch-details/lunch-review-d
     LunchListDialogComponent,
     LunchDetailsDialogComponent,
     LunchReviewDialogComponent,
+    LoginComponent,
     // FileSelectDirective
 
   ],
@@ -80,11 +84,12 @@ import { LunchReviewDialogComponent } from './lunch/lunch-details/lunch-review-d
     AngularFirestoreModule,
     AngularFireStorageModule,
     MatSlideToggleModule,
+    AngularFireAuthModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
     
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
