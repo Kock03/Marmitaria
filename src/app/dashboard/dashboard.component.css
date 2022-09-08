@@ -3,8 +3,9 @@ mat-toolbar{
     background: #32b5e5;
     color: white;
 }
+
 .header{
-    /* margin-top: 0.9px; */
+    
     width: 128px;
 }
 

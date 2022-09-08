@@ -56,4 +56,12 @@ h1{
     text-decoration: underline;
 }
 
+.list-group-item-text:hover{
+    color: #32b5e5;
+}
+
+.arrow:hover{
+    color: #32b5e5;
+}
+
 

@@ -69,7 +69,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     // FileSelectDirective
 
   ],
-  entryComponents: [LunchListDialogComponent, LunchDetailsDialogComponent],
+  // entryComponents: [LunchListDialogComponent, LunchDetailsDialogComponent],
   imports: [
     BrowserModule,
     MatDialogModule,
