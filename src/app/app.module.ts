@@ -36,9 +36,14 @@ import { FileSelectDirective } from 'ng2-file-upload';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
 import { provideAuth,getAuth } from '@angular/fire/auth';
 import { LunchReviewDialogComponent } from './lunch/lunch-details/lunch-review-dialog/lunch-review-dialog.component';
-import { LoginComponent } from './login/login.component';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AuthService } from './shared/services/auth.service';
+import { SignInComponent } from './sign-in/sign-in.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { SignUpComponent } from './sign-up/sign-up.component';
+import { VerifyEmailComponent } from './verify-email/verify-email.component';
+import { AppRoutingModule } from './app-routing.module';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 
 
@@ -56,7 +61,11 @@ import { AuthService } from './shared/services/auth.service';
     LunchListDialogComponent,
     LunchDetailsDialogComponent,
     LunchReviewDialogComponent,
-    LoginComponent,
+    SignInComponent,
+    ForgotPasswordComponent,
+    SignUpComponent,
+    VerifyEmailComponent,
+    DashboardComponent,
     // FileSelectDirective
 
   ],
@@ -85,8 +94,9 @@ import { AuthService } from './shared/services/auth.service';
     AngularFireStorageModule,
     MatSlideToggleModule,
     AngularFireAuthModule,
-    provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
+    // provideFirebaseApp(() => initializeApp(environment.firebase)),
+    // provideAuth(() => getAuth()),
+    AppRoutingModule,
     
   ],
   providers: [AuthService],

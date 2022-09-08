@@ -1,9 +1,6 @@
 <div class="container">
-    <div class="image-responsive">
-        <img class="img-login"src="../assets/login.jpg" alt="">
-    </div>
     <div class="login">
-        <img class="logo"src="../assets/envolti.png" alt="envolti">
+        <img class="logo"src="../assets/envolti-dark.png" alt="envolti">
         <h1 class="welcome">Bem-vindo</h1>
         <h3 class="subtitle">Falta pouco para matar sua fome!</h3>
         <button type="button" class="login-with-google" (click)="authService.GoogleAuth()">Login com o Google</button>
@@ -31,5 +28,8 @@
             <br>
         </div>
         <p class="dont-cont">Não tem uma conta? <a class="cadastre" routerLink="/register-user"> Cadastre-se</a></p>
+    </div>
+    <div class="image-responsive">
+        <img class="img-login"src="../assets/login.jpg" alt="">
     </div>
 </div>

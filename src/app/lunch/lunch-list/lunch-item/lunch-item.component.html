@@ -10,9 +10,9 @@
             <h1 class="list-group-item-heading">{{package.name}}</h1>
             <br>
             <p class="value">R$ {{package.value.toFixed(2).replace(".", ",")}}</p>
-            <a href="#" class="list-group-item clearfix">
+            <span class="list-group-item clearfix"> 
                 <p class="list-group-item-text" (click)="onSelected()">Saiba Mais<mat-icon class="arrow">keyboard_arrow_right</mat-icon></p>
-            </a>
+            </span>
         </div>
     </div>
 </mat-card>

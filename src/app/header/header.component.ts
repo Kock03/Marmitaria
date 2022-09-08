@@ -1,4 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { AuthService } from '../shared/services/auth.service';
 
 @Component({
   selector: 'app-header',
@@ -8,7 +9,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 export class HeaderComponent implements OnInit {
   isChecked = true;
 
-  constructor() { }
+  constructor(public authService: AuthService) { }
   @Output() featureSelected = new EventEmitter<string>();
   onSelect(feature: string){
     this.featureSelected.emit(feature)

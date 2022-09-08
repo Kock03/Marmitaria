@@ -2,26 +2,26 @@
     <div class="container">
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
-                <li class="nav-item"><a href="#" (click)="onSelect('lunch')" class="nav-link"><img src="../assets/cardapio.png" alt=""></a></li>
-                <li class="nav-item"><a href="#" (click)="onSelect('food-list')" class="nav-link"><img src="../assets/caixa.png" alt=""></a></li>
+                <li class="nav-item"><a href="javascript:void(0)" (click)="onSelect('lunch')" class="nav-link"><img src="../assets/cardapio.png" alt=""></a></li>
+                <li class="nav-item"><a href="javascript:void(0)" (click)="onSelect('food-list')" class="nav-link"><img src="../assets/caixa.png" alt=""></a></li>
             </ul>
             <ul class="nav navbar-nav">
                 <li class="dropdown">
-                    <a href="#" class="nav-link dropdown-toggle" appDropdown><img src="../assets/ferramentas.png" alt=""></a>
+                    <a href="javascript:void(0)" class="nav-link dropdown-toggle" appDropdown><img src="../assets/ferramentas.png" alt=""></a>
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="#" class="nav-normal-link" style="margin-left: 10px;" (click)="shutdown()"><img src="../assets/log-out.png" alt=""></a></li>
-                        <!-- <li class="nav-item"><a href="#" class="nav-normal-link" style="margin-left: 10px;">{{isChecked == true ? 'Modo Escuro ' : 'Modo Claro '}}<mat-slide-toggle [(ngModel)]="isChecked" (click)='switchMode()'color="primary"></mat-slide-toggle></a></li> -->
+                        <li class="nav-item"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="authService.SignOut()"><img src="../assets/log-out.png" alt=""></a></li>
+                        <!-- <li class="nav-item"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;">{{isChecked == true ? 'Modo Escuro ' : 'Modo Claro '}}<mat-slide-toggle [(ngModel)]="isChecked" (click)='switchMode()'color="primary"></mat-slide-toggle></a></li> -->
                     </ul>
                 </li>
             </ul>
             <div class="dropdown-menus">
                 <ul class="nav navbar-nav">
                     <li class="menu">
-                        <a href="#" class="nav-link dropdown-toggle" appDropdown><mat-icon>menu</mat-icon></a>
+                        <a href="javascript:void(0)" class="nav-link dropdown-toggle" appDropdown><mat-icon>menu</mat-icon></a>
                         <ul class="dropdown-menu">
-                            <li class="nav-item-menu"><a href="#" (click)="onSelect('lunch')" style="margin-left: 10px;" class="nav-link-menu"><img src="../assets/menu-cel.png" alt=""></a></li>
-                            <li class="nav-item-menu"><a href="#" (click)="onSelect('food-list')" style="margin-left: 10px;" class="nav-link-menu"><img src="../assets/caixa-cel.png" alt=""></a></li>
-                            <li class="nav-item-menu"><a href="#" class="nav-normal-link" style="margin-left: 10px;" (click)="shutdown()"><img src="../assets/log-out.png" alt=""></a></li>
+                            <li class="nav-item-menu"><a href="javascript:void(0)" (click)="onSelect('lunch')" style="margin-left: 10px;" class="nav-link-menu"><img src="../assets/menu-cel.png" alt=""></a></li>
+                            <li class="nav-item-menu"><a href="javascript:void(0)" (click)="onSelect('food-list')" style="margin-left: 10px;" class="nav-link-menu"><img src="../assets/caixa-cel.png" alt=""></a></li>
+                            <li class="nav-item-menu"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="shutdown()"><img src="../assets/log-out.png" alt=""></a></li>
                         </ul>
                     </li>
                 </ul>

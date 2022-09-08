@@ -1,0 +1,46 @@
+<mat-toolbar fxLayoutAlign="space-between center">
+    <div class="title">
+        <a href="javascript:void(0)" class="navbar-brand">Restaurante Envolti
+        </a>
+    </div>
+    <div class="toolybar">
+        <app-header (featureSelected)="onNavigate($event)"></app-header>
+    </div>
+</mat-toolbar>
+<div fxLayout="row"> 
+<mat-sidenav mode="side" opened class="col" fxLayout="column" fxLayoutAlign="start start">
+    <div class="icon">
+        <mat-icon>perm_identity</mat-icon>
+    </div>
+    <br>
+    <div class="icon">
+        <mat-icon>home</mat-icon>
+    </div>
+    <br>
+    <div class="icon">
+        <mat-icon> fastfood</mat-icon>
+    </div>
+    <br>
+    <div class="icon">
+        <mat-icon> local_grocery_store</mat-icon>
+    </div>
+    <br>
+    <div class="icon">
+        <mat-icon>settings</mat-icon>
+    </div>
+    <footer>
+        <img class="footer" src="../assets/envolti.png" alt=""/>
+    </footer>
+    <br>
+</mat-sidenav>
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <div class="lunch">
+                <app-lunch *ngIf="loadedFeature == 'lunch'"></app-lunch>
+                <app-food-list *ngIf="loadedFeature == 'food-list'"></app-food-list>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
