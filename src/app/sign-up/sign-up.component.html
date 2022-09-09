@@ -10,7 +10,7 @@
         <br>
         <div class="adress">
             <p class="name"><b>Nome:</b></p>
-            <input class="input-name" type="text" placeholder="Seu nome" #userName required>
+            <input class="input-name" id="name" type="text" placeholder="Seu nome" #userName required>
             <br>
             <br>
             <p class="email"><b>Endereço de e-mail:</b></p>
@@ -19,16 +19,17 @@
             <br>
             <p class="password"><b>Senha:</b></p>
             <input class="input-password" type="password" placeholder="Sua Senha" #userPwd required>
+            <input type="checkbox" name="100" id="check"><p>Admin</p>
             <br>
             <br>
             <div class="politic">
-                <mat-slide-toggle color="primary" >Eu concordo com os <span class="up">Termos de Uso</span> e <span class="up">Políticas de Privacidade</span> </mat-slide-toggle>
+                <mat-slide-toggle color="primary" (click)=" slideToogleChecked()">Eu concordo com os <span class="up">Termos de Uso</span> e <span class="up">Políticas de Privacidade</span> </mat-slide-toggle>
                 <br>
                 <p class="risk">----------------------------------</p><p> OU </p><p class="risk">----------------------------------</p>
                 <br>
                 <button type="button" class="login-with-google" (click)="authService.GoogleAuth()">Login com o Google</button>
                 <br>
-                <a href="javascript:void(0)" class="button" (click)="authService.SignUp(userEmail.value, userPwd.value)">Cadastrar conta</a>
+                <a href="javascript:void(0)" class="button" (click)="terms_of_use(userEmail.value, userPwd.value)">Cadastrar conta</a>
             </div>
         </div>
     </div>

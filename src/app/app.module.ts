@@ -44,6 +44,7 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { ProfileDialogComponent } from './dashboard/profile-dialog/profile-dialog.component';
 
 
 
@@ -66,6 +67,7 @@ import { DashboardComponent } from './dashboard/dashboard.component';
     SignUpComponent,
     VerifyEmailComponent,
     DashboardComponent,
+    ProfileDialogComponent,
     // FileSelectDirective
 
   ],

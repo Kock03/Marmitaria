@@ -10,11 +10,11 @@
 <div fxLayout="row"> 
 <mat-sidenav mode="side" opened class="col" fxLayout="column" fxLayoutAlign="start start">
     <div class="icon">
-        <mat-icon>perm_identity</mat-icon>
+        <mat-icon (click)="openDialog()">perm_identity</mat-icon>
     </div>
     <br>
     <div class="icon">
-        <mat-icon>home</mat-icon>
+        <mat-icon (click)="reload()">home</mat-icon>
     </div>
     <br>
     <div class="icon">

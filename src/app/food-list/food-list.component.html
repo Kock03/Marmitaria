@@ -16,15 +16,15 @@
             <a *ngFor="let food of foodEx | filter: filter"   
                 class="list-group-item" 
                 style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center">
-               <h3 style="margin-top: 10px;">{{food.datas.foodName}} ({{food.datas.foodAmount}})</h3>
-               <div>
-                   <button (click)="onDelete(food.id)" mat-button style="float:right;">
-                       <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
-                   </button>
-                   <button (click)="edit(food)" mat-button style="float:right;">
-                       <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">edit</mat-icon>
-                   </button>
-               </div>
+                <h3 style="margin-top: 10px;">{{food.datas.foodName}} ({{food.datas.foodAmount}})</h3>
+                <div>
+                    <button (click)="onDelete(food.id)" mat-button style="float:right;">
+                        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
+                    </button>
+                    <button (click)="edit(food)" mat-button style="float:right;">
+                        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">edit</mat-icon>
+                    </button>
+                </div>
             </a>          
         </ul>
     </div>
