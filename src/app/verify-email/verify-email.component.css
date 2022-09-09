@@ -12,6 +12,7 @@
 }
 
 .image{
+    margin-top: 5px;
     border-radius: 50%;
     width: 20%;
 }
