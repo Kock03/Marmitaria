@@ -8,6 +8,7 @@ import { AuthService } from '../shared/services/auth.service';
 })
 export class HeaderComponent implements OnInit {
   isChecked = true;
+  boxMode: boolean = false;
 
   constructor(public authService: AuthService) { }
   @Output() featureSelected = new EventEmitter<string>();
@@ -15,11 +16,7 @@ export class HeaderComponent implements OnInit {
     this.featureSelected.emit(feature)
   }
   ngOnInit(): void {
-    let box = document.getElementById('box') as HTMLButtonElement;
-    if(this.authService.userData.uid == "yKPp5y7Yx4bYd8u1GM37HHeIcP32"){
-    }else{
-      box.style.display = "none";
-    }
+    this.authService.userData.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.boxMode = true : this.boxMode = false;
   }
 
   shutdown(){

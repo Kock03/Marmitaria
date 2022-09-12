@@ -5,6 +5,7 @@ import { AngularFireDatabase } from '@angular/fire/compat/database';
 import { AngularFireList } from '@angular/fire/compat/database';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { LunchListComponent } from '../lunch-list.component';
+import { AuthService } from 'src/app/shared/services/auth.service';
 
 @Component({
   selector: 'app-lunch-item',
@@ -16,8 +17,9 @@ import { LunchListComponent } from '../lunch-list.component';
   providedIn: 'root'
 })
 export class LunchItemComponent implements OnInit {
-  constructor(private firestore: AngularFirestore) {}
+  constructor(private firestore: AngularFirestore, public authService: AuthService) {}
   // exclamação foi posto para não dar erro de inicialização
+  deleteMode: boolean = false;
   index!: any;
   @Input() package!: Lunch;
   @Input() packages!: any;
@@ -25,12 +27,14 @@ export class LunchItemComponent implements OnInit {
   @Output() delete: EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
     this.index = sessionStorage.getItem('index');
+    this.authService.userData.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.deleteMode = true : this.deleteMode = false;
+    
+
   }
 
   onSelected() {
     this.packageSelected.emit();
     sessionStorage.setItem('lunch', JSON.stringify(this.package));
-    
   }
 
   removeLunch() {

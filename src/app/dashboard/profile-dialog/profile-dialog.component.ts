@@ -7,16 +7,13 @@ import { AuthService } from 'src/app/shared/services/auth.service';
   styleUrls: ['./profile-dialog.component.css']
 })
 export class ProfileDialogComponent implements OnInit {
+  admMode: boolean = false;
 
   constructor(public authService: AuthService) { }
 
   ngOnInit(){
     let adm = document.getElementById('adm') as HTMLParagraphElement;
-    if(this.authService.userData.uid == "yKPp5y7Yx4bYd8u1GM37HHeIcP32"){
-      adm.style.display = "block";
-    }else{
-      adm.style.display = "none";
-    }
+    this.authService.userData.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.admMode = true : this.admMode = false;
   }
 
 }
