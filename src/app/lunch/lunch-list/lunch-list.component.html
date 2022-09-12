@@ -9,6 +9,7 @@
 <div id="list" class="row" style="display: none;">
     <div class="col-12">
         <app-lunch-item *ngFor="let packageElement of packageEx | filter: filter"
+        
         [package]="packageElement.datas"
         (packageSelected)="onPackageSelected(packageElement)"
         (delete)="onDelete(packageElement.id)"

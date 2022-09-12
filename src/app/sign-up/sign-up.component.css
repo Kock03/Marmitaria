@@ -44,6 +44,7 @@ h1{
     height: 40px;
     border-radius: 20px;
     border-style: solid;
+    padding-left: 10px;
 }
 
 .input-email{
@@ -51,6 +52,7 @@ h1{
     height: 40px;
     border-radius: 20px;
     border-style: solid;
+    padding-left: 10px;
 }
 
 .input-password{
@@ -58,6 +60,7 @@ h1{
     height: 40px;
     border-radius: 20px;
     border-style: solid;
+    padding-left: 10px;
 }
 
 ::placeholder{

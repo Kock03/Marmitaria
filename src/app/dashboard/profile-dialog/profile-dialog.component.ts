@@ -10,7 +10,13 @@ export class ProfileDialogComponent implements OnInit {
 
   constructor(public authService: AuthService) { }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    let adm = document.getElementById('adm') as HTMLParagraphElement;
+    if(this.authService.userData.uid == "yKPp5y7Yx4bYd8u1GM37HHeIcP32"){
+      adm.style.display = "block";
+    }else{
+      adm.style.display = "none";
+    }
   }
 
 }

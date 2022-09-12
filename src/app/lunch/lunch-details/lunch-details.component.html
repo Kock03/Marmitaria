@@ -31,8 +31,8 @@
                 </button>
                 <ul class="dropdown-menu">
                     <!-- <li><button class="button">Adicionar Ingredientes</button></li> -->
-                    <li><button class="button"(click)="openDialogDetail()" style="margin-left: 10px;">Editar Comida</button></li>
-                    <li><button class="button" (click)="sumPackage()" style="margin-left: 10px;">Adicionar a Sacola</button></li>
+                    <li><button id="editFood" class="button"(click)="openDialogDetail()" style="margin-left: 10px;">Editar Comida</button></li>
+                    <li><button id="addBag" class="button" (click)="sumPackage()" style="margin-left: 10px;">Adicionar a Sacola</button></li>
                 </ul>
             </div>
             
@@ -40,7 +40,7 @@
     </div>
 </mat-card>
 <br>
-<mat-card>
+<mat-card id="bagCard">
     <div class="bag">
         <img src="../assets/sacolas-de-papel.png" class="bagImage" alt="">
         <div fxLayout="column">
@@ -49,6 +49,6 @@
         </div>
     </div>
     <div class="review">
-        <button class="bagButton"mat-raised-button (click)="openDialogReview()">Revisar Itens<mat-icon class="arrow">keyboard_arrow_right</mat-icon></button>
+        <button id="review" class="bagButton"mat-raised-button (click)="openDialogReview()">Revisar Itens<mat-icon class="arrow">keyboard_arrow_right</mat-icon></button>
     </div>
 </mat-card>

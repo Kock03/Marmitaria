@@ -8,6 +8,8 @@ import { reduce } from "rxjs";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { LunchReviewDialogComponent } from "./lunch-review-dialog/lunch-review-dialog.component";
 import { serverTimestamp } from "@firebase/firestore";
+import { user } from "@angular/fire/auth";
+import { AuthService } from "src/app/shared/services/auth.service";
 
 
 
@@ -24,13 +26,24 @@ export class LunchDetailsComponent{
     packageValue: Array<string> = [];
     packageImage: Array<string> = [];
     sum!: number;
+    users!: any;
+    usersEx!: any;
     @Input() packageSelected!: Lunch;
     @Input() packages!: any;
-    constructor(public dialogDetail: MatDialog, private cdr: ChangeDetectorRef, private firestore: AngularFirestore){}
+    constructor(public dialogDetail: MatDialog, private cdr: ChangeDetectorRef, private firestore: AngularFirestore, public authService: AuthService){}
     ngOnInit(): void {
         sessionStorage.setItem('value',  JSON.stringify(this.packageSelected.value));
         this.index = sessionStorage.getItem('index')
         this.sum = 0;
+        let review = document.getElementById('bagCard') as HTMLButtonElement;
+        let addBag = document.getElementById('addBag') as HTMLButtonElement;
+        let editFood = document.getElementById('editFood') as HTMLButtonElement;
+        if(this.authService.userData.uid == "yKPp5y7Yx4bYd8u1GM37HHeIcP32"){
+            review.style.display = "none";
+            addBag.style.display = "none";
+        }else{
+            editFood.style.display = "none";
+        }
     }
     
     openDialogDetail(){

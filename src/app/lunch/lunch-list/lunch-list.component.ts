@@ -5,7 +5,8 @@ import { LunchListDialogComponent } from './lunch-list-dialog/lunch-list-dialog.
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
-import { DataSource } from '@angular/cdk/collections';
+
+
 
 @Injectable({
   providedIn: 'root',
@@ -24,6 +25,8 @@ export class LunchListComponent implements OnInit {
   index!: any;
   filter!: string;
   packageEx: any;
+  users!: any;
+  usersEx!: any;
 
   constructor(
     public dialog: MatDialog,
@@ -53,7 +56,18 @@ export class LunchListComponent implements OnInit {
           };
         });
         this.packages = this.packageEx;
-      });
+    });
+    this.firestore
+        .collection('users')
+        .snapshotChanges()
+        .subscribe(async (data) => {
+        this.usersEx = data.map((e) => {
+            return {
+            id: e.payload.doc.id,
+            datas: e.payload.doc.data(),
+          };
+        });
+    }); 
   }
 
   onPackageSelected(packageSelected: any) {
