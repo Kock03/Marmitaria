@@ -27,6 +27,7 @@ export class LunchListComponent implements OnInit {
   packageEx: any;
   users!: any;
   usersEx!: any;
+  inputMode: boolean = false;
 
   constructor(
     public dialog: MatDialog,
@@ -57,17 +58,8 @@ export class LunchListComponent implements OnInit {
         });
         this.packages = this.packageEx;
     });
-    this.firestore
-        .collection('users')
-        .snapshotChanges()
-        .subscribe(async (data) => {
-        this.usersEx = data.map((e) => {
-            return {
-            id: e.payload.doc.id,
-            datas: e.payload.doc.data(),
-          };
-        });
-    }); 
+    let user =  JSON.parse(localStorage.getItem("user")!);
+    user.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.inputMode = true : this.inputMode = false;
   }
 
   onPackageSelected(packageSelected: any) {

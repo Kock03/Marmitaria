@@ -18,11 +18,11 @@
     </div>
     <br>
     <div class="icon">
-        <mat-icon> fastfood</mat-icon>
+        <mat-icon routerLink="/dashboard"> fastfood</mat-icon>
     </div>
     <br>
     <div class="icon">
-        <mat-icon> local_grocery_store</mat-icon>
+        <mat-icon *ngIf="cartMode === true" (click)="openDialogDetail()"> local_grocery_store</mat-icon>
     </div>
     <br>
     <div class="icon">

@@ -7,16 +7,18 @@ import { AuthService } from '../shared/services/auth.service';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  constructor(public authService: AuthService) { }
   isChecked = true;
   boxMode: boolean = false;
 
-  constructor(public authService: AuthService) { }
   @Output() featureSelected = new EventEmitter<string>();
   onSelect(feature: string){
     this.featureSelected.emit(feature)
   }
   ngOnInit(): void {
-    this.authService.userData.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.boxMode = true : this.boxMode = false;
+    let user =  JSON.parse(localStorage.getItem("user")!);
+    user.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.boxMode = true : this.boxMode = false;
+
   }
 
   shutdown(){
@@ -29,7 +31,6 @@ export class HeaderComponent implements OnInit {
   switchMode(){
     if(this.isChecked == false){
       sessionStorage.setItem('isChecked',  JSON.stringify(this.isChecked));
-      console.log("🚀 ~ file: header.component.ts ~ line 28 ~ HeaderComponent ~ switchMode ~ this.isChecked", this.isChecked)
     }
   }
 
