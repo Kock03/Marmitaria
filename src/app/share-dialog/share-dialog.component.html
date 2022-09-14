@@ -1,20 +1,23 @@
 <div class="container">
-    <h1><b>Compartilhe!</b></h1>
+    <header fxLayout="row" fxLayoutAlign="space-between start">
+        <h1><b>Compartilhe!</b></h1>
+        <mat-icon (click)="closeDialogShare()" class="close">close</mat-icon>
+    </header>
     <div class="social-media" fxLayout="row" >
         <div class="icon">
-            <a href="https://twitter.com/intent/tweet?url=https://www.globo.com" target="_blank">
+            <a href="https://twitter.com/intent/tweet?url=https://http://localhost:4200/" target="_blank">
                 <img src="../assets/twitter.png" alt="">
             </a>
         </div>
         <br>
         <div class="icon">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.globo.com/" target="_blank">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://http://localhost:4200/" target="_blank">
                 <img src="../assets/facebook.png" alt="">
             </a>
         </div>
         <br>
         <div class="icon">
-            <a href="https://api.whatsapp.com/send?text=https://www.globo.com/" target="_blank">
+            <a href="https://api.whatsapp.com/send?text=https://http://localhost:4200/" target="_blank">
                 <img src="../assets/whatsapp.png" alt="">
             </a>
         </div>

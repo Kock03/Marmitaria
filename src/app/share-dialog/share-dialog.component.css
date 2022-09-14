@@ -29,3 +29,8 @@ input{
 button{
     height: 40px;
 }
+
+mat-icon{
+    color: black;
+    cursor: pointer;
+}
