@@ -9,7 +9,6 @@
 <div id="list" class="row" style="display: none;">
     <div class="col-12">
         <app-lunch-item *ngFor="let packageElement of packageEx | filter: filter"
-        
         [package]="packageElement.datas"
         (packageSelected)="onPackageSelected(packageElement)"
         (delete)="onDelete(packageElement.id)"
@@ -19,6 +18,7 @@
 <div id="button" class="row mb-5" style="display: none;">
     <div class="col-12">
         <button class="btn btn-success" *ngIf="inputMode === true" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
+        <button class="btn btn-success" *ngIf="inputMode === true" (click)="exportAsXLSX()">Exportar para Excel</button>
     </div>
 </div>
 <br>

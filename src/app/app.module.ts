@@ -48,6 +48,7 @@ import { ProfileDialogComponent } from './dashboard/profile-dialog/profile-dialo
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { ShareDialogComponent } from './share-dialog/share-dialog.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { ExcelService } from './shared/services/excel.service';
 
 
 @NgModule({
@@ -106,7 +107,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
     AppRoutingModule,
     
   ],
-  providers: [AuthService],
+  providers: [AuthService, ExcelService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

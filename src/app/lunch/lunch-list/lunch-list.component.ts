@@ -5,6 +5,7 @@ import { LunchListDialogComponent } from './lunch-list-dialog/lunch-list-dialog.
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
+import { ExcelService } from 'src/app/shared/services/excel.service';
 
 
 
@@ -18,6 +19,19 @@ import { Injectable } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class LunchListComponent implements OnInit {
+  data: any = [{
+    eid: 'e101',
+    ename: 'ravi',
+    esal: 1000
+    },{
+    eid: 'e102',
+    ename: 'ram',
+    esal: 2000
+    },{
+    eid: 'e103',
+    ename: 'rajesh',
+    esal: 3000
+    }];
   @Output() packageWasSelected = new EventEmitter<Lunch>();
   packages: Lunch[] = [];
 
@@ -32,7 +46,8 @@ export class LunchListComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private _snackBar: MatSnackBar,
-    private firestore: AngularFirestore
+    private firestore: AngularFirestore,
+    private excelService: ExcelService
   ) {}
 
   async ngOnInit() {
@@ -87,5 +102,11 @@ export class LunchListComponent implements OnInit {
         }
       }
     });
+  }
+
+  exportAsXLSX():void{
+    let result = JSON.parse(sessionStorage.getItem('lunch')!);
+    console.log("🚀 ~ file: lunch-list.component.ts ~ line 109 ~ LunchListComponent ~ exportAsXLSX ~ let result", result)
+    this.excelService.exportAsExcelFile(result, 'sample');
   }
 }
