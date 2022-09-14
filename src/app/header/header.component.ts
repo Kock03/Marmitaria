@@ -1,13 +1,15 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AuthService } from '../shared/services/auth.service';
-
+import { MatDialog } from "@angular/material/dialog";
+import { ShareDialogComponent
+ } from '../share-dialog/share-dialog.component';
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
-  constructor(public authService: AuthService) { }
+  constructor(public authService: AuthService, public dialogShared: MatDialog) { }
   isChecked = true;
   boxMode: boolean = false;
 
@@ -32,6 +34,11 @@ export class HeaderComponent implements OnInit {
     if(this.isChecked == false){
       sessionStorage.setItem('isChecked',  JSON.stringify(this.isChecked));
     }
+  }
+
+  openDialogShare(){
+    const dialogRef = this.dialogShared.open(ShareDialogComponent, {
+    });
   }
 
 }

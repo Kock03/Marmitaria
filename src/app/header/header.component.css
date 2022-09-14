@@ -83,3 +83,11 @@ mat-icon{
         margin-right: 10px;
     }
 }
+
+#share-icon{
+    color: black;
+}
+
+#sign-out{
+    margin-top: 10px;
+}

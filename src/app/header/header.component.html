@@ -9,7 +9,8 @@
                 <li class="dropdown">
                     <a href="javascript:void(0)" class="nav-link dropdown-toggle" appDropdown><img src="../assets/ferramentas.png" alt=""></a>
                     <ul class="dropdown-menu">
-                        <li class="nav-item"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="authService.SignOut()"><img src="../assets/log-out.png" alt=""></a></li>
+                        <li class="nav-item"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="openDialogShare()"><mat-icon id="share-icon">share</mat-icon></a></li>
+                        <li id="sign-out" class="nav-item"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="authService.SignOut()"><img src="../assets/log-out.png"></a></li>
                         <!-- <li class="nav-item"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;">{{isChecked == true ? 'Modo Escuro ' : 'Modo Claro '}}<mat-slide-toggle [(ngModel)]="isChecked" (click)='switchMode()'color="primary"></mat-slide-toggle></a></li> -->
                     </ul>
                 </li>

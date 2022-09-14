@@ -1,0 +1,31 @@
+<div class="container">
+    <h1><b>Compartilhe!</b></h1>
+    <div class="social-media" fxLayout="row" >
+        <div class="icon">
+            <a href="https://twitter.com/intent/tweet?url=https://www.globo.com" target="_blank">
+                <img src="../assets/twitter.png" alt="">
+            </a>
+        </div>
+        <br>
+        <div class="icon">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.globo.com/" target="_blank">
+                <img src="../assets/facebook.png" alt="">
+            </a>
+        </div>
+        <br>
+        <div class="icon">
+            <a href="https://api.whatsapp.com/send?text=https://www.globo.com/" target="_blank">
+                <img src="../assets/whatsapp.png" alt="">
+            </a>
+        </div>
+    </div>
+    <br>
+    <p><b>ou copie o link:</b></p>
+    <div class="input-group" >
+        <br>
+        <input type="text" id="input" class="form-control" value="http://localhost:4200/" disabled [(ngModel)]="value">
+        <span class="input-group-btn">
+            <button [cdkCopyToClipboard]="value" class="btn btn-default" id="clipboardCopy" type="button"><img src="../assets/copy.png" alt=""></button>
+        </span>
+    </div>
+</div>

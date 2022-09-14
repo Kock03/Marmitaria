@@ -46,7 +46,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfileDialogComponent } from './dashboard/profile-dialog/profile-dialog.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
-
+import { ShareDialogComponent } from './share-dialog/share-dialog.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 @NgModule({
@@ -70,6 +71,7 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
     DashboardComponent,
     ProfileDialogComponent,
     PaymentFormComponent,
+    ShareDialogComponent,
     // FileSelectDirective
 
   ],
@@ -98,6 +100,7 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
     AngularFireStorageModule,
     MatSlideToggleModule,
     AngularFireAuthModule,
+    ClipboardModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
     AppRoutingModule,

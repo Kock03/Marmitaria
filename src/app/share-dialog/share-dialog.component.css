@@ -1,0 +1,31 @@
+.container{
+    width:450px;
+}
+
+.icon{
+    background-color: rgb(245, 236, 236);
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    border-style: solid;
+    border-color: rgb(134, 130, 130);
+}
+
+img{
+    cursor: pointer;
+    height: 25px;
+}
+
+input{
+    height: 40px;
+    border-radius: 20px;
+}
+
+button{
+    height: 40px;
+}
