@@ -19,17 +19,32 @@ export class LunchReviewDialogComponent implements OnInit {
   bagLenght!: number;
   bagImage!: any;
   addNumber !: any;
+  addNumberId!: any
   i!: any;
 
   constructor(private firestore: AngularFirestore) { }
 
-  ngOnInit(): void {
+ ngOnInit() {
     this.bagValue = JSON.parse(sessionStorage.getItem('value')!);
     this.bagName = JSON.parse(sessionStorage.getItem('name')!);
     this.bagValueBag = JSON.parse(sessionStorage.getItem('valueBag')!);
     this.bagImage = JSON.parse(sessionStorage.getItem('imageLink')!);
     this.bagLenght = JSON.parse(sessionStorage.getItem('lenght')!);
-    this.addNumber = 1;
+    this.firestore
+    .collection('lunch')
+    .snapshotChanges()
+    .subscribe( (data) => {
+      this.addNumber = data.map( (e) => {
+        let data = e.payload.doc.data()
+        
+        
+        return {
+          id: e.payload.doc.id,
+          datas: data,
+        };
+      });
+  });
+  
   }
 
   removeFoodBag(i: any){
@@ -48,6 +63,7 @@ export class LunchReviewDialogComponent implements OnInit {
       remove.style.display = 'none';
     }
     this.addNumber -= 1;
+    this.firestore.doc('bagAmount/' + this.addNumberId).update(this.addNumber);
     this.bagValueBag[i] = this.bagValue * this.addNumber;
   }
 
