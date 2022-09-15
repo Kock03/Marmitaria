@@ -49,6 +49,7 @@ import { PaymentFormComponent } from './payment-form/payment-form.component';
 import { ShareDialogComponent } from './share-dialog/share-dialog.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { ExcelService } from './shared/services/excel.service';
+import { ReportErrorDialogComponent } from './report-error-dialog/report-error-dialog.component';
 
 
 @NgModule({
@@ -73,6 +74,7 @@ import { ExcelService } from './shared/services/excel.service';
     ProfileDialogComponent,
     PaymentFormComponent,
     ShareDialogComponent,
+    ReportErrorDialogComponent,
     // FileSelectDirective
 
   ],

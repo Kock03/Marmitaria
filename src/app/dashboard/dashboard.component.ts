@@ -5,6 +5,7 @@ import { ProfileDialogComponent } from './profile-dialog/profile-dialog.componen
 import { User } from '../shared/services/user';
 import { LunchReviewDialogComponent } from '../lunch/lunch-details/lunch-review-dialog/lunch-review-dialog.component';
 import { user } from '@angular/fire/auth';
+import { ReportErrorDialogComponent } from '../report-error-dialog/report-error-dialog.component';
 
 @Component({
   selector: 'app-dashboard',
@@ -37,5 +38,9 @@ export class DashboardComponent{
   openDialogDetail(){
     const dialogRef = this.dialogDetail.open(LunchReviewDialogComponent, {
     });
-}
+  }
+
+  openDialogError(){
+    const dialogRef = this.dialogDetail.open(ReportErrorDialogComponent, {});
+  }
 }

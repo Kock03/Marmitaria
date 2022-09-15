@@ -1,0 +1,46 @@
+.container{
+    width: 500px;
+}
+
+.icon{
+    background-color: rgb(245, 236, 236);
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 20px;
+    border-style: solid;
+    border-color: rgb(134, 130, 130);
+    float: center;
+}
+
+.logo{
+    height: 70px;
+    border-radius: 50%;
+}
+
+#input{
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+::placeholder{
+    padding: 5px;
+}
+
+.rocket{
+    height: 35px;
+}
+
+.btn{
+    margin-top: 10px;
+    height: 45px;
+    align-items: center;
+}
+
+.close{
+    cursor: pointer;
+}

@@ -1,0 +1,17 @@
+<div class="container">
+    <header fxLayout="row" fxLayoutAlign="space-between start">
+        <h1><b>Reporte o Erro para o sistema</b></h1>
+        <mat-icon (click)="closeDialogShare()" class="close">close</mat-icon>
+    </header>
+    <div class="social-media" fxLayout="row" >
+        <div class="icon">
+            <img class="logo" src="../assets/signup-ex.png" alt="">
+        </div>
+    </div>
+    <br>
+    <p><b>Reportar Erro:</b></p>
+    <div>
+        <input type="text" id="input"  onfocus="this.value='';" placeholder="Informe o erro aqui" #error>
+        <button (click)="addReport()" class="btn btn-success">Enviar <img class="rocket" src="../assets/42.png" alt=""></button>
+    </div>
+</div>

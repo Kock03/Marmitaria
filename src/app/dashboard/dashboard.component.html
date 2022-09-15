@@ -23,7 +23,7 @@
     <br>
     <div class="icon">
         <mat-icon *ngIf="cartMode === true" (click)="openDialogDetail()"> local_grocery_store</mat-icon>
-        <mat-icon *ngIf="cartMode === false"> import_export</mat-icon>
+        <mat-icon *ngIf="cartMode === false" (click)="openDialogError()">report_problem</mat-icon>
     </div>
     <br>
     <div class="icon">
