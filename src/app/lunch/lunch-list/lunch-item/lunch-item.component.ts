@@ -40,8 +40,4 @@ export class LunchItemComponent implements OnInit {
     return this.delete.next(true); 
   }
 
-  exportAsXLSX():void{
-    this.excelService.exportAsExcelFile(this.packages, 'sample');
-  }
-
 }

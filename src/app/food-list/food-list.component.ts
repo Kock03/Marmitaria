@@ -5,7 +5,7 @@ import { Lunch } from '../lunch/lunch.model';
 import {MatSnackBar} from '@angular/material/snack-bar';
 import { Food } from '../shared/food.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-
+import * as XLSX from 'xlsx';
 
 @Component({
   selector: 'app-food-list',
@@ -13,6 +13,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   styleUrls: ['./food-list.component.css']
 })
 export class FoodListComponent implements OnInit {
+  fileName= 'Estoque.xlsx';
   food!: any;
   @Input() package!: Lunch;
   index!: any;
@@ -20,6 +21,7 @@ export class FoodListComponent implements OnInit {
   filter!: string;
   foodEx!: any;
   foodId!: any;
+  inputMode: boolean = false;
 
   foodList: Food[] = [];
   foodEdit!: BehaviorSubject<any>; 
@@ -46,6 +48,8 @@ export class FoodListComponent implements OnInit {
       });
       this.foodList = this.foodEx;
     })
+    let user =  JSON.parse(localStorage.getItem("user")!);
+    user.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.inputMode = true : this.inputMode = false;
   }
 
   onFoodAdded(food: any){
@@ -73,6 +77,20 @@ export class FoodListComponent implements OnInit {
   onDelete(food: any){
     this.firestore.doc('food/' + food).delete();
   }
+
+  exportexcel(): void
+    {
+    /* pass here the table id */
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
+    }
 
   
 }

@@ -6,11 +6,12 @@
         [edition]="foodEdit"
         ></app-food-list-edition>
         <hr>
-        <div class="search">
-        <mat-form-field appearance="outline" floatLabel="never">
-            <mat-icon style="text-align: center;" matSuffix class="search-lunch-icon">search</mat-icon>
-            <input placeholder="Buscar no Estoque " style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
-        </mat-form-field>
+        <div class="search" fxLayout="row" fxLayoutAlign="space-between center" >
+            <button id="excel-button" class="btn btn-success" *ngIf="inputMode === true" (click)="exportexcel()">Exportar para Excel <img src="../assets/excel.png" alt=""></button>
+            <mat-form-field appearance="outline" floatLabel="never">
+                <mat-icon style="text-align: center;" matSuffix class="search-lunch-icon">search</mat-icon>
+                <input placeholder="Buscar no Estoque " style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
+            </mat-form-field>
         </div>
         <ul class="list-group">
             <a *ngFor="let food of foodEx | filter: filter"   
@@ -28,6 +29,19 @@
             </a>          
         </ul>
     </div>
+</div>
+
+<div class="table" style="display: none;">
+    <table id="excel-table">
+        <tr>
+            <th>Nome</th>
+            <th>Quantidade</th>
+        </tr>
+        <tr *ngFor="let item of foodEx">
+            <td>{{item.datas.foodName}}</td>
+            <td>{{item.datas.foodAmount}}</td>
+        </tr>
+    </table>
 </div>
 
 <!-- <div class="mat-elevation-z8">

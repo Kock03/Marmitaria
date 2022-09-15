@@ -6,7 +6,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Injectable } from '@angular/core';
 import { ExcelService } from 'src/app/shared/services/excel.service';
-
+import * as XLSX from 'xlsx';
 
 
 @Injectable({
@@ -19,19 +19,7 @@ import { ExcelService } from 'src/app/shared/services/excel.service';
   encapsulation: ViewEncapsulation.None
 })
 export class LunchListComponent implements OnInit {
-  data: any = [{
-    eid: 'e101',
-    ename: 'ravi',
-    esal: 1000
-    },{
-    eid: 'e102',
-    ename: 'ram',
-    esal: 2000
-    },{
-    eid: 'e103',
-    ename: 'rajesh',
-    esal: 3000
-    }];
+  fileName= 'Cardapio.xlsx';
   @Output() packageWasSelected = new EventEmitter<Lunch>();
   packages: Lunch[] = [];
 
@@ -104,9 +92,18 @@ export class LunchListComponent implements OnInit {
     });
   }
 
-  exportAsXLSX():void{
+  exportexcel(): void
+  {
+    /* pass here the table id */
     let result = JSON.parse(sessionStorage.getItem('lunch')!);
-    console.log("🚀 ~ file: lunch-list.component.ts ~ line 109 ~ LunchListComponent ~ exportAsXLSX ~ let result", result)
-    this.excelService.exportAsExcelFile(result, 'sample');
+    let element = document.getElementById('excel-table');
+    const ws: XLSX.WorkSheet =XLSX.utils.table_to_sheet(element);
+
+    /* generate workbook and add the worksheet */
+    const wb: XLSX.WorkBook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'Sheet1');
+    
+    /* save to file */  
+    XLSX.writeFile(wb, this.fileName);
   }
 }

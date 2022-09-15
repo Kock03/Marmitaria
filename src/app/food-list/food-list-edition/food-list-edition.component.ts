@@ -6,6 +6,8 @@ import { BehaviorSubject } from "rxjs";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { FoodListComponent } from "../food-list.component";
 
+
+
 @Component({
     selector : 'app-food-list-edition',
     templateUrl : './food-list-edition.component.html',
@@ -14,10 +16,10 @@ import { FoodListComponent } from "../food-list.component";
 })
 
 export class FoodListEditionComponent {
-
     food!: any;
     method: string = '';
     foodID!: any;
+    inputMode: boolean = false;
 
 
     // a ! significa que o elemento vai começar sem valor
@@ -25,8 +27,7 @@ export class FoodListEditionComponent {
     @ViewChild("amountInput") amountInputRef!: ElementRef;
     @Output() foodAdded = new EventEmitter<Food>();
     @Output() foodEdited = new EventEmitter<Food>();
-    @Input('edition')  foodEdit!: BehaviorSubject<any>;
-     
+    @Input('edition')  foodEdit!: BehaviorSubject<any>;     
     
     
     meuFormGroup: FormGroup;
@@ -36,9 +37,7 @@ export class FoodListEditionComponent {
             name: ['', Validators.required],
             amount: ['', Validators.required]
         });
-    }
-
-   
+    } 
 
     ngOnInit(): void{
         this.foodEdit.subscribe(res => {
@@ -46,7 +45,6 @@ export class FoodListEditionComponent {
                 this.edition(res)                 
             }
         });
-        
     }
     
     

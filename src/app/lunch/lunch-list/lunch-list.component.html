@@ -15,10 +15,26 @@
         ></app-lunch-item>
     </div>
 </div>
+<div class="table" style="display: none;">
+    <table id="excel-table">
+        <tr>
+            <th>Nome</th>
+            <th>Valor</th>
+            <th>Descrição</th>
+        </tr>
+        <tr *ngFor="let item of packageEx">
+            <td>{{item.datas.name}}</td>
+            <td>{{item.datas.value}}</td>
+            <td>{{item.datas.description}}</td>
+        </tr>
+    </table>
+</div>
+
 <div id="button" class="row mb-5" style="display: none;">
     <div class="col-12">
-        <button class="btn btn-success" *ngIf="inputMode === true" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
-        <button class="btn btn-success" *ngIf="inputMode === true" (click)="exportAsXLSX()">Exportar para Excel</button>
+        <button id="add-button" class="btn btn-success" *ngIf="inputMode === true" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
+        <br>
+        <button id="excel-button" class="btn btn-success" *ngIf="inputMode === true" (click)="exportexcel()">Exportar para Excel <img src="../assets/excel.png" alt=""></button>
     </div>
 </div>
 <br>

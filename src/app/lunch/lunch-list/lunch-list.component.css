@@ -3,9 +3,17 @@ mat-icon {
   width: 100%;
 }
 
-button {
+#add-button {
   height: 50px;
-  border-radius: 30px;
+  border-radius: 10px;
+}
+
+#excel-button{
+  margin-top: 10px;
+  height: 40px;
+  border-radius: 10px;
+  text-align: center;
+  align-items: center;
 }
 
 .mat-form-field-outline-start {
