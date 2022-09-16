@@ -30,6 +30,8 @@ export class LunchListComponent implements OnInit {
   users!: any;
   usersEx!: any;
   inputMode: boolean = false;
+  amountBags: Array<any> = [];
+  indexBags: Array<any> = [];
 
   constructor(
     public dialog: MatDialog,
@@ -67,6 +69,13 @@ export class LunchListComponent implements OnInit {
 
   onPackageSelected(packageSelected: any) {
     sessionStorage.setItem('index', packageSelected.id);
+    sessionStorage.setItem('bagAmount', packageSelected.datas.bagAmount);
+    let bagAmount = sessionStorage.getItem('bagAmount');
+    this.amountBags.push(bagAmount);
+    let bagIndex = sessionStorage.getItem('index');
+    this.indexBags.push(bagIndex);
+    sessionStorage.setItem('arrayBag', JSON.stringify(this.amountBags));
+    sessionStorage.setItem('arrayBagIndex', JSON.stringify(this.indexBags));
     this.packageWasSelected.emit(packageSelected.datas);
   }
 

@@ -29,6 +29,7 @@ export class LunchDetailsComponent{
     users!: any;
     usersEx!: any;
     userID!: any;
+    isBag!: boolean;
     @Input() packageSelected!: Lunch;
     @Input() packages!: any;
     constructor(public dialogDetail: MatDialog, private cdr: ChangeDetectorRef, private firestore: AngularFirestore, public authService: AuthService){}
@@ -46,9 +47,9 @@ export class LunchDetailsComponent{
             editFood.style.display = "none";
         }
         this.firestore
-    .collection('lunch')
-    .snapshotChanges()
-    .subscribe( (data) => {
+        .collection('lunch')
+        .snapshotChanges()
+        .subscribe( (data) => {
         this.usersEx = data.map( (e) => {
         let data = e.payload.doc.data()
         return {
@@ -57,6 +58,7 @@ export class LunchDetailsComponent{
         };
         });
     });
+    this.userID = sessionStorage.getItem('index');
     }
     
     openDialogDetail(){
@@ -84,7 +86,7 @@ export class LunchDetailsComponent{
         sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
         sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;
         sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
-        this.firestore.doc('lunch/isBag' + this.userID).update(true);
+        this.firestore.doc('lunch/' + this.userID).update({isBag : true});
     }
     
     openDialogReview(){

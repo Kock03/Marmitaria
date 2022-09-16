@@ -13,10 +13,10 @@
                         <h2 class="bagName">{{packageBag.toString().replaceAll('"', ' ')}}</h2>
                         <div  class="amount">
                             <p class="bagValue">R$ {{this.bagValueBag[i]}}</p>
-                            <div fxLayoutAlign="space-evenly center" class="amount-son" *ngFor="let amount of addNumber; let i = index ">
+                            <div fxLayoutAlign="space-evenly center" class="amount-son" >
                                 <mat-icon style="display: none;" id="bagRemove" (click)="removeFoodBag(i)">remove_circle_outline</mat-icon>
                                 <mat-icon role="img" id="remove" (click)="removeFoodBag(i)" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
-                                <p style="text-align: center;" class="addNumber">{{this.amount.datas.bagAmount}}</p>
+                                <p style="text-align: center;" class="addNumber" >{{this.bagAmount[i]}}</p>
                                 <mat-icon class="bagAdd" (click)="addFoodBag(i)">add_circle_outline</mat-icon>
                             </div>
                         </div>
@@ -34,6 +34,6 @@
     <br>
     <br>
     <footer>
-        <button class="btn btn-success">Continuar para Pagamento</button>
+        <button class="btn btn-success" (click)="clear()">Continuar para Pagamento</button>
     </footer>
 </div>
