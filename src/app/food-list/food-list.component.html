@@ -7,27 +7,27 @@
         ></app-food-list-edition>
         <hr>
         <div class="search" fxLayout="row" fxLayoutAlign="space-between center" >
-            <button id="excel-button" class="btn btn-success" *ngIf="inputMode === true" (click)="exportexcel()">Exportar para Excel <img src="../assets/excel.png" alt=""></button>
-            <mat-form-field appearance="outline" floatLabel="never">
+            <mat-form-field appearance="outline" floatLabel="never" id="search">
                 <mat-icon style="text-align: center;" matSuffix class="search-lunch-icon">search</mat-icon>
-                <input placeholder="Buscar no Estoque " style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
+                <input placeholder="Buscar no Estoque "  style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
             </mat-form-field>
         </div>
         <ul class="list-group">
             <a *ngFor="let food of foodEx | filter: filter"   
-                class="list-group-item" 
-                style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center">
-                <h3 style="margin-top: 10px;">{{food.datas.foodName}} ({{food.datas.foodAmount}})</h3>
-                <div>
-                    <button (click)="onDelete(food.id)" mat-button style="float:right;">
-                        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
-                    </button>
-                    <button (click)="edit(food)" mat-button style="float:right;">
-                        <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">edit</mat-icon>
-                    </button>
-                </div>
+            class="list-group-item" 
+            style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center">
+            <h3 style="margin-top: 10px;">{{food.datas.foodName}} ({{food.datas.foodAmount}})</h3>
+            <div>
+                <button (click)="onDelete(food.id)" mat-button style="float:right;">
+                    <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
+                </button>
+                <button (click)="edit(food)" mat-button style="float:right;">
+                    <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">edit</mat-icon>
+                </button>
+            </div>
             </a>          
         </ul>
+    <button  id="excel-button" class="btn btn-success" *ngIf="inputMode === true" (click)="exportexcel()">Exportar para Excel <img src="../assets/excel.png" alt=""></button>
     </div>
 </div>
 

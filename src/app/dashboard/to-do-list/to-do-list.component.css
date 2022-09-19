@@ -1,0 +1,25 @@
+#submit{
+    margin-left: 10px;
+}
+
+.mat-icon{
+    color: #723CAF;
+    height: 24px;
+    width: 24px;
+    background-repeat: no-repeat;
+    fill: currentColor;
+    display: inline-block;
+}
+
+#delete:hover{
+    color: red;
+}
+
+#check:hover{
+    color: greenyellow;
+}
+
+.list-group{
+    float: center;;
+    width: 50%;
+}

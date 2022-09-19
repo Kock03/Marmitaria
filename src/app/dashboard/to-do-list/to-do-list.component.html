@@ -1,0 +1,23 @@
+<div class="container" fxLayout="column" fxLayoutAlign="space-between center" >
+    <h1>LISTA DE TAREFAS</h1>
+    <br>
+    <form [formGroup]="myFormGroup">
+        <input type="text" id="task"  placeholder="Digite sua tarefa" formControlName="task" #task>
+        <input type="submit" (click)="addTask()" id="submit" value="Adicionar">
+    </form>
+    <br>
+    <ul class="list-group" id="taskValue">
+        <span *ngFor="let tasks of taskList; let i = index" class="list-group-item" 
+            fxLayout="row" fxLayoutAlign="space-between center" id="span">
+            <h3 [ngStyle]="{textDecoration: tasks.datas.isChecked ? 'line-through' : 'none'}" style="margin-top: 10px;">{{tasks.datas.taskValue}}</h3>
+            <div>
+                <button  mat-button style="float:right;">
+                    <mat-icon id="delete" (click)="deleteTask(tasks.id)">delete</mat-icon>
+                </button>
+                <button  mat-button style="float:right;">
+                    <mat-icon id="check" (click)="checkTask(tasks.id)">check</mat-icon>
+                </button>
+            </div>
+        </span>
+    </ul>
+</div>

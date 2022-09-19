@@ -14,9 +14,9 @@
                         <div  class="amount">
                             <p class="bagValue">R$ {{this.bagValueBag[i]}}</p>
                             <div fxLayoutAlign="space-evenly center" class="amount-son" >
-                                <mat-icon style="display: none;" id="bagRemove" (click)="removeFoodBag(i)">remove_circle_outline</mat-icon>
-                                <mat-icon role="img" id="remove" (click)="removeFoodBag(i)" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
-                                <p style="text-align: center;" class="addNumber" >{{this.bagAmount[i]}}</p>
+                                <mat-icon style="cursor: pointer;" *ngIf="bagAmount[i] < 2" (click)="removeFoodBag(i)">delete</mat-icon>
+                                <mat-icon style="cursor: pointer;" *ngIf="bagAmount[i] > 1" (click)="removeFoodBag(i)">remove_circle_outline</mat-icon>
+                                <p style="text-align: center;" class="addNumber" min="1">{{this.bagAmount[i]}}</p>
                                 <mat-icon class="bagAdd" (click)="addFoodBag(i)">add_circle_outline</mat-icon>
                             </div>
                         </div>

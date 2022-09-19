@@ -9,6 +9,11 @@
 
 .search{
     text-align: right;
+
+}
+
+#search{
+    width: 100%;
 }
 
 @media(max-width: 500px){
@@ -22,6 +27,8 @@
     border-radius: 10px;
     align-items: center;
     margin-bottom: 25px;
+    margin-top: 20px;
+    width: 100%;
 }
 
 

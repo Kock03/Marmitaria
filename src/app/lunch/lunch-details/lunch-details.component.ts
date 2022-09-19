@@ -7,7 +7,7 @@ import { LunchDetailsDialogComponent } from "./lunch-details-dialog/lunch-detail
 import { reduce } from "rxjs";
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { LunchReviewDialogComponent } from "./lunch-review-dialog/lunch-review-dialog.component";
-import { serverTimestamp } from "@firebase/firestore";
+import { Index, serverTimestamp } from "@firebase/firestore";
 import { user } from "@angular/fire/auth";
 import { AuthService } from "src/app/shared/services/auth.service";
 
@@ -29,6 +29,7 @@ export class LunchDetailsComponent{
     users!: any;
     usersEx!: any;
     userID!: any;
+    bagIndex!: any;
     isBag!: boolean;
     @Input() packageSelected!: Lunch;
     @Input() packages!: any;
@@ -59,6 +60,7 @@ export class LunchDetailsComponent{
         });
     });
     this.userID = sessionStorage.getItem('index');
+    this.bagIndex = JSON.parse(sessionStorage.getItem('arrayBagIndex')!);
     }
     
     openDialogDetail(){
@@ -67,7 +69,6 @@ export class LunchDetailsComponent{
         
         dialogRef.afterClosed().subscribe(result => {
             this.packageSelected = JSON.parse(sessionStorage.getItem('lunch')!);
-            
         });
     }
 
@@ -89,9 +90,11 @@ export class LunchDetailsComponent{
         this.firestore.doc('lunch/' + this.userID).update({isBag : true});
     }
     
-    openDialogReview(){
+    openDialogReview(i: any){
         const dialogRef = this.dialogDetail.open(LunchReviewDialogComponent, {
         });
+        
+        
         if(this.sum == 0){
             sessionStorage.clear();
         }

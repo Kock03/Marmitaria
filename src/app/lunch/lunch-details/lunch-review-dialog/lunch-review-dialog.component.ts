@@ -21,7 +21,6 @@ export class LunchReviewDialogComponent implements OnInit {
  
   data!: any;
  
-  i!: any;
   userID!: any;
   userBagAmount!: any;
   bagAmount: any;
@@ -43,39 +42,25 @@ export class LunchReviewDialogComponent implements OnInit {
   }
 
   removeFoodBag(i: any) {
-    let remove = document.getElementById('remove') as HTMLDivElement;
-    let bagRemove = document.getElementById('bagRemove') as HTMLDivElement;
-    if (this.bagAmount[i] == 1) {
-      this.bagValue = this.bagValue - this.bagValueBag[i];
-      this.bagImage.splice(i, 1);
-      this.bagName.splice(i, 1);
-      this.bagValueBag.splice(i, 1);
-    } else if (this.bagAmount[i] == 2) {
-      bagRemove.style.display = 'none';
-      remove.style.display = 'block';
-    } else {
-      bagRemove.style.display = 'block';
-      remove.style.display = 'none';
-    }
+    // if (this.bagAmount[i] == 1) {
+    //   this.bagImage.splice(i, 1);
+    //   this.bagName.splice(i, 1);
+    //   this.bagValueBag.splice(i, 1);
+    // } 
     let number = Number(this.bagAmount[i]);
     this.firestore.doc("lunch/" + this.bagIndex[i]).update({bagAmount:number -= 1});
     this.bagAmount[i] = number;
   }
 
   addFoodBag(i: any) {
-    let remove = document.getElementById('remove') as HTMLDivElement;
-    let bagRemove = document.getElementById('bagRemove') as HTMLDivElement;
-    if (this.bagAmount[i] == 1) {
-      remove.style.display = 'none';
-      bagRemove.style.display = 'block';
-    }
+
     let number = Number(this.bagAmount[i]);
     this.firestore.doc("lunch/" + this.bagIndex[i]).update({bagAmount:number += 1});
     this.bagAmount[i] = number;
-
   }
 
   clear(){
     sessionStorage.clear();
+    this.firestore.doc("lunch/" + this.bagIndex).update({bagAmount: 1});
   }
 }

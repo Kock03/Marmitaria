@@ -50,6 +50,7 @@ import { ShareDialogComponent } from './share-dialog/share-dialog.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
 import { ExcelService } from './shared/services/excel.service';
 import { ReportErrorDialogComponent } from './report-error-dialog/report-error-dialog.component';
+import { ToDoListComponent } from './dashboard/to-do-list/to-do-list.component';
 
 
 @NgModule({
@@ -75,6 +76,7 @@ import { ReportErrorDialogComponent } from './report-error-dialog/report-error-d
     PaymentFormComponent,
     ShareDialogComponent,
     ReportErrorDialogComponent,
+    ToDoListComponent,
     // FileSelectDirective
 
   ],

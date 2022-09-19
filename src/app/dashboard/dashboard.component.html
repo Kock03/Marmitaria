@@ -18,7 +18,8 @@
     </div>
     <br>
     <div class="icon">
-        <mat-icon routerLink="/dashboard"> fastfood</mat-icon>
+        <mat-icon *ngIf="cartMode === true" routerLink="/dashboard"> fastfood</mat-icon>
+        <mat-icon *ngIf="cartMode === false" routerLink="/to-do-list"> list_alt</mat-icon>
     </div>
     <br>
     <div class="icon">
