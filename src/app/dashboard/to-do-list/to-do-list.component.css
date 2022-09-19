@@ -1,5 +1,20 @@
 #submit{
     margin-left: 10px;
+    width: 112px;
+    height: 50px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px;
+}
+
+h1{
+    color: #723CAF;
+    font-weight: 600;
+    font-size: 48px;
+    line-height: 72px;
 }
 
 .mat-icon{
@@ -20,6 +35,22 @@
 }
 
 .list-group{
-    float: center;;
     width: 50%;
+}
+
+.list-group-item{
+    border-radius: 20px;
+    margin-top: 10px;
+}
+
+#task{
+    width: 224px;
+    height: 50px;
+    border-radius: 10px;
+    border-color: black;
+    border-style: solid;
+    padding: 8px 24px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 24px
 }
