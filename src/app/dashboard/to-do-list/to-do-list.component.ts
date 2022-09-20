@@ -49,9 +49,6 @@ export class ToDoListComponent implements OnInit {
   }
 
   checkTask(i: any){
-    // let taskValue = document.getElementById('taskValue') as HTMLUListElement;
-    // console.log("🚀 ~ file: to-do-list.component.ts ~ line 50 ~ ToDoListComponent ~ checkTask ~ taskValue", taskValue)
-    // let checked = taskValue.style.textDecoration = "line-through";
     if(this.checked == false) {
       this.checked = true;
       this.firestore.doc("to-do-list/" + i).update({isChecked: true});

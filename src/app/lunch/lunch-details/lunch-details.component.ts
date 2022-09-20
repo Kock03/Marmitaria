@@ -93,13 +93,32 @@ export class LunchDetailsComponent{
     openDialogReview(i: any){
         const dialogRef = this.dialogDetail.open(LunchReviewDialogComponent, {
         });
-        
-        
+        dialogRef.afterClosed().subscribe(result => {
+            let resultFinal = JSON.parse(sessionStorage.getItem('bagValueFinal')!);
+            this.sum = resultFinal;
+            for(let i = this.packageName.length; i > 0; i--){
+                this.packageName.pop();
+            }
+            for(let i = this.packageValue.length; i > 0; i--){
+                this.packageValue.pop();
+            }
+            for(let i = this.packageImage.length; i > 0; i--){
+                this.packageImage.pop();
+            }
+            let bagNameFinal = JSON.parse(sessionStorage.getItem('name')!);
+            let bagValueFinal = JSON.parse(sessionStorage.getItem('value')!);
+            let bagImageFinal = JSON.parse(sessionStorage.getItem('imageLink')!);
+            this.packageName.push(bagNameFinal);
+            this.packageValue.push(bagValueFinal);
+            this.packageImage.push(bagImageFinal);
+            sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
+            sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;
+            sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
+        })
         if(this.sum == 0){
             sessionStorage.clear();
         }
         sessionStorage.setItem('value',JSON.stringify(this.sum))!; 
-        
     }
 }
 

@@ -26,7 +26,7 @@ export class LunchListDialogComponent implements OnInit {
         description: ['', Validators.required],
         value: ['', Validators.required],
         imagePath: ['', Validators.required],
-        bagAmount: [0, Validators.required],
+        bagAmount: [1, Validators.required],
         isBag: [false, Validators.required]
       });
     }

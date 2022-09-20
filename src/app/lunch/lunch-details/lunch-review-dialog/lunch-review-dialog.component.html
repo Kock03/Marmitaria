@@ -1,6 +1,7 @@
 <div class="container">
-    <h1 style="align-items: center;" >
+    <h1 style="align-items: center;" fxLayout="row" fxLayoutAlign="space-between start">
         Sua Sacola!
+        <mat-icon (click)="closeDialog()" class="close" style="cursor: pointer;">close</mat-icon>
     </h1>
     <div class="infos" >
         <h2 class="item">Item(ns):</h2>
@@ -14,7 +15,7 @@
                         <div  class="amount">
                             <p class="bagValue">R$ {{this.bagValueBag[i]}}</p>
                             <div fxLayoutAlign="space-evenly center" class="amount-son" >
-                                <mat-icon style="cursor: pointer;" *ngIf="bagAmount[i] < 2" (click)="removeFoodBag(i)">delete</mat-icon>
+                                <mat-icon style="cursor: pointer;" *ngIf="bagAmount[i] == 1" (click)="removeFoodBag(i)">delete</mat-icon>
                                 <mat-icon style="cursor: pointer;" *ngIf="bagAmount[i] > 1" (click)="removeFoodBag(i)">remove_circle_outline</mat-icon>
                                 <p style="text-align: center;" class="addNumber" min="1">{{this.bagAmount[i]}}</p>
                                 <mat-icon class="bagAdd" (click)="addFoodBag(i)">add_circle_outline</mat-icon>
@@ -27,13 +28,13 @@
         </ul>
     </div>
     <div class="col-12">
-        <h2 class="total">Total R$: {{this.bagValue.toFixed(2).replace(".",",")}}</h2>
+        <h2 class="total">Total: R$ {{this.bagValue.toFixed(2).replace(".",",")}}</h2>
     </div>
     <br>
     <br>
     <br>
     <br>
     <footer>
-        <button class="btn btn-success" (click)="clear()">Continuar para Pagamento</button>
+        <button class="btn btn-success" (click)="clear()" routerLink="/payment">Continuar para Pagamento</button>
     </footer>
 </div>
