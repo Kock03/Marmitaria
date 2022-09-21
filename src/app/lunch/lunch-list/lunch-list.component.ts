@@ -70,12 +70,13 @@ export class LunchListComponent implements OnInit {
 
   onPackageSelected(packageSelected: any) {
     sessionStorage.setItem('index', packageSelected.id);
-    let amountArray = packageSelected.datas.bagAmount;
-    this.amountBags.push(amountArray);
-    sessionStorage.setItem('arrayBag', JSON.stringify(this.amountBags));
     let bagIndex = sessionStorage.getItem('index');
     this.indexBags.push(bagIndex);
     sessionStorage.setItem('arrayBagIndex', JSON.stringify(this.indexBags));
+    let amountArray = packageSelected.datas.bagAmount;
+    this.amountBags.push(amountArray);
+    console.log("🚀 ~ file: lunch-list.component.ts ~ line 81 ~ LunchListComponent ~ onPackageSelected ~ this.amountBags", this.amountBags)
+    sessionStorage.setItem('arrayBag', JSON.stringify(this.amountBags));
     this.packageWasSelected.emit(packageSelected.datas);
   }
 

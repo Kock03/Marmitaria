@@ -99,6 +99,7 @@ export class LunchDetailsComponent{
         sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
         sessionStorage.setItem('bagAmount', JSON.stringify(this.packageAmount))!;
         this.firestore.doc('lunch/' + this.userID).update({isBag : true});
+        
     }
     
     openDialogReview(i: any){
