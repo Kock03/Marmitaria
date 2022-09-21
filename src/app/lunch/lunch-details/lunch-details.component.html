@@ -44,9 +44,9 @@
 <mat-card id="bagCard">
     <div class="bag">
         <img src="../assets/sacolas-de-papel.png" class="bagImage" alt="">
-        <div fxLayout="column">
+        <div fxLayout="column" *ngFor="let totalValue of usersEx; let i = index">
             <h1 class="bagText">Sacola</h1>
-            <h2>Total: R$ {{this.sum.toFixed(2).replace(".",",")}}</h2>
+            <h2>Total: R$ {{this.totalValue.datas.totalValue.toFixed(2).replace(".",",")}}</h2>
         </div>
     </div>
     <div class="review">

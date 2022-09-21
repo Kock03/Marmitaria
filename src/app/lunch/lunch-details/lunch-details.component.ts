@@ -22,11 +22,14 @@ import { AuthService } from "src/app/shared/services/auth.service";
 
 export class LunchDetailsComponent{
     index!: any
+    itemMode: boolean = false;
     packageName: Array<string> = [];
     packageValue: Array<string> = [];
     packageImage: Array<string> = [];
+    packageAmount: Array<string> = [];
     sum!: number;
     users!: any;
+    valueEstatic: Array<string> = [];
     usersEx!: any;
     userID!: any;
     bagIndex!: any;
@@ -48,7 +51,7 @@ export class LunchDetailsComponent{
             editFood.style.display = "none";
         }
         this.firestore
-        .collection('lunch')
+        .collection('totalValue')
         .snapshotChanges()
         .subscribe( (data) => {
         this.usersEx = data.map( (e) => {
@@ -78,15 +81,23 @@ export class LunchDetailsComponent{
 
     sumPackage(){
         this.sum = this.sum + this.packageSelected.value
+        const totalValue = this.sum
+        const valueDataBase = {totalValue}
+        this.firestore.doc('totalValue/' + 'XfOkTFrYGRa1ViZ4lPVp').update(valueDataBase)
         let bagValue = JSON.stringify(this.packageSelected.value)
         let bagName = JSON.stringify(this.packageSelected.name)
+        let bagAmount = JSON.stringify(this.packageSelected.bagAmount)
         let bagImage = this.packageSelected.imagePath
         this.packageName.push(bagName);
+        this.valueEstatic.push(bagValue)
+        sessionStorage.setItem('bagValueEstatic',  JSON.stringify(this.valueEstatic));
         this.packageValue.push(bagValue);
         this.packageImage.push(bagImage);
+        this.packageAmount.push(bagAmount);
         sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
         sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;
         sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
+        sessionStorage.setItem('bagAmount', JSON.stringify(this.packageAmount))!;
         this.firestore.doc('lunch/' + this.userID).update({isBag : true});
     }
     
@@ -94,30 +105,14 @@ export class LunchDetailsComponent{
         const dialogRef = this.dialogDetail.open(LunchReviewDialogComponent, {
         });
         dialogRef.afterClosed().subscribe(result => {
-            let resultFinal = JSON.parse(sessionStorage.getItem('bagValueFinal')!);
-            this.sum = resultFinal;
-            for(let i = this.packageName.length; i > 0; i--){
-                this.packageName.pop();
-            }
-            for(let i = this.packageValue.length; i > 0; i--){
-                this.packageValue.pop();
-            }
-            for(let i = this.packageImage.length; i > 0; i--){
-                this.packageImage.pop();
-            }
-            let bagNameFinal = JSON.parse(sessionStorage.getItem('name')!);
-            let bagValueFinal = JSON.parse(sessionStorage.getItem('value')!);
-            let bagImageFinal = JSON.parse(sessionStorage.getItem('imageLink')!);
-            this.packageName.push(bagNameFinal);
-            this.packageValue.push(bagValueFinal);
-            this.packageImage.push(bagImageFinal);
-            sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
-            sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;
-            sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
+            this.packageName = result.name;
+            this.packageValue = result.value;
+            this.packageImage = result.image;
+            this.packageAmount = result.amount;
+            this.sum = result.valueTotal;
+            this.valueEstatic = result.valueEstatic;
         })
-        if(this.sum == 0){
-            sessionStorage.clear();
-        }
+        
         sessionStorage.setItem('value',JSON.stringify(this.sum))!; 
     }
 }

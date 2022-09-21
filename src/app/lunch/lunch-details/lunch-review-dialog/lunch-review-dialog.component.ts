@@ -18,7 +18,7 @@ export class LunchReviewDialogComponent implements OnInit {
   bagValue: number;
   bagName!: any;
   bagValueBag!: any;
-  bagValueBagStatic!: any;
+  bagValueBagStatic: Array<number> = [];
   bagLenght!: number;
   bagImage!: any;
   data!: any;
@@ -27,6 +27,8 @@ export class LunchReviewDialogComponent implements OnInit {
   bagAmount: any;
   bagIndex: any;
   lunchList!: any;
+  usersEx!: any;
+  itemMode: boolean = false;
 
   constructor(private firestore: AngularFirestore, public dialogReview: MatDialogRef<LunchReviewDialogComponent>) {}
 
@@ -34,18 +36,34 @@ export class LunchReviewDialogComponent implements OnInit {
     
     this.bagValue = JSON.parse(sessionStorage.getItem('value')!);
     this.bagName = JSON.parse(sessionStorage.getItem('name')!);
+    this.bagName.length > 1 ? this.itemMode = true : this.itemMode = false;
     this.bagValueBag = JSON.parse(sessionStorage.getItem('valueBag')!);
-    this.bagValueBagStatic = JSON.parse(sessionStorage.getItem('valueBag')!);
+    this.bagValueBagStatic = JSON.parse(sessionStorage.getItem('bagValueEstatic')!);
     this.bagImage = JSON.parse(sessionStorage.getItem('imageLink')!);
-    this.bagAmount = JSON.parse(sessionStorage.getItem('arrayBag')!);
+    this.bagAmount = JSON.parse(sessionStorage.getItem('bagAmount')!);
     this.userID = sessionStorage.getItem('index');
     this.userBagAmount = sessionStorage.getItem('bagAmount');
     this.bagIndex = JSON.parse(sessionStorage.getItem('arrayBagIndex')!);
+    this.firestore
+        .collection('totalValue')
+        .snapshotChanges()
+        .subscribe( (data) => {
+        this.usersEx = data.map( (e) => {
+        let data = e.payload.doc.data()
+        return {
+            id: e.payload.doc.id,
+            datas: data,
+        };
+        });
+    });
   }
 
   removeFoodBag(i: any) {
     if (this.bagAmount[i] == 1) {
       this.bagValue = Number(this.bagValue) - Number(this.bagValueBagStatic[i]);
+      const totalValue = this.bagValue
+      const valueDataBase = {totalValue}
+      this.firestore.doc('totalValue/' + 'XfOkTFrYGRa1ViZ4lPVp').update(valueDataBase)
       this.bagImage.splice(i, 1);
       this.bagName.splice(i, 1);
       this.bagAmount.splice(i, 1);
@@ -56,23 +74,28 @@ export class LunchReviewDialogComponent implements OnInit {
       sessionStorage.setItem('value', JSON.stringify(this.bagValue));
       sessionStorage.setItem('name', JSON.stringify(this.bagName));
       sessionStorage.setItem('valueBag', JSON.stringify(this.bagValueBag));
-      sessionStorage.setItem('valueBag', JSON.stringify(this.bagValueBagStatic));
       sessionStorage.setItem('imageLink', JSON.stringify(this.bagImage));
-      sessionStorage.setItem('arrayBag', JSON.stringify(this.bagAmount));
+      sessionStorage.setItem('bagAmount', JSON.stringify(this.bagAmount));
+      this.bagName.length > 1 ? this.itemMode = true : this.itemMode = false;
+      console.log(this.bagValueBag);
+
     }else{
 
       let number = Number(this.bagAmount[i]);
       this.firestore.doc("lunch/" + this.bagIndex[i]).update({bagAmount:number -= 1});
+      console.log("🚀 ~ file: lunch-review-dialog.component.ts ~ line 86 ~ LunchReviewDialogComponent ~ removeFoodBag ~ this.bagIndex", this.bagIndex)
       this.bagAmount[i] = number;
       this.bagValueBag[i] = this.bagValueBagStatic[i] * number;
       this.bagValue = Number(this.bagValue) - Number(this.bagValueBagStatic[i]);
+      const totalValue = this.bagValue
+      const valueDataBase = {totalValue}
+      this.firestore.doc('totalValue/' + 'XfOkTFrYGRa1ViZ4lPVp').update(valueDataBase)
       sessionStorage.setItem("bagValueFinal", JSON.stringify(this.bagValue));
       sessionStorage.setItem('value', JSON.stringify(this.bagValue));
       sessionStorage.setItem('name', JSON.stringify(this.bagName));
       sessionStorage.setItem('valueBag', JSON.stringify(this.bagValueBag));
-      sessionStorage.setItem('valueBag', JSON.stringify(this.bagValueBagStatic));
       sessionStorage.setItem('imageLink', JSON.stringify(this.bagImage));
-      sessionStorage.setItem('arrayBag', JSON.stringify(this.bagAmount));
+      sessionStorage.setItem('bagAmount', JSON.stringify(this.bagAmount));
       sessionStorage.setItem("bagValueFinal", JSON.stringify(this.bagValue));
     }
 
@@ -82,16 +105,19 @@ export class LunchReviewDialogComponent implements OnInit {
 
     let number = Number(this.bagAmount[i]);
     this.firestore.doc("lunch/" + this.bagIndex[i]).update({bagAmount:number += 1});
+    console.log("🚀 ~ file: lunch-review-dialog.component.ts ~ line 107 ~ LunchReviewDialogComponent ~ addFoodBag ~ this.bagIndex", this.bagIndex)
     this.bagAmount[i] = number;
     this.bagValueBag[i] = this.bagValueBagStatic[i] * number;
     this.bagValue = Number(this.bagValue) + Number(this.bagValueBagStatic[i]);
+    const totalValue = this.bagValue
+    const valueDataBase = {totalValue}
+    this.firestore.doc('totalValue/' + 'XfOkTFrYGRa1ViZ4lPVp').update(valueDataBase)
     sessionStorage.setItem("bagValueFinal", JSON.stringify(this.bagValue));
     sessionStorage.setItem('value', JSON.stringify(this.bagValue));
     sessionStorage.setItem('name', JSON.stringify(this.bagName));
     sessionStorage.setItem('valueBag', JSON.stringify(this.bagValueBag));
-    sessionStorage.setItem('valueBag', JSON.stringify(this.bagValueBagStatic));
     sessionStorage.setItem('imageLink', JSON.stringify(this.bagImage));
-    sessionStorage.setItem('arrayBag', JSON.stringify(this.bagAmount));
+    sessionStorage.setItem('bagAmount', JSON.stringify(this.bagAmount));
   }
 
   clear(){ 
@@ -103,6 +129,7 @@ export class LunchReviewDialogComponent implements OnInit {
   }
 
   closeDialog(){
-    this.dialogReview.close();
+    let data = {image: this.bagImage, amount: this.bagAmount, name: this.bagName, value: this.bagValueBag, valueTotal: this.bagValue, valueEstatic: this.bagValueBagStatic}
+    this.dialogReview.close(data);
   }
 }

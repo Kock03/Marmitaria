@@ -4,7 +4,7 @@
         <mat-icon (click)="closeDialog()" class="close" style="cursor: pointer;">close</mat-icon>
     </h1>
     <div class="infos" >
-        <h2 class="item">Item(ns):</h2>
+        <h2 class="item">{{itemMode === true ? 'Itens:' : 'Item:'}}</h2>
         <br>
         <ul fxLayout="row" >
             <div fxLayout="column">
@@ -27,8 +27,8 @@
             </div>
         </ul>
     </div>
-    <div class="col-12">
-        <h2 class="total">Total: R$ {{this.bagValue.toFixed(2).replace(".",",")}}</h2>
+    <div class="col-12" *ngFor="let totalValue of usersEx; let i = index">
+        <h2 class="total">Total: R$ {{this.totalValue.datas.totalValue.toFixed(2).replace(".",",")}}</h2>
     </div>
     <br>
     <br>
