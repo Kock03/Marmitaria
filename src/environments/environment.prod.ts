@@ -1,13 +1,12 @@
 export const environment = {
   firebase: {
-    projectId: 'restaurante-evt',
-    appId: '1:964690624052:web:48c33fbce75688fe895461',
-    databaseURL: 'https://restaurante-evt-default-rtdb.firebaseio.com',
-    storageBucket: 'restaurante-evt.appspot.com',
-    locationId: 'asia-east2',
-    apiKey: 'AIzaSyBTKMS0Kn-6qiARKOMLNFud6_x0KKAsC6o',
-    authDomain: 'restaurante-evt.firebaseapp.com',
-    messagingSenderId: '964690624052',
+    apiKey: "AIzaSyABf21Us76ouC8oxtWBnFdNUmwFsSMOUqQ",
+    authDomain: "restaurante-teste-bf5c7.firebaseapp.com",
+    databaseURL: "https://restaurante-teste-bf5c7-default-rtdb.firebaseio.com",
+    projectId: "restaurante-teste-bf5c7",
+    storageBucket: "restaurante-teste-bf5c7.appspot.com",
+    messagingSenderId: "24884724285",
+    appId: "1:24884724285:web:bdb716fe8a0c268ee3a054"
   },
   production: true
 };

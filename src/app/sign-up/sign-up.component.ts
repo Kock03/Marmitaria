@@ -38,10 +38,10 @@ export class SignUpComponent implements OnInit {
       alert("Por favor, aceite nossos termos de uso")
     }else{
       this.authService.SignUp(userEmail, userPwd)
-      const update = this.authService.userData.displayName == name.value;
-      firebase.auth().currentUser?.updateProfile({
-        displayName: name.value
-      });
+      // const update = this.authService.userData.displayName == name.value;
+      // firebase.auth().currentUser?.updateProfile({
+      //   displayName: name.value
+      // });
     }
   }
 }

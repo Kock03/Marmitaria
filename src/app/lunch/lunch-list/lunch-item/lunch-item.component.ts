@@ -28,7 +28,7 @@ export class LunchItemComponent implements OnInit {
   @Output() delete: EventEmitter<any> = new EventEmitter();
   ngOnInit(): void {
     this.index = sessionStorage.getItem('index');
-    this.authService.userData.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.deleteMode = true : this.deleteMode = false;
+    this.authService.userData.uid === "SHfa4hba4RaCMR78REr5mVTlxBD2" ? this.deleteMode = true : this.deleteMode = false;
   }
 
   onSelected() {

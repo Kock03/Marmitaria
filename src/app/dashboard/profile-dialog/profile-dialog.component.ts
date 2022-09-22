@@ -13,7 +13,7 @@ export class ProfileDialogComponent implements OnInit {
 
   ngOnInit(){
     let adm = document.getElementById('adm') as HTMLParagraphElement;
-    this.authService.userData.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.admMode = true : this.admMode = false;
+    this.authService.userData.uid === "SHfa4hba4RaCMR78REr5mVTlxBD2" ? this.admMode = true : this.admMode = false;
   }
 
 }

@@ -19,7 +19,7 @@ export class HeaderComponent implements OnInit {
   }
   ngOnInit(): void {
     let user =  JSON.parse(localStorage.getItem("user")!);
-    user.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.boxMode = true : this.boxMode = false;
+    user.uid === "SHfa4hba4RaCMR78REr5mVTlxBD2" ? this.boxMode = true : this.boxMode = false;
 
   }
 

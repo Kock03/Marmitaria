@@ -44,7 +44,7 @@ export class LunchDetailsComponent{
         let review = document.getElementById('bagCard') as HTMLButtonElement;
         let addBag = document.getElementById('addBag') as HTMLButtonElement;
         let editFood = document.getElementById('editFood') as HTMLButtonElement;
-        if(this.authService.userData.uid == "yKPp5y7Yx4bYd8u1GM37HHeIcP32"){
+        if(this.authService.userData.uid == "SHfa4hba4RaCMR78REr5mVTlxBD2"){
             review.style.display = "none";
             addBag.style.display = "none";
         }else{
@@ -83,7 +83,7 @@ export class LunchDetailsComponent{
         this.sum = this.sum + this.packageSelected.value
         const totalValue = this.sum
         const valueDataBase = {totalValue}
-        this.firestore.doc('totalValue/' + 'XfOkTFrYGRa1ViZ4lPVp').update(valueDataBase)
+        this.firestore.doc('totalValue/' + 'nXyj42BTIeH77zNJAun7').update(valueDataBase)
         let bagValue = JSON.stringify(this.packageSelected.value)
         let bagName = JSON.stringify(this.packageSelected.name)
         let bagAmount = JSON.stringify(this.packageSelected.bagAmount)

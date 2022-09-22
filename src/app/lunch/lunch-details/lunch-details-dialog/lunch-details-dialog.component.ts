@@ -45,7 +45,6 @@ export class LunchDetailsDialogComponent implements OnInit {
     
     ngOnInit(): void {
       this.lunch = JSON.parse(sessionStorage.getItem('lunch')!);
-      console.log("🚀 ~ file: lunch-details-dialog.component.ts ~ line 41 ~ LunchDetailsDialogComponent ~ ngOnInit ~ this.lunch ", this.lunch )
       this.edition(this.lunch);
       this.lunchEx = sessionStorage.getItem('index');
     }

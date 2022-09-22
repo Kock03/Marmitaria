@@ -65,7 +65,7 @@ export class LunchListComponent implements OnInit {
         this.packages = this.packageEx;
     });
     let user =  JSON.parse(localStorage.getItem("user")!);
-    user.uid === "yKPp5y7Yx4bYd8u1GM37HHeIcP32" ? this.inputMode = true : this.inputMode = false;
+    user.uid === "SHfa4hba4RaCMR78REr5mVTlxBD2" ? this.inputMode = true : this.inputMode = false;
   }
 
   onPackageSelected(packageSelected: any) {
@@ -75,7 +75,6 @@ export class LunchListComponent implements OnInit {
     sessionStorage.setItem('arrayBagIndex', JSON.stringify(this.indexBags));
     let amountArray = packageSelected.datas.bagAmount;
     this.amountBags.push(amountArray);
-    console.log("🚀 ~ file: lunch-list.component.ts ~ line 81 ~ LunchListComponent ~ onPackageSelected ~ this.amountBags", this.amountBags)
     sessionStorage.setItem('arrayBag', JSON.stringify(this.amountBags));
     this.packageWasSelected.emit(packageSelected.datas);
   }
