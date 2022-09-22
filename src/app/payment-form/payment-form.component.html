@@ -8,6 +8,14 @@
     <tbody>
         <tr *ngFor="let request of requestList; let i = index">
             <th scope="row">{{request.id}}</th>
+            <th scope="row">
+                <select class="custom-select">
+                    <option selected>Pedido Realizado</option>
+                    <option value="1">Preparando</option>
+                    <option value="2">Entregue</option>
+                </select>
+            </th>
         </tr>
+        
     </tbody>
 </table>
