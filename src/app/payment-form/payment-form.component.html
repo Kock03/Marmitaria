@@ -1,0 +1,13 @@
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Pedido</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let request of requestList; let i = index">
+            <th scope="row">{{request.id}}</th>
+        </tr>
+    </tbody>
+</table>

@@ -51,6 +51,7 @@ import {ClipboardModule} from '@angular/cdk/clipboard';
 import { ExcelService } from './shared/services/excel.service';
 import { ReportErrorDialogComponent } from './report-error-dialog/report-error-dialog.component';
 import { ToDoListComponent } from './dashboard/to-do-list/to-do-list.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -109,7 +110,7 @@ import { ToDoListComponent } from './dashboard/to-do-list/to-do-list.component';
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),
     AppRoutingModule,
-    
+    MatTableModule,
   ],
   providers: [AuthService, ExcelService],
   bootstrap: [AppComponent]

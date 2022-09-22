@@ -106,6 +106,7 @@ export class LunchReviewDialogComponent implements OnInit {
     this.bagAmount[i] = number;
     this.bagValueBag[i] = this.bagValueBagStatic[i] * number;
     this.bagValue = Number(this.bagValue) + Number(this.bagValueBagStatic[i]);
+    console.log("🚀 ~ file: lunch-review-dialog.component.ts ~ line 109 ~ LunchReviewDialogComponent ~ addFoodBag ~ this.bagValue", this.bagValue)
     const totalValue = this.bagValue
     const valueDataBase = {totalValue}
     this.firestore.doc('totalValue/' + 'nXyj42BTIeH77zNJAun7').update(valueDataBase)
@@ -121,15 +122,15 @@ export class LunchReviewDialogComponent implements OnInit {
     const total = this.bagValue
     const newTotal = {total}
     // this.firestore.doc("total/" + "4yRGy1ea3EWrawygddOr").update(newTotal);
-    // let nameAdm = sessionStorage.getItem('name')
-    // let valueAdm = sessionStorage.getItem('valueBag')
-    // let bagAmountAdm = sessionStorage.getItem('bagAmount')
-    // let finalValueAdm = sessionStorage.getItem('bagValueFinal')
-    const newRequest = {value:2}
-    // console.log("🚀 ~ file: lunch-review-dialog.component.ts ~ line 132 ~ LunchReviewDialogComponent ~ clear ~ newRequest", newRequest)
+    let nameAdm = sessionStorage.getItem('name')
+    let valueAdm = sessionStorage.getItem('valueBag')
+    let bagAmountAdm = sessionStorage.getItem('bagAmount')
+    let finalValueAdm = sessionStorage.getItem('bagValueFinal')
+    const newRequest = {nameAdm, valueAdm, bagAmountAdm, finalValueAdm}
     this.firestore.collection('requests').add(newRequest)
+    alert("Pedido em preparo!");
+    sessionStorage.clear();
     this.dialogReview.close();
-
   }
 
   closeDialog(){

@@ -98,6 +98,7 @@ export class LunchDetailsComponent{
         sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;
         sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
         sessionStorage.setItem('bagAmount', JSON.stringify(this.packageAmount))!;
+        sessionStorage.setItem('bagValueFinal', JSON.stringify(this.sum))!;
         this.firestore.doc('lunch/' + this.userID).update({isBag : true});
         
     }

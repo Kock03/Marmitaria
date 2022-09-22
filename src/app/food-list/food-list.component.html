@@ -16,7 +16,7 @@
             <a *ngFor="let food of foodEx | filter: filter"   
             class="list-group-item" 
             style="cursor: pointer;" fxLayout="row" fxLayoutAlign="space-between center">
-            <h3 style="margin-top: 10px;">{{food.datas.foodName}} ({{food.datas.foodAmount}})</h3>
+            <h3 style="margin-top: 10px;">{{food.datas.foodName[0].toUpperCase() + food.datas.foodName.substring(1)}} ({{food.datas.foodAmount}})</h3>
             <div>
                 <button (click)="onDelete(food.id)" mat-button style="float:right;">
                     <mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color"  aria-hidden="true">delete</mat-icon>
@@ -38,7 +38,7 @@
             <th>Quantidade</th>
         </tr>
         <tr *ngFor="let item of foodEx">
-            <td>{{item.datas.foodName}}</td>
+            <td>{{item.datas.foodName[0].toUpperCase() + item.datas.foodName.substring(1)}}</td>
             <td>{{item.datas.foodAmount}}</td>
         </tr>
     </table>
