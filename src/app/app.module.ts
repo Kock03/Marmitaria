@@ -52,6 +52,9 @@ import { ExcelService } from './shared/services/excel.service';
 import { ReportErrorDialogComponent } from './report-error-dialog/report-error-dialog.component';
 import { ToDoListComponent } from './dashboard/to-do-list/to-do-list.component';
 import {MatTableModule} from '@angular/material/table';
+import {MatTreeModule} from '@angular/material/tree';
+import {FlatTreeControl} from '@angular/cdk/tree';
+
 
 
 @NgModule({
@@ -111,6 +114,7 @@ import {MatTableModule} from '@angular/material/table';
     // provideAuth(() => getAuth()),
     AppRoutingModule,
     MatTableModule,
+    MatTreeModule,
   ],
   providers: [AuthService, ExcelService],
   bootstrap: [AppComponent]

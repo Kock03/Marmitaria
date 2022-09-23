@@ -1,6 +1,19 @@
 
-
 table{
-    width: 50%;
+    width: 100%;
     align-items: center;
+}
+
+mat-icon{
+    padding-top: 5px;
+    cursor: pointer;
+}
+
+.custom-select{
+    margin-top: 5px;
+}
+
+.thead-dark{
+    background-color: black;
+    color: white;
 }

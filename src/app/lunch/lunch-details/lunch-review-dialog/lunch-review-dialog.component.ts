@@ -126,7 +126,8 @@ export class LunchReviewDialogComponent implements OnInit {
     let valueAdm = sessionStorage.getItem('valueBag')
     let bagAmountAdm = sessionStorage.getItem('bagAmount')
     let finalValueAdm = sessionStorage.getItem('bagValueFinal')
-    const newRequest = {nameAdm, valueAdm, bagAmountAdm, finalValueAdm}
+    let Status = "Pedido Realizado"
+    const newRequest = {nameAdm, valueAdm, bagAmountAdm, finalValueAdm, Status}
     this.firestore.collection('requests').add(newRequest)
     alert("Pedido em preparo!");
     sessionStorage.clear();

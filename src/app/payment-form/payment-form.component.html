@@ -1,21 +1,30 @@
-<table class="table table-striped">
-    <thead>
-        <tr>
-            <th scope="col">Pedido</th>
-            <th scope="col">Status</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let request of requestList; let i = index">
-            <th scope="row">{{request.id}}</th>
-            <th scope="row">
-                <select class="custom-select">
-                    <option selected>Pedido Realizado</option>
-                    <option value="1">Preparando</option>
-                    <option value="2">Entregue</option>
-                </select>
-            </th>
-        </tr>
-        
-    </tbody>
-</table>
+<div class="container" fxLayout="column" fxLayoutAlign="space-around center">
+    <table class="table table-bordered table-striped ">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Pedido</th>
+                <th scope="col">Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let request of requestList; let i = index">
+                <th scope="row" class="caret"><mat-icon (click)="rotate()"id="arrowDown">arrow_drop_down</mat-icon><mat-icon id="arrowUp" style="display: none;">arrow_drop_up</mat-icon>
+                    {{request.id}}
+                    <!-- <ul class="nested">
+                        <li>Alimento: {{request.datas.nameAdm.replaceAll('"', '').replaceAll('\\', "").replaceAll("[", "").replaceAll("]", "")}}</li>
+                        <li>Quantidade: {{request.datas.bagAmountAdm.replaceAll('"', '').replaceAll("[", "").replaceAll("]", "")}}</li>
+                        <li>Valor Total: {{convert(request.datas.finalValueAdm)}}</li>
+                    </ul> -->
+                </th>
+                <th scope="row">
+                    <select class="custom-select">
+                        <option value="Pedido Realizado">Pedido Realizado</option>
+                        <option value="Preparando">Preparando</option>
+                        <option value="Entregue">Entregue</option>
+                    </select>
+                </th>
+            </tr>
+            
+        </tbody>
+    </table>
+</div>
