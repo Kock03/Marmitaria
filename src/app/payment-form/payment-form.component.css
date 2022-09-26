@@ -4,16 +4,34 @@ table{
     align-items: center;
 }
 
-mat-icon{
-    padding-top: 5px;
-    cursor: pointer;
-}
 
 .custom-select{
     margin-top: 5px;
+    align-items: center;
 }
 
-.thead-dark{
+.thead{
     background-color: black;
     color: white;
 }
+
+footer{
+    position: fixed;
+    bottom: 10px;
+    cursor: pointer;
+}
+
+#arrowDown{
+    padding-top: 5px;
+    cursor: pointer;
+    color: black;
+}
+
+#arrowUp{
+    padding-top: 5px;
+    cursor: pointer;
+    color: black;
+    transform: rotate(180deg);
+    padding: 0;
+}
+

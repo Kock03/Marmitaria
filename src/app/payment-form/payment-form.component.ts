@@ -17,6 +17,7 @@ export class PaymentFormComponent implements OnInit {
   constructor(private firestore: AngularFirestore) { }
   requestList!: any;
   parentElement!: Element;
+  teste: any;
 
   ngOnInit(): void {
     this.firestore
@@ -30,9 +31,21 @@ export class PaymentFormComponent implements OnInit {
           };
         });
     });
+
+    var monthString = 'Sushi,Pizza';
+    
+    var comma = ',';
+    var teste = monthString.split(comma)
+    console.log("🚀 ~ file: payment-form.component.ts ~ line 38 ~ PaymentFormComponent ~ ngOnInit ~ teste", teste)
+    
+    
   }
 
   convert(value: any){
+    return Number(value).toFixed(2).replace(".", ",");
+  }
+
+  convert2(value: any){
     return Number(value).toFixed(2).replace(".", ",");
   }
 
@@ -41,10 +54,17 @@ export class PaymentFormComponent implements OnInit {
     const selectValue = box.value;
   }
 
-  rotate(){
-    const arrowDown = document.getElementById('arrowDown') as HTMLDivElement;
-    arrowDown.style.display = 'none';
-    const arrowUp = document.getElementById('arrowUp') as HTMLDivElement;
-    arrowUp.style.display = 'block';
+  rotate(i: any){
+    let arrow = document.getElementById('arrowDown') as HTMLTableElement
+    let info = document.getElementById(i) as HTMLDivElement;
+
+    
+    if(info.style.display == "block"){
+      info.style.display = "none";
+      arrow.id == "arrowDown";
+    } else{
+      info.style.display = "block";
+      arrow.id == "arrowUp";
+    }
   }
 }

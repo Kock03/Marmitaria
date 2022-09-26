@@ -1,6 +1,6 @@
 <div class="container" fxLayout="column" fxLayoutAlign="space-around center">
-    <table class="table table-bordered table-striped ">
-        <thead class="thead-dark">
+    <table class="table table-bordered  ">
+        <thead class="thead">
             <tr>
                 <th scope="col">Pedido</th>
                 <th scope="col">Status</th>
@@ -8,23 +8,51 @@
         </thead>
         <tbody>
             <tr *ngFor="let request of requestList; let i = index">
-                <th scope="row" class="caret"><mat-icon (click)="rotate()"id="arrowDown">arrow_drop_down</mat-icon><mat-icon id="arrowUp" style="display: none;">arrow_drop_up</mat-icon>
-                    {{request.id}}
-                    <!-- <ul class="nested">
-                        <li>Alimento: {{request.datas.nameAdm.replaceAll('"', '').replaceAll('\\', "").replaceAll("[", "").replaceAll("]", "")}}</li>
-                        <li>Quantidade: {{request.datas.bagAmountAdm.replaceAll('"', '').replaceAll("[", "").replaceAll("]", "")}}</li>
-                        <li>Valor Total: {{convert(request.datas.finalValueAdm)}}</li>
-                    </ul> -->
+                <th scope="row" class="caret"><mat-icon id="arrowDown"(click)="rotate(request.id)">expand_more</mat-icon>{{request.id}}
+                    <div style="display: none;" id="{{request.id}}">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Alimento</th>
+                                    <th scope="col">Quantidade</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <!-- <th scope="row">{{request.datas.nameAdm.replaceAll('"', '').replaceAll('\\', "").replaceAll("[", "").replaceAll("]", "")}}</th> -->
+                                    <th scope="row">{{request.datas.nameAdm[i].replaceAll('"', '')}}</th>
+                                    <!-- <th>{{request.datas.bagAmountAdm.replaceAll('"', '').replaceAll("[", "").replaceAll("]", "")}}</th> -->
+                                    <th>{{request.datas.bagAmountAdm[i]}}</th>
+                                    <!-- <th>{{request.datas.valueAdm.replaceAll('"', '  ').replaceAll("[", "").replaceAll("]", "").replaceAll(".", ",")}}</th> -->
+                                    <th>{{convert(request.datas.valueAdm[i])}}</th>
+                                    <!-- <th>{{convert2(request.datas.valueAdm)}}</th> -->
+                                </tr>
+                            </tbody>
+                            <br>
+                            <table class="table table-bordered">
+                                <thead class="table">
+                                    <tr>
+                                        <th>Valor Total:</th>
+                                        <th>{{convert(request.datas.finalValueAdm)}}</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </table>
+                    </div>
                 </th>
                 <th scope="row">
                     <select class="custom-select">
-                        <option value="Pedido Realizado">Pedido Realizado</option>
-                        <option value="Preparando">Preparando</option>
-                        <option value="Entregue">Entregue</option>
+                        <option value="1">Pedido Realizado</option>
+                        <option value="2">Preparando</option>
+                        <option value="3">Entregue</option>
                     </select>
                 </th>
             </tr>
-            
         </tbody>
     </table>
+    <footer>
+        <mat-icon style="color: black;" routerLink="/dashboard">arrow_back</mat-icon>
+    </footer>
 </div>
+

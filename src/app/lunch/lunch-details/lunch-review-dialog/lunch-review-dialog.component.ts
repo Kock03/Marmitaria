@@ -122,16 +122,17 @@ export class LunchReviewDialogComponent implements OnInit {
     const total = this.bagValue
     const newTotal = {total}
     // this.firestore.doc("total/" + "4yRGy1ea3EWrawygddOr").update(newTotal);
-    let nameAdm = sessionStorage.getItem('name')
-    let valueAdm = sessionStorage.getItem('valueBag')
-    let bagAmountAdm = sessionStorage.getItem('bagAmount')
-    let finalValueAdm = sessionStorage.getItem('bagValueFinal')
+    let nameAdm = JSON.parse(sessionStorage.getItem('name')!);
+    let valueAdm = JSON.parse(sessionStorage.getItem('valueBag')!);
+    let bagAmountAdm = JSON.parse(sessionStorage.getItem('bagAmount')!);
+    let finalValueAdm = JSON.parse(sessionStorage.getItem('bagValueFinal')!);
     let Status = "Pedido Realizado"
     const newRequest = {nameAdm, valueAdm, bagAmountAdm, finalValueAdm, Status}
     this.firestore.collection('requests').add(newRequest)
     alert("Pedido em preparo!");
     sessionStorage.clear();
     this.dialogReview.close();
+    this.firestore.doc("totalValue/" + "nXyj42BTIeH77zNJAun7").update({totalValue: 0});
   }
 
   closeDialog(){

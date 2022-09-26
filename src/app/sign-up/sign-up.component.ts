@@ -5,6 +5,7 @@ import { User } from '../shared/services/user';
 import { Inject } from '@angular/core';
 import { user } from '@angular/fire/auth';
 import firebase from 'firebase/compat/app';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 
@@ -37,11 +38,12 @@ export class SignUpComponent implements OnInit {
     if(this.checked == false) {
       alert("Por favor, aceite nossos termos de uso")
     }else{
-      this.authService.SignUp(userEmail, userPwd)
-      // const update = this.authService.userData.displayName == name.value;
-      // firebase.auth().currentUser?.updateProfile({
-      //   displayName: name.value
-      // });
+      this.authService.SignUp(userEmail, userPwd).then((res) =>{
+        const user = firebase.auth().currentUser;
+        return user?.updateProfile({
+          displayName: name.value
+        })
+      })
     }
   }
 }
