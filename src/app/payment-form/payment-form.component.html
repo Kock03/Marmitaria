@@ -39,12 +39,13 @@
                 </td>
                 <td scope="row">
                     <div class="select" >
-                        <select name="format" id="format">
+                        <select name="format" id="format" [(ngModel)]="select">
                             <option [value]="1">Pedido Realizado</option>
                             <option [value]="2">Preparando</option>
                             <option [value]="3">Entregue</option>
                         </select>
                     </div>
+                    <p>{{select}}</p>
                 </td>
                 <br>
             </tr>

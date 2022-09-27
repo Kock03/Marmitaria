@@ -12,7 +12,7 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 })
 export class PaymentFormComponent implements OnInit {
   @ViewChild("select") selectOption!: ElementRef;
-
+  select = "";
 
   constructor(private firestore: AngularFirestore) { }
   requestList!: any;
@@ -55,10 +55,13 @@ export class PaymentFormComponent implements OnInit {
     console.log("🚀 ~ file: payment-form.component.ts ~ line 55 ~ PaymentFormComponent ~ valueCheck ~ selectValue", selectValue)
     if(selectValue == 1){
       this.firestore.doc('requests/' + i).update({Status: selectValue})
+      box.value = "1"
     }else if(selectValue == 2){
       this.firestore.doc('requests/' + i).update({Status: selectValue})
+      box.value = "2"
     }else if(selectValue == 3){
       this.firestore.doc('requests/' + i).update({Status: selectValue})
+      box.value = "3"
     }
   }
 
