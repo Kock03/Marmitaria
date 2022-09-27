@@ -50,12 +50,20 @@ export class PaymentFormComponent implements OnInit {
   }
 
   valueCheck(i: any){
-    const box = document.getElementsByClassName('custom-select')[0] as HTMLSelectElement;
-    const selectValue = box.value;
+    const box = document.getElementById('format') as HTMLSelectElement;
+    var selectValue = Number(box.value);
+    console.log("🚀 ~ file: payment-form.component.ts ~ line 55 ~ PaymentFormComponent ~ valueCheck ~ selectValue", selectValue)
+    if(selectValue == 1){
+      this.firestore.doc('requests/' + i).update({Status: selectValue})
+    }else if(selectValue == 2){
+      this.firestore.doc('requests/' + i).update({Status: selectValue})
+    }else if(selectValue == 3){
+      this.firestore.doc('requests/' + i).update({Status: selectValue})
+    }
   }
 
   rotate(i: any){
-    let arrow = document.getElementById('arrowDown') as HTMLTableElement
+    let arrow = document.getElementById('arrow') as HTMLTableElement
     let info = document.getElementById(i) as HTMLDivElement;
 
     
