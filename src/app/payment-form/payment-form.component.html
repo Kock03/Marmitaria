@@ -1,16 +1,16 @@
-<div class="container" fxLayout="column" fxLayoutAlign="space-around center">
-    <table class="table table-bordered  ">
-        <thead class="thead">
+<div class="container" fxLayout="column" fxLayoutAlign="space-around stretch">
+    <table class="table table-dark table-striped table-bordered ">
+        <thead class="thead-dark">
             <tr>
                 <th scope="col">Pedido</th>
                 <th scope="col">Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let request of requestList; let i = index">
-                <th scope="row" class="caret"><mat-icon id="arrowDown"(click)="rotate(request.id)">expand_more</mat-icon>{{request.id}}
+            <tr *ngFor="let request of requestList;">
+                <td scope="row" class="caret"><mat-icon id="arrowDown"(click)="rotate(request.id)">expand_more</mat-icon>{{request.id}}
                     <div style="display: none;" id="{{request.id}}">
-                        <table class="table table-bordered">
+                        <table class="table table-light">
                             <thead>
                                 <tr>
                                     <th scope="col">Alimento</th>
@@ -19,40 +19,39 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <!-- <th scope="row">{{request.datas.nameAdm.replaceAll('"', '').replaceAll('\\', "").replaceAll("[", "").replaceAll("]", "")}}</th> -->
-                                    <th scope="row">{{request.datas.nameAdm[i].replaceAll('"', '')}}</th>
-                                    <!-- <th>{{request.datas.bagAmountAdm.replaceAll('"', '').replaceAll("[", "").replaceAll("]", "")}}</th> -->
-                                    <th>{{request.datas.bagAmountAdm[i]}}</th>
-                                    <!-- <th>{{request.datas.valueAdm.replaceAll('"', '  ').replaceAll("[", "").replaceAll("]", "").replaceAll(".", ",")}}</th> -->
-                                    <th>{{convert(request.datas.valueAdm[i])}}</th>
-                                    <!-- <th>{{convert2(request.datas.valueAdm)}}</th> -->
+                                <tr *ngFor="let name of request.datas.nameAdm; let i = index;">
+                                    <td scope="row">{{name.replaceAll('"', '')}}</td>
+                                    <td scope="row">{{request.datas.bagAmountAdm[i]}}</td>
+                                    <td scope="row">R$ {{convert(request.datas.valueAdm[i])}}</td>
                                 </tr>
                             </tbody>
                             <br>
-                            <table class="table table-bordered">
-                                <thead class="table">
+                            <table class="table table-light table-bordered">
+                                <thead>
                                     <tr>
                                         <th>Valor Total:</th>
-                                        <th>{{convert(request.datas.finalValueAdm)}}</th>
+                                        <td>R$ {{convert(request.datas.finalValueAdm)}}</td>
                                     </tr>
                                 </thead>
                             </table>
                         </table>
                     </div>
-                </th>
-                <th scope="row">
-                    <select class="custom-select">
-                        <option value="1">Pedido Realizado</option>
-                        <option value="2">Preparando</option>
-                        <option value="3">Entregue</option>
-                    </select>
-                </th>
+                </td>
+                <td scope="row">
+                    <div class="select" >
+                        <select name="format" id="format">
+                            <option [value]="1">Pedido Realizado</option>
+                            <option [value]="2">Preparando</option>
+                            <option [value]="3">Entregue</option>
+                        </select>
+                    </div>
+                </td>
+                <br>
             </tr>
         </tbody>
     </table>
-    <footer>
-        <mat-icon style="color: black;" routerLink="/dashboard">arrow_back</mat-icon>
-    </footer>
 </div>
+<footer fxLayout="column" fxLayoutAlign="space-around center">
+    <mat-icon style="color: black;" routerLink="/dashboard">arrow_back</mat-icon>
+</footer>
 
