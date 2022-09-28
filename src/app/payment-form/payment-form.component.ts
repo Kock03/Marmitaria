@@ -3,6 +3,7 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
 import {MatTreeFlatDataSource, MatTreeFlattener} from '@angular/material/tree';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -12,7 +13,8 @@ import { MatTreeNestedDataSource } from '@angular/material/tree';
 })
 export class PaymentFormComponent implements OnInit {
   @ViewChild("select") selectOption!: ElementRef;
-  select = "";
+  select: any = "";
+  selected: number = 1;
 
   constructor(private firestore: AngularFirestore) { }
   requestList!: any;
@@ -31,14 +33,6 @@ export class PaymentFormComponent implements OnInit {
           };
         });
     });
-
-    var monthString = 'Sushi,Pizza';
-    
-    var comma = ',';
-    var teste = monthString.split(comma)
-    console.log("🚀 ~ file: payment-form.component.ts ~ line 38 ~ PaymentFormComponent ~ ngOnInit ~ teste", teste)
-    
-    
   }
 
   convert(value: any){
@@ -49,19 +43,14 @@ export class PaymentFormComponent implements OnInit {
     return Number(value).toFixed(2).replace(".", ",");
   }
 
-  valueCheck(i: any){
-    const box = document.getElementById('format') as HTMLSelectElement;
-    var selectValue = Number(box.value);
-    console.log("🚀 ~ file: payment-form.component.ts ~ line 55 ~ PaymentFormComponent ~ valueCheck ~ selectValue", selectValue)
-    if(selectValue == 1){
-      this.firestore.doc('requests/' + i).update({Status: selectValue})
-      box.value = "1"
-    }else if(selectValue == 2){
-      this.firestore.doc('requests/' + i).update({Status: selectValue})
-      box.value = "2"
-    }else if(selectValue == 3){
-      this.firestore.doc('requests/' + i).update({Status: selectValue})
-      box.value = "3"
+  valueCheck(data: any, i: any, id: any){
+    this.select = data.value;
+    if(this.select == 1){
+      this.firestore.doc("requests/" + id).update({Status: this.select});
+    }else if(this.select == 2){
+      this.firestore.doc("requests/" + id).update({Status: this.select});
+    }else if(this.select == 3){
+      this.firestore.doc("requests/" + id).update({Status: this.select});
     }
   }
 

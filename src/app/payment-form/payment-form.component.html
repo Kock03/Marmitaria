@@ -3,11 +3,12 @@
         <thead class="thead-dark">
             <tr>
                 <th scope="col">Pedido</th>
+                <th scope="col">Realizado em</th>
                 <th scope="col">Status</th>
             </tr>
         </thead>
         <tbody>
-            <tr *ngFor="let request of requestList;">
+            <tr *ngFor="let request of requestList; let i = index;">
                 <td scope="row" class="caret"><mat-icon id="arrowDown"(click)="rotate(request.id)">expand_more</mat-icon>{{request.id}}
                     <div style="display: none;" id="{{request.id}}">
                         <table class="table table-light">
@@ -37,15 +38,23 @@
                         </table>
                     </div>
                 </td>
+                <td scope="row">{{request.datas.dateAndHour}}</td>
                 <td scope="row">
-                    <div class="select" >
-                        <select name="format" id="format" [(ngModel)]="select">
-                            <option [value]="1">Pedido Realizado</option>
-                            <option [value]="2">Preparando</option>
-                            <option [value]="3">Entregue</option>
-                        </select>
+                    <div class="select">
+                        <mat-form-field>
+                            <mat-select [(value)]="request.datas.Status" #select (selectionChange)="valueCheck($event, i, request.id)">
+                                <mat-option [value]="1">
+                                    Pedido Realizado
+                                </mat-option>
+                                <mat-option [value]="2">
+                                    Preparando
+                                </mat-option>
+                                <mat-option [value]="3">
+                                    Entregue
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
                     </div>
-                    <p>{{select}}</p>
                 </td>
                 <br>
             </tr>

@@ -7,7 +7,7 @@ table{
     justify-content: center;
 }
 
-select {
+mat-select {
     -webkit-appearance: none;
     -moz-appearance: none;
     -ms-appearance: none;
@@ -25,11 +25,11 @@ select {
     font-family: 'Open Sans', sans-serif;
 }
 
-select::-ms-expand {
+mat-select::-ms-expand {
     display: none;
 }
 
-.select{
+mat-select{
     position: relative;
     display: flex;
     width: 20em;
@@ -38,9 +38,10 @@ select::-ms-expand {
     background: #5c6664;
     overflow: hidden;
     border-radius: .25em;
+    align-items: center;
 }
 
-.select::after {
+mat-select::after {
     content: '\25BC';
     position: absolute;
     top: 0;
@@ -52,8 +53,12 @@ select::-ms-expand {
     transition:.25s all ease;
 }
 
-.select:hover::after {
+mat-select:hover::after {
     color: #723CAF;
+}
+
+::ng-deep.mat-form-field-appearance-legacy .mat-form-field-underline {
+    background-color: transparent!important;
 }
 
 footer{

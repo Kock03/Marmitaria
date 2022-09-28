@@ -54,6 +54,7 @@ import { ToDoListComponent } from './dashboard/to-do-list/to-do-list.component';
 import {MatTableModule} from '@angular/material/table';
 import {MatTreeModule} from '@angular/material/tree';
 import {FlatTreeControl} from '@angular/cdk/tree';
+import { MatSelectModule } from '@angular/material/select';
 
 
 
@@ -109,6 +110,7 @@ import {FlatTreeControl} from '@angular/cdk/tree';
     AngularFireStorageModule,
     MatSlideToggleModule,
     AngularFireAuthModule,
+    MatSelectModule,
     ClipboardModule,
     // provideFirebaseApp(() => initializeApp(environment.firebase)),
     // provideAuth(() => getAuth()),

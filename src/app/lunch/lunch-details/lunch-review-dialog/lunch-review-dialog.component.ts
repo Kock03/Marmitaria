@@ -4,6 +4,8 @@ import { Lunch } from '../../lunch.model';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { doc, getDoc } from 'firebase/firestore';
 import { MatDialogRef } from "@angular/material/dialog";
+import { Pipe, PipeTransform } from '@angular/core'
+import { formatDate } from '@angular/common';
 
 
 @Component({
@@ -106,7 +108,6 @@ export class LunchReviewDialogComponent implements OnInit {
     this.bagAmount[i] = number;
     this.bagValueBag[i] = this.bagValueBagStatic[i] * number;
     this.bagValue = Number(this.bagValue) + Number(this.bagValueBagStatic[i]);
-    console.log("🚀 ~ file: lunch-review-dialog.component.ts ~ line 109 ~ LunchReviewDialogComponent ~ addFoodBag ~ this.bagValue", this.bagValue)
     const totalValue = this.bagValue
     const valueDataBase = {totalValue}
     this.firestore.doc('totalValue/' + 'nXyj42BTIeH77zNJAun7').update(valueDataBase)
@@ -118,7 +119,7 @@ export class LunchReviewDialogComponent implements OnInit {
     sessionStorage.setItem('bagAmount', JSON.stringify(this.bagAmount));
   }
 
-  clear(){ 
+  addRequest(){ 
     const total = this.bagValue
     const newTotal = {total}
     // this.firestore.doc("total/" + "4yRGy1ea3EWrawygddOr").update(newTotal);
@@ -127,9 +128,11 @@ export class LunchReviewDialogComponent implements OnInit {
     let bagAmountAdm = JSON.parse(sessionStorage.getItem('bagAmount')!);
     let finalValueAdm = JSON.parse(sessionStorage.getItem('bagValueFinal')!);
     let Status = 1;
-    const newRequest = {nameAdm, valueAdm, bagAmountAdm, finalValueAdm, Status}
+    let date = new Date();
+    let dateAndHour = formatDate(date, 'dd/MM/yyyy hh:mm:ss a', 'en-US')
+    const newRequest = {nameAdm, valueAdm, bagAmountAdm, finalValueAdm, Status, dateAndHour}
     this.firestore.collection('requests').add(newRequest)
-    alert("Pedido em preparo!");
+    alert("Pedido realizado!");
     sessionStorage.clear();
     this.dialogReview.close();
     this.firestore.doc("totalValue/" + "nXyj42BTIeH77zNJAun7").update({totalValue: 0});
