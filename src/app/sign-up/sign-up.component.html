@@ -2,7 +2,7 @@
     <div class="image-responsive" fxFlex="50">
         <img class="img-login"src="../assets/signup.jpg" alt="">
     </div>
-    <div class="signup" fxFlex="50">
+    <div class="signup">
         <div class="header">
             <h1>Sign <span class="up">Up</span></h1>
             <p class="already-accont">Já tem uma conta? <span class="redirect" routerLink="/sign-in">Log in</span></p>
@@ -24,7 +24,7 @@
             <div class="politic">
                 <mat-slide-toggle color="primary" (click)=" slideToogleChecked()">Eu concordo com os <span class="up">Termos de Uso</span> e <span class="up">Políticas de Privacidade</span> </mat-slide-toggle>
                 <br>
-                <p class="risk">----------------------------------</p><p> OU </p><p class="risk">----------------------------------</p>
+                <p class="risk">----------------------------------</p><p class="or"> OU </p><p class="risk">----------------------------------</p>
                 <br>
                 <button type="button" class="login-with-google" (click)="authService.GoogleAuth()">Login com o Google</button>
                 <br>
