@@ -32,10 +32,10 @@ mat-select::-ms-expand {
 mat-select{
     position: relative;
     display: flex;
-    width: 20em;
+    width: 100%;
     height: 3em;
     line-height: 3;
-    background: #5c6664;
+    background: rgb(228, 225, 225);
     overflow: hidden;
     border-radius: .25em;
     align-items: center;
@@ -62,7 +62,7 @@ mat-select:hover::after {
 }
 
 footer{
-    position: fixed;
+
     bottom: 10px;
     cursor: pointer;
 }
@@ -70,7 +70,7 @@ footer{
 #arrowDown{
     padding-top: 5px;
     cursor: pointer;
-    color: #fff;
+    color: #2b2e2e;
 }
 
 #arrowUp{
@@ -79,5 +79,9 @@ footer{
     color: #fff;
     transform: rotate(180deg);
     padding: 0;
+}
+
+.date{
+    padding-top: 15px;
 }
 

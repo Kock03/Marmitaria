@@ -43,7 +43,7 @@ export class PaymentFormComponent implements OnInit {
     return Number(value).toFixed(2).replace(".", ",");
   }
 
-  valueCheck(data: any, i: any, id: any){
+  valueCheck(data: any, id: any){
     this.select = data.value;
     if(this.select == 1){
       this.firestore.doc("requests/" + id).update({Status: this.select});

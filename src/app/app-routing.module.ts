@@ -19,7 +19,7 @@ const routes: Routes = [
   {path: 'verify-email-adress', component: VerifyEmailComponent},
   {path: 'review', component: LunchReviewDialogComponent},
   {path: 'to-do-list', component: ToDoListComponent},
-  {path: 'payment', component: PaymentFormComponent},
+  {path: 'request', component: PaymentFormComponent},
 ];
 
 @NgModule({
