@@ -22,7 +22,8 @@
                         <ul class="dropdown-menu">
                             <li class="nav-item-menu"><a href="javascript:void(0)" *ngIf="boxMode === true" (click)="onSelect('lunch')" style="margin-left: 10px;" class="nav-link-menu"><img src="../assets/menu-cel.png" alt=""></a></li>
                             <li class="nav-item-menu"><a href="javascript:void(0)" *ngIf="boxMode === true" (click)="onSelect('food-list')" style="margin-left: 10px;" class="nav-link-menu"><img src="../assets/caixa-cel.png" alt=""></a></li>
-                            <li class="nav-item-menu"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="shutdown()"><img src="../assets/log-out.png" alt=""></a></li>
+                            <li class="nav-item-menu"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="openDialogShare()"><mat-icon id="share-icon">share</mat-icon></a></li>
+                            <li class="nav-item-menu"><a href="javascript:void(0)" class="nav-normal-link" style="margin-left: 10px;" (click)="authService.SignOut()"><img src="../assets/log-out.png" alt=""></a></li>
                         </ul>
                     </li>
                 </ul>

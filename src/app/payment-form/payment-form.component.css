@@ -1,10 +1,8 @@
 
 table{
     width: 100%;
-    height: auto;
+
     max-height: 100vh;
-    align-items: center;
-    justify-content: center;
 }
 
 mat-select {
@@ -62,7 +60,6 @@ mat-select:hover::after {
 }
 
 footer{
-
     bottom: 10px;
     cursor: pointer;
 }
