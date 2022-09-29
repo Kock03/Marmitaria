@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "restaurante-teste-bf5c7"
-  }
+    "default": "restaurante-teste-bf5c7",
+    "master": "restaurante-teste-bf5c7"
+  },
+  "targets": {},
+  "etags": {}
 }

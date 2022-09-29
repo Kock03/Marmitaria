@@ -5,19 +5,19 @@
     </header>
     <div class="social-media" fxLayout="row" >
         <div class="icon">
-            <a href="https://twitter.com/intent/tweet?url=https://http://localhost:4200/" target="_blank">
+            <a href="https://twitter.com/intent/tweet?url=https://restaurante-teste-bf5c7.web.app/" target="_blank">
                 <img src="../assets/twitter.png" alt="">
             </a>
         </div>
         <br>
         <div class="icon">
-            <a href="https://www.facebook.com/sharer/sharer.php?u=https://http://localhost:4200/" target="_blank">
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://restaurante-teste-bf5c7.web.app/" target="_blank">
                 <img src="../assets/facebook.png" alt="">
             </a>
         </div>
         <br>
         <div class="icon">
-            <a href="https://api.whatsapp.com/send?text=https://http://localhost:4200/" target="_blank">
+            <a href="https://api.whatsapp.com/send?text=https://restaurante-teste-bf5c7.web.app/" target="_blank">
                 <img src="../assets/whatsapp.png" alt="">
             </a>
         </div>
@@ -26,9 +26,9 @@
     <p><b>ou copie o link:</b></p>
     <div class="input-group" >
         <br>
-        <input type="text" id="input" class="form-control" value="http://localhost:4200/" disabled [(ngModel)]="value">
+        <input type="text" id="input" class="form-control" value="https://restaurante-teste-bf5c7.web.app/" disabled [(ngModel)]="value">
         <span class="input-group-btn">
-            <button [cdkCopyToClipboard]="value" class="btn btn-default" id="clipboardCopy" type="button"><mat-icon>filter_none</mat-icon></button>
+            <button (click)="copyURL()" [cdkCopyToClipboard]="value" class="btn btn-default" id="clipboardCopy" type="button"><mat-icon>filter_none</mat-icon></button>
         </span>
     </div>
 </div>

@@ -45,3 +45,8 @@ Thumbs.db
 .firebase
 *-debug.log
 .runtimeconfig.json
+
+#Firebase hosting
+/functions/nodemodules/
+/functions/package-lock.json
+package-lock.json

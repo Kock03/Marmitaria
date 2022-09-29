@@ -42,3 +42,16 @@ p{
     font-size: 20px;
     text-align: center;
 }
+
+@media(max-width: 800px){
+    h1{
+        font-size: 28px;
+    }
+    p{
+        font-size: 15px;
+    }
+    .button{
+        width: auto;
+    }
+}
+

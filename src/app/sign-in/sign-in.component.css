@@ -183,3 +183,9 @@ h3{
         margin-left: 50px;
     }
 }
+
+@media (max-width: 1500px){
+    .risk{
+        display: none;
+    }
+}

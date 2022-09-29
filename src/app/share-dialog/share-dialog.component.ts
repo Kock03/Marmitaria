@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from "@angular/material/dialog";
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -8,9 +9,9 @@ import { MatDialogRef } from "@angular/material/dialog";
   styleUrls: ['./share-dialog.component.css']
 })
 export class ShareDialogComponent implements OnInit {
-  value= "http://localhost:4200/"
+  value= "https://restaurante-teste-bf5c7.web.app/"
 
-  constructor(public dialogShared: MatDialogRef<ShareDialogComponent>) { }
+  constructor(public dialogShared: MatDialogRef<ShareDialogComponent>, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
   }
@@ -18,8 +19,9 @@ export class ShareDialogComponent implements OnInit {
   closeDialogShare(){
     this.dialogShared.close();
   }
+
+  copyURL(){
+    this.snackBar.open("Copiado para a área de transfêrencia", "Fechar")
+  }
   
-
-
-
 }
