@@ -23,5 +23,4 @@ export class ShareDialogComponent implements OnInit {
   copyURL(){
     this.snackBar.open("Copiado para a área de transfêrencia", "Fechar")
   }
-  
 }
