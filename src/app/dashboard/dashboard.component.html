@@ -28,8 +28,7 @@
     </div>
     <br>
     <div class="icon">
-        <mat-icon *ngIf="cartMode === true" (click)="restart()">settings</mat-icon>
-        <mat-icon *ngIf="cartMode === false" (click)="openDialogError()">report_problem</mat-icon>
+        <mat-icon (click)="openDialogError()">report_problem</mat-icon>
     </div>
     <footer>
         <img class="footer" src="../assets/envolti.png" alt=""/>
