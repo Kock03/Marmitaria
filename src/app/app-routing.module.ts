@@ -16,10 +16,10 @@ const routes: Routes = [
   {path: 'register-user', component: SignUpComponent},
   {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
   {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'verify-email-adress', component: VerifyEmailComponent},
-  {path: 'review', component: LunchReviewDialogComponent},
-  {path: 'to-do-list', component: ToDoListComponent},
-  {path: 'request', component: PaymentFormComponent},
+  {path: 'verify-email-adress', component: VerifyEmailComponent, canActivate: [AuthGuard]},
+  {path: 'review', component: LunchReviewDialogComponent, canActivate: [AuthGuard]},
+  {path: 'to-do-list', component: ToDoListComponent, canActivate: [AuthGuard]},
+  {path: 'request', component: PaymentFormComponent, canActivate: [AuthGuard]},
 ];
 
 @NgModule({
