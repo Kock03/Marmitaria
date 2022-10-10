@@ -29,6 +29,7 @@
 
 .header{
     margin-right: 50px;
+    margin-bottom: 20px;
 }
 
 .logo{
@@ -68,6 +69,7 @@ p{
     background-repeat: no-repeat;
     background-position: 12px 11px;
     cursor: pointer;
+    margin-bottom: 20px;
 }
 
 .login-with-google:hover{
@@ -143,6 +145,15 @@ h3{
     color: #723CAF;;
     text-decoration: none;
     cursor: pointer;
+}
+
+.info{
+    margin-bottom: 30px;
+}
+
+.info button{
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 @media (max-width: 800px){

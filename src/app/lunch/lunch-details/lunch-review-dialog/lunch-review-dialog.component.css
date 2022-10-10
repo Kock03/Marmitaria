@@ -94,6 +94,7 @@ li{
 
 .col-12{
     float: right;
+    margin-bottom: 20px;
 }
 
 .container{
@@ -110,4 +111,8 @@ ul{
 
 .value{
     font-size: 2px;
+}
+
+.col{
+    margin-bottom: 20px;
 }

@@ -1,29 +1,62 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { SignInComponent } from './sign-in/sign-in.component';
-import { SignUpComponent } from './sign-up/sign-up.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
-import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
-import { VerifyEmailComponent } from './verify-email/verify-email.component';
 import { AuthGuard } from './shared/guard/auth.guard';
 import { LunchReviewDialogComponent } from './lunch/lunch-details/lunch-review-dialog/lunch-review-dialog.component';
 import { ToDoListComponent } from './dashboard/to-do-list/to-do-list.component';
 import { PaymentFormComponent } from './payment-form/payment-form.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/sign-in', pathMatch: 'full'},
-  {path: 'sign-in', component: SignInComponent},
-  {path: 'register-user', component: SignUpComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'verify-email-adress', component: VerifyEmailComponent, canActivate: [AuthGuard]},
-  {path: 'review', component: LunchReviewDialogComponent, canActivate: [AuthGuard]},
-  {path: 'to-do-list', component: ToDoListComponent, canActivate: [AuthGuard]},
-  {path: 'request', component: PaymentFormComponent, canActivate: [AuthGuard]},
+  { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
+  {
+    path: 'sign-in',
+    loadChildren: () =>
+      import('./sign-in/sign-in.module').then((m) => m.SignInModule),
+  },
+  {
+    path: 'register-user',
+    loadChildren: () =>
+      import('./sign-up/sign-up.module').then((m) => m.SignUpModule),
+  },
+  {
+    path: 'dashboard',
+    component: DashboardComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'forgot-password',
+    loadChildren: () =>
+      import('./forgot-password/forgot-password.module').then(
+        (m) => m.ForgotPasswordModule
+      ),
+  },
+  {
+    path: 'verify-email-adress',
+    loadChildren: () =>
+      import('./verify-email/verify-email.module').then(
+        (m) => m.VerifyEmailModule
+      ),
+    // canActivate: [AuthGuard],
+  },
+  {
+    path: 'review',
+    component: LunchReviewDialogComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'to-do-list',
+    component: ToDoListComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'request',
+    component: PaymentFormComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

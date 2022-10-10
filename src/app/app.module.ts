@@ -58,6 +58,8 @@ import { MatSelectModule } from '@angular/material/select';
 
 
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -72,10 +74,10 @@ import { MatSelectModule } from '@angular/material/select';
     LunchListDialogComponent,
     LunchDetailsDialogComponent,
     LunchReviewDialogComponent,
-    SignInComponent,
-    ForgotPasswordComponent,
-    SignUpComponent,
-    VerifyEmailComponent,
+    // SignInComponent,
+    // ForgotPasswordComponent,
+    // SignUpComponent,
+    // VerifyEmailComponent,
     DashboardComponent,
     ProfileDialogComponent,
     PaymentFormComponent,
@@ -117,6 +119,7 @@ import { MatSelectModule } from '@angular/material/select';
     AppRoutingModule,
     MatTableModule,
     MatTreeModule,
+
   ],
   providers: [AuthService, ExcelService],
   bootstrap: [AppComponent]

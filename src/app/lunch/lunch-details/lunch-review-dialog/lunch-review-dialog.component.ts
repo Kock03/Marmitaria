@@ -6,6 +6,7 @@ import { doc, getDoc } from 'firebase/firestore';
 import { MatDialogRef } from "@angular/material/dialog";
 import { Pipe, PipeTransform } from '@angular/core'
 import { formatDate } from '@angular/common';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition} from '@angular/material/snack-bar';
 
 
 @Component({
@@ -31,8 +32,11 @@ export class LunchReviewDialogComponent implements OnInit {
   lunchList!: any;
   usersEx!: any;
   itemMode: boolean = false;
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  durationInSeconds = 3;
 
-  constructor(private firestore: AngularFirestore, public dialogReview: MatDialogRef<LunchReviewDialogComponent>) {}
+  constructor(private firestore: AngularFirestore, public dialogReview: MatDialogRef<LunchReviewDialogComponent>, private _snackBar: MatSnackBar) {}
 
   ngOnInit() {
     
@@ -132,7 +136,11 @@ export class LunchReviewDialogComponent implements OnInit {
     let dateAndHour = formatDate(date, 'dd/MM/yyyy hh:mm:ss a', 'en-US')
     const newRequest = {nameAdm, valueAdm, bagAmountAdm, finalValueAdm, Status, dateAndHour}
     this.firestore.collection('requests').add(newRequest)
-    alert("Pedido realizado!");
+    this._snackBar.open("Pedido Realizado!", 'Fechar', {
+      horizontalPosition: this.horizontalPosition,
+      verticalPosition: this.verticalPosition,
+      duration: this.durationInSeconds * 1000,
+    });
     sessionStorage.clear();
     this.dialogReview.close();
     this.firestore.doc("totalValue/" + "nXyj42BTIeH77zNJAun7").update({totalValue: 0});

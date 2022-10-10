@@ -2,33 +2,30 @@
     <div class="container">
         <div class="login" >
             <div class="header">
-                <img class="logo"src="../assets/envolti-dark.png" alt="envolti">
-                <h1 class="welcome">Bem-vindo</h1>
-                <h3 class="subtitle">Falta pouco para matar sua fome!</h3>
-                <button type="button" class="login-with-google" (click)="authService.GoogleAuth()">Login com o Google</button>
-                <br>
-                <br>
+                <div class="title">
+                    <img class="logo"src="../assets/envolti-dark.png" alt="envolti">
+                    <h1 class="welcome">Bem-vindo</h1>
+                    <h3 class="subtitle">Falta pouco para matar sua fome!</h3>
+                </div>
+                <div class="google-login">
+                    <button type="button" class="login-with-google" (click)="authService.GoogleAuth()">Login com o Google</button>
+                </div>
                 <p class="risk">----------------------------------</p><p> OU FAÇA LOGIN COM UM E-MAIL </p><p class="risk">----------------------------------</p>
             </div>
-            <br>
             <div class="adress">
-                <p class="email"><b>Endereço de E-mail:</b></p>
-                <br>
-                <input class="input-email" type="email" placeholder="Entre com seu endereço de e-mail" #userName required>
-                <br>
-                <br>
-                <p class="password"><b>Senha:</b></p>
-                <br>
-                <input class="input-email" type="password" placeholder="Entre com sua senha" #userPassword required>
-                <a class="forgot" routerLink="/forgot-password">Esqueci minha Senha</a>
-                <br>
-                <br>
-                <br>
-                <br>
-                <button class="login-btn" (click)="authService.SignIn(userName.value, userPassword.value)">Login</button>
-                <br>
-                <br>
-                <p class="dont-cont">Não tem uma conta? <a class="cadastre" routerLink="/register-user"> Cadastre-se</a></p>
+                <div class="info">
+                    <p class="email"><b>Endereço de E-mail:</b></p>
+                    <input class="input-email" type="email" placeholder="Entre com seu endereço de e-mail" #userName required>
+                </div>
+                <div class="info">
+                    <p class="password"><b>Senha:</b></p>
+                    <input class="input-email" type="password" placeholder="Entre com sua senha" #userPassword required>
+                    <a class="forgot" routerLink="/forgot-password">Esqueci minha Senha</a>
+                </div>
+                <div class="info">
+                    <button class="login-btn" (click)="authService.SignIn(userName.value, userPassword.value)">Login</button>
+                    <p class="dont-cont">Não tem uma conta? <a class="cadastre" routerLink="/register-user"> Cadastre-se</a></p>
+                </div>
             </div>
         </div>
     </div>

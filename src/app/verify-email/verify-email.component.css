@@ -11,6 +11,10 @@
     max-width: 100%;
 }
 
+.check img{
+    margin-bottom: 20px;
+}
+
 .image{
     margin-top: 5px;
     border-radius: 50%;
@@ -26,6 +30,8 @@
     color: #4d4d4d;
     border-color: #4d4d4d;
     border-style: solid;
+    margin-top: 10px;
+    margin-bottom: 15px;
 }
 
 .send-again{
