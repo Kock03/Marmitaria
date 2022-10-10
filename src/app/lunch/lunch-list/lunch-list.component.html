@@ -4,8 +4,7 @@
         <input placeholder="Buscar Comida no Cardápio" style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
     </mat-form-field>
 </div>
-<br>
-<!-- <div id="load" class="load"></div> -->
+
 <div id="list" class="row" style="display: none;">
     <div class="col-12">
         <app-lunch-item *ngFor="let packageElement of packageEx | filter: filter"
@@ -31,13 +30,11 @@
 </div>
 
 <div id="button" class="row mb-5" style="display: none;">
-    <div class="col-12">
+    <div class="col-12" fxLayout="column" >
         <button id="add-button" class="btn btn-success" *ngIf="inputMode === true" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
-        <br>
         <button id="excel-button" class="btn btn-success" *ngIf="inputMode === true" (click)="exportexcel()">Exportar para Excel <img src="../assets/excel.png" alt=""></button>
     </div>
 </div>
-<br>
 
 
 

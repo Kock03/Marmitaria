@@ -15,6 +15,7 @@ h1{
     font-weight: 600;
     font-size: 48px;
     line-height: 72px;
+    margin-bottom: 20px;
 }
 
 .mat-icon{
@@ -62,4 +63,8 @@ footer{
 
 mat-icon{
     font-size: 28px;
+}
+
+form{
+    margin-bottom: 10px;
 }

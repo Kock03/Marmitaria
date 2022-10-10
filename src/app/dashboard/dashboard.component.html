@@ -12,28 +12,28 @@
     <div class="icon">
         <mat-icon (click)="openDialog()">perm_identity</mat-icon>
     </div>
-    <br>
+
     <div class="icon">
         <mat-icon (click)="reload()">home</mat-icon>
     </div>
-    <br>
+
     <div class="icon">
         <mat-icon *ngIf="cartMode === true" routerLink="/dashboard"> fastfood</mat-icon>
         <mat-icon *ngIf="cartMode === false" routerLink="/to-do-list"> list_alt</mat-icon>
     </div>
-    <br>
+
     <div class="icon">
         <mat-icon *ngIf="cartMode === true" (click)="openDialogDetail()"> local_grocery_store</mat-icon>
         <mat-icon *ngIf="cartMode === false" routerLink="/request"> restaurant_menu</mat-icon>
     </div>
-    <br>
+
     <div class="icon">
         <mat-icon (click)="openDialogError()">report_problem</mat-icon>
     </div>
     <footer>
         <img class="footer" src="../assets/envolti.png" alt=""/>
     </footer>
-    <br>
+
 </mat-sidenav>
 <div class="container">
     <div class="row">

@@ -18,11 +18,12 @@
   /* margin-top: -100px; */
 }
 
-mat-card{
+.content{
   border-width: 5px;
   border-style: outset;
   border-color: #723CAF;
   border-radius: 30px;
+  margin-top: 120px;
 }
 
 .button{
@@ -77,4 +78,12 @@ h1{
   line-height: 30px;
   border-radius: 16px;
   margin-top: 35px;
+}
+
+#bagCard{
+  border-width: 5px;
+  border-style: outset;
+  border-color: #723CAF;
+  border-radius: 30px;
+  margin-top: 20px;
 }

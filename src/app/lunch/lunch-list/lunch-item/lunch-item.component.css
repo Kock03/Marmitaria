@@ -22,6 +22,7 @@ mat-card{
     border-color: #723CAF;
     border-radius: 30px;
     overflow: auto;
+    margin-bottom: 15px;
 }
 
 img{
@@ -63,5 +64,7 @@ h1{
 .arrow:hover{
     color: #32b5e5;
 }
+
+
 
 

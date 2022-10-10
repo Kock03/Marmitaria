@@ -6,6 +6,7 @@ mat-icon {
 #add-button {
   height: 50px;
   border-radius: 10px;
+  margin-bottom: 15px;
 }
 
 #excel-button{
@@ -31,4 +32,12 @@ mat-icon {
     height: 100%;
     max-height: 200px;
     font-size: 18px;
+}
+
+#search{
+  margin-bottom: 20px;
+}
+
+#button{
+  margin-bottom: 10px;
 }
