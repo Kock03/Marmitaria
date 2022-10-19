@@ -10,6 +10,7 @@ import { LunchReviewDialogComponent } from "./lunch-review-dialog/lunch-review-d
 import { Index, serverTimestamp } from "@firebase/firestore";
 import { user } from "@angular/fire/auth";
 import { AuthService } from "src/app/shared/services/auth.service";
+import { BehaviorSubject } from "rxjs";
 
 
 
@@ -24,6 +25,7 @@ export class LunchDetailsComponent{
     index!: any
     itemMode: boolean = false;
     packageName: Array<string> = [];
+    packageNameTest = new BehaviorSubject<Array<any>>([]);
     packageValue: Array<string> = [];
     packageImage: Array<string> = [];
     packageAmount: Array<string> = [];
@@ -84,27 +86,20 @@ export class LunchDetailsComponent{
         const totalValue = this.sum
         const valueDataBase = {totalValue}
         this.firestore.doc('totalValue/' + 'nXyj42BTIeH77zNJAun7').update(valueDataBase)
-        let bagValue = JSON.stringify(this.packageSelected.value)
-        let bagName = JSON.stringify(this.packageSelected.name)
-        let bagAmount = JSON.stringify(this.packageSelected.bagAmount)
+        let bagValue = this.packageSelected.value.toString()
+        let bagName = this.packageSelected.name
+        let bagAmount = this.packageSelected.bagAmount.toString()
         let bagImage = this.packageSelected.imagePath
         this.packageName.push(bagName);
         this.valueEstatic.push(bagValue)
-        sessionStorage.setItem('bagValueEstatic',  JSON.stringify(this.valueEstatic));
         this.packageValue.push(bagValue);
         this.packageImage.push(bagImage);
-        this.packageAmount.push(bagAmount);
-        sessionStorage.setItem('name', JSON.stringify(this.packageName))!;
-        sessionStorage.setItem('valueBag', JSON.stringify(this.packageValue))!;
-        sessionStorage.setItem('imageLink', JSON.stringify(this.packageImage))!;
-        sessionStorage.setItem('bagAmount', JSON.stringify(this.packageAmount))!;
-        sessionStorage.setItem('bagValueFinal', JSON.stringify(this.sum))!;
-        this.firestore.doc('lunch/' + this.userID).update({isBag : true});
-        
+        this.packageAmount.push(bagAmount);        
     }
     
     openDialogReview(i: any){
         const dialogRef = this.dialogDetail.open(LunchReviewDialogComponent, {
+            data: {packageName: this.packageName, valueEstatic: this.valueEstatic, packageValue: this.packageValue, packageImage: this.packageImage, packageAmount: this.packageAmount, sum: this.sum}
         });
         dialogRef.afterClosed().subscribe(result => {
             this.packageName = result.name;
