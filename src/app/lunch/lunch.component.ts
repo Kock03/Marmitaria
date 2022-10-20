@@ -19,17 +19,10 @@ export class LunchComponent implements OnInit {
   constructor(private firestore: AngularFirestore) { }
 
   ngOnInit(): void {
-    let template = document.getElementById('info') as HTMLDivElement;
-    setTimeout(() => {
-      template.style.display = 'block';
-    }, 5000);
-    this.switch = sessionStorage.getItem('isChecked');
-    setInterval(() => {
-      if(this.switch == 'true'){
-        let darkMode = document.getElementById('row') as HTMLDivElement;
-        darkMode.style.backgroundColor = 'black';
-      }
-    }, 1000);
+    // let template = document.getElementById('info') as HTMLDivElement;
+    // setTimeout(() => {
+    //   template.style.display = 'block';
+    // }, 5000);
     this.firestore.doc('totalValue/' + 'nXyj42BTIeH77zNJAun7').update({totalValue: 0});
   }
   

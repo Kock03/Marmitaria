@@ -39,6 +39,14 @@ const routes: Routes = [
     // canActivate: [AuthGuard],
   },
   {
+    path: 'loader',
+    loadChildren: () =>
+      import('./loader/loader.module').then(
+        (m) => m.LoaderModule
+      ),
+    // canActivate: [AuthGuard],
+  },
+  {
     path: 'review',
     component: LunchReviewDialogComponent,
     canActivate: [AuthGuard],

@@ -4,8 +4,8 @@
         (packageWasSelected)="selectedPackage = $event"
         ></app-lunch-list>
     </div>
-    <div id="load" class="load"></div>
-    <div class="col-md-7" id="info" style="display: none;">     
+    <!-- <div id="load" class="load"></div> -->
+    <div class="col-md-7" id="info" style="display: block;">     
         <app-lunch-details *ngIf="selectedPackage;"
         [packageSelected]="selectedPackage"
         [packages]="selectedPackage"
