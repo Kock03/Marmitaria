@@ -98,6 +98,7 @@ export class LunchReviewDialogComponent implements OnInit {
     this.bagValueBag[i] = this.bagValueBagStatic[i] * number;
     this.bagValue = Number(this.bagValue) + Number(this.bagValueBagStatic[i]);
     const totalValue = this.bagValue
+    this.data.sum = this.bagValue
     const valueDataBase = {totalValue}
     this.firestore.doc('totalValue/' + 'nXyj42BTIeH77zNJAun7').update(valueDataBase)
   }

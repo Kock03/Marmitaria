@@ -46,25 +46,22 @@ export class PaymentFormComponent implements OnInit {
   valueCheck(data: any, id: any){
     this.select = data.value;
     if(this.select == 1){
-      this.firestore.doc("requests/" + id).update({Status: this.select});
+      this.firestore.doc("requests/" + id).update({status: this.select});
     }else if(this.select == 2){
-      this.firestore.doc("requests/" + id).update({Status: this.select});
+      this.firestore.doc("requests/" + id).update({status: this.select});
     }else if(this.select == 3){
-      this.firestore.doc("requests/" + id).update({Status: this.select});
+      this.firestore.doc("requests/" + id).update({status: this.select});
     }
   }
 
   rotate(i: any){
-    let arrow = document.getElementById('arrow') as HTMLTableElement
     let info = document.getElementById(i) as HTMLDivElement;
 
     
     if(info.style.display == "block"){
       info.style.display = "none";
-      arrow.id == "arrowDown";
     } else{
       info.style.display = "block";
-      arrow.id == "arrowUp";
     }
   }
 }

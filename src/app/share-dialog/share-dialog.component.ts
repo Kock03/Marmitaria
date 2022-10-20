@@ -10,6 +10,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 })
 export class ShareDialogComponent implements OnInit {
   value= "https://restaurante-teste-bf5c7.web.app/"
+  durationInSeconds = 3;
 
   constructor(public dialogShared: MatDialogRef<ShareDialogComponent>, private snackBar: MatSnackBar) { }
 
@@ -21,6 +22,8 @@ export class ShareDialogComponent implements OnInit {
   }
 
   copyURL(){
-    this.snackBar.open("Copiado para a área de transfêrencia", "Fechar")
+    this.snackBar.open("Copiado para a área de transfêrencia!", "", {
+      duration: this.durationInSeconds * 1000
+    })
   }
 }
