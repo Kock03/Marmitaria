@@ -8,7 +8,7 @@ import firebase from 'firebase/compat/app';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
-
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-sign-up',
@@ -17,9 +17,11 @@ import 'firebase/compat/firestore';
 })
 export class SignUpComponent implements OnInit {
 
-  constructor(public authService: AuthService) {}
+  constructor(public authService: AuthService, private snackBar: MatSnackBar) {}
   checked: boolean = false;
-
+  horizontalPosition: MatSnackBarHorizontalPosition = 'center';
+  verticalPosition: MatSnackBarVerticalPosition = 'top';
+  durationInSeconds = 3;
 
   ngOnInit(): void {
 
@@ -36,7 +38,11 @@ export class SignUpComponent implements OnInit {
   terms_of_use(userEmail: string, userPwd: string){
     let name = document.getElementById('name') as HTMLInputElement;
     if(this.checked == false) {
-      alert("Por favor, aceite nossos termos de uso")
+      this.snackBar.open("Por favor aceite nossos termos de uso!", "Fechar", {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: this.durationInSeconds * 1000
+      })
     }else{
       this.authService.SignUp(userEmail, userPwd).then((res) =>{
         const user = firebase.auth().currentUser;
