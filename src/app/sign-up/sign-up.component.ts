@@ -38,7 +38,7 @@ export class SignUpComponent implements OnInit {
   terms_of_use(userEmail: string, userPwd: string){
     let name = document.getElementById('name') as HTMLInputElement;
     if(this.checked == false) {
-      this.snackBar.open("Por favor aceite nossos termos de uso!", "Fechar", {
+      this.snackBar.open("Por favor, aceite nossos termos de uso!", "Fechar", {
         horizontalPosition: this.horizontalPosition,
         verticalPosition: this.verticalPosition,
         duration: this.durationInSeconds * 1000

@@ -2,6 +2,8 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { AngularFirestore } from "@angular/fire/compat/firestore";
 import { Index } from '@firebase/firestore';
+import {MatSnackBar, MatSnackBarHorizontalPosition, MatSnackBarVerticalPosition,} from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-to-do-list',
@@ -14,7 +16,10 @@ export class ToDoListComponent implements OnInit {
   @ViewChild("task") task!: ElementRef;
   taskList!: any;
   checked: boolean = false;
-  constructor(private formBuilder: FormBuilder,private firestore: AngularFirestore) { 
+  horizontalPosition: MatSnackBarHorizontalPosition = "center";
+  verticalPosition: MatSnackBarVerticalPosition = "bottom";
+  durationInSeconds = 3;
+  constructor(private formBuilder: FormBuilder,private firestore: AngularFirestore, private snackBar: MatSnackBar) { 
     this.myFormGroup = this.formBuilder.group({
       task: ['', Validators.required],
       checked: ['false', Validators.required]
@@ -38,7 +43,11 @@ export class ToDoListComponent implements OnInit {
 
   addTask(){
     if(this.task.nativeElement.value == ""){
-      alert("Por favor, informe a tarefa!")
+      this.snackBar.open("Por favor, informe a tarefa!", "Fechar", {
+        horizontalPosition: this.horizontalPosition,
+        verticalPosition: this.verticalPosition,
+        duration: this.durationInSeconds * 1000
+      })
     }else{
       const taskValue = this.task.nativeElement.value;
       const isChecked = this.checked
