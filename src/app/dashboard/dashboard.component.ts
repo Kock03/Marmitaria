@@ -23,7 +23,7 @@ export class DashboardComponent{
 
   ngOnInit(): void {
     let user =  JSON.parse(localStorage.getItem("user")!);
-    user.uid === "SHfa4hba4RaCMR78REr5mVTlxBD2" ? this.cartMode = false : this.cartMode = true;
+    user.uid === "SHfa4hba4RaCMR78REr5mVTlxBD2" ? this.cartMode = false : true;
   }
   loadedFeature = 'lunch';
   onNavigate(feature: string){

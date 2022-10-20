@@ -44,10 +44,12 @@ export class SignUpComponent implements OnInit {
         duration: this.durationInSeconds * 1000
       })
     }else{
+      
       this.authService.SignUp(userEmail, userPwd).then((res) =>{
         const user = firebase.auth().currentUser;
         return user?.updateProfile({
           displayName: name.value
+          
         })
       })
     }
