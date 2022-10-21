@@ -55,6 +55,8 @@ import {MatTableModule} from '@angular/material/table';
 import {MatTreeModule} from '@angular/material/tree';
 import {FlatTreeControl} from '@angular/cdk/tree';
 import { MatSelectModule } from '@angular/material/select';
+import { LoaderComponent } from './loader/loader.component';
+import { LoaderModule } from './loader/loader.module';
 
 
 
@@ -84,6 +86,7 @@ import { MatSelectModule } from '@angular/material/select';
     ShareDialogComponent,
     ReportErrorDialogComponent,
     ToDoListComponent,
+    // LoaderComponent,
     // FileSelectDirective
 
   ],
@@ -118,6 +121,7 @@ import { MatSelectModule } from '@angular/material/select';
     // provideAuth(() => getAuth()),
     AppRoutingModule,
     MatTableModule,
+    LoaderModule,
     MatTreeModule,
 
   ],

@@ -1,11 +1,11 @@
-<div id="search"  style="display: none;">
+<div id="search"  style="display: block;">
     <mat-form-field class="input" appearance="outline" floatLabel="never">
         <mat-icon  matPrefix class="search-lunch-icon">search</mat-icon>
         <input placeholder="Buscar Comida no Cardápio" style="margin-bottom: 4px;" matInput [(ngModel)]="filter"/>
     </mat-form-field>
 </div>
 
-<div id="list" class="row" style="display: none;">
+<div id="list" class="row" style="display: block;">
     <div class="col-12">
         <app-lunch-item *ngFor="let packageElement of packageEx | filter: filter"
         [package]="packageElement.datas"
@@ -29,7 +29,7 @@
     </table>
 </div>
 
-<div id="button" class="row mb-5" style="display: none;">
+<div id="button" class="row mb-5" style="display: block;">
     <div class="col-12" fxLayout="column" >
         <button id="add-button" class="btn btn-success" *ngIf="inputMode === true" (click)="openDialog()">Adicionar Comida ao Cardápio</button>
         <button id="excel-button" class="btn btn-success" *ngIf="inputMode === true" (click)="exportexcel()">Exportar para Excel <img src="../assets/excel.png" alt=""></button>

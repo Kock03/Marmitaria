@@ -38,3 +38,8 @@ mat-icon{
     color: black;
     cursor: pointer;
 }
+
+simple-snack-bar span {
+    margin:auto;
+    text-align: center;
+}

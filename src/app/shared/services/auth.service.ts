@@ -10,6 +10,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
   userData: any;
+  userName: any;
 
   constructor(
     public afs: AngularFirestore,
